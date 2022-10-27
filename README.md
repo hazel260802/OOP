@@ -3,7 +3,7 @@
 
 ###Step 1: Basic Initialization
 1.	Install Oracle JDK 8: [Download and Install Java](https://www.java.com/en/) Current
-2.  Eclipse: We recommend Eclipse IDE for Enterprise Java Developers. Download the suitable binary file at the following link. [Download and Install Eclipse(https://www.eclipse.org/downloads/packages/)
+2.  Eclipse: We recommend Eclipse IDE for Enterprise Java Developers. Download the suitable binary file at the following link. [Download and Install Eclipse](https://www.eclipse.org/downloads/packages/)
 
 ### Step 2: Workflow 
  #### GIT
