@@ -1,7 +1,6 @@
 module cnpm.quanlynhankhau {
     requires javafx.controls;
     requires javafx.fxml;
-    requires java.sql;
 
 
     opens oop_lecture to javafx.fxml;
