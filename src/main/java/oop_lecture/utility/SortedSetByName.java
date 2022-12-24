@@ -23,9 +23,9 @@ public class SortedSetByName<T extends NameIdentifiedObject> extends TreeSet<Nam
         System.out.println(s);
 
         // this part is used in get_data
-        SortedSetByName<HistoricalFigure> historicalFigureSet = new SortedSetByName<HistoricalFigure>();
+        SortedSetByName<HistoricalFigure> historicalFigureSet = new SortedSetByName<>();
         while (true){
-            // found a HF from internet
+            // found an HF from internet
             var tmphf = new HistoricalFigure("name");
             historicalFigureSet.add(tmphf);
             if (/*not found anything else*/ false) break;
