@@ -13,7 +13,7 @@ public class MainApplication extends Application {
     @Override
     public void start(Stage stage){
         mainStage = stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/oop_lecture/Sample.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/oop_lecture/views/Sample.fxml"));
         Scene scene;
         try {
             scene = new Scene(fxmlLoader.load());
