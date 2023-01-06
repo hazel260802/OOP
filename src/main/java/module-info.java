@@ -1,4 +1,4 @@
-module cnpm.quanlynhankhau {
+module oop_lecture {
     requires javafx.controls;
     requires javafx.fxml;
 
