@@ -36,6 +36,7 @@ build/
 /bin1/
 java/build/**
 
-# Don't add try classes
-[tT]ry*
+# jfx output
+**/production/
+**/out/
 
