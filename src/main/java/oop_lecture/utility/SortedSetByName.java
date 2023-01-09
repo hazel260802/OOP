@@ -7,6 +7,8 @@ import oop_lecture.models.LichSuCoTen;
 import java.util.*;
 
 public class SortedSetByName<T extends LichSuCoTen> extends TreeSet<LichSuCoTen> {
+    // TODO: 10/01/2023  T seach(String name)
+
     @Override
     public Comparator<? super LichSuCoTen> comparator() {
         return Comparator.comparing(LichSuCoTen::getTen);
