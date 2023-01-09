@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class Json {
     private static ObjectMapper om = getDefaultObjectMapper();
 
+    // TODO : make a pool here
     private static ObjectMapper getDefaultObjectMapper() {
         ObjectMapper om = new ObjectMapper();
         om.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
