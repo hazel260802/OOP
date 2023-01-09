@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="753.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #FCF8E8;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="80.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <Label alignment="CENTER" contentDisplay="CENTER" text="History Nerd" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="tfFilter" prefHeight="41.0" prefWidth="360.0" styleClass="searchContainer" stylesheets="@../path/stylesheet.css">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <ToggleButton fx:id="btnSearch" alignment="TOP_CENTER" contentDisplay="CENTER" style="-fx-background-color: transparent;" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                           <opaqueInsets>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </opaqueInsets>
+                           <graphic>
+                              <AnchorPane prefHeight="30.0" prefWidth="18.0">
+                                 <children>
+                                    <ImageView fitHeight="45.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/research.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                           </graphic>
+                        </ToggleButton>
+                     </children>
+                     <opaqueInsets>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="You'll learn everything from us" textAlignment="CENTER">
+                     <font>
+                        <Font name="SansSerif Italic" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </center>
+    <top>
+        <VBox fx:id="header" prefHeight="22.0" prefWidth="600.0" styleClass="headerBox" stylesheets="@../../../java/oop_lecture/styles/stylesheet.css" BorderPane.alignment="CENTER">
+            <children>
+                <ToggleButtonGroup fx:id="btnHeader" prefHeight="71.0" prefWidth="750.0" selectionType="SINGLE" styleClass="headerBox" stylesheets="@../path/stylesheet.css">
+                    <toggles>
+                        <ToggleButton fx:id="btnBack" contentDisplay="CENTER" minWidth="46.0" prefHeight="46.0" prefWidth="46.0" style="-fx-background-color: transparent;" styleClass="btnHeader" stylesheets="@../path/stylesheet.css">
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                     <graphic>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="35.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/turn-back.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </graphic>
+                        </ToggleButton>
+                        <ToggleButton minWidth="42.0" prefHeight="60.0" prefWidth="42.0" selected="true" style="-fx-background-color: transparent;" styleClass="btnHeader" stylesheets="@../path/stylesheet.css">
+                            <graphic>
+                                <AnchorPane styleClass="btnReload" stylesheets="@../path/stylesheet.css">
+                                    <children>
+                                        <ImageView fitHeight="32.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../img/loading.png" />
+                                            </image>
+                                        </ImageView>
+                                    </children>
+                                </AnchorPane>
+                            </graphic>
+                        </ToggleButton>
+                        <ToggleButton style="-fx-background-color: transparent;" styleClass="btnHeader">
+                            <graphic>
+                                <AnchorPane>
+                                    <children>
+                                        <ImageView fitHeight="31.0" fitWidth="33.0" layoutY="-1.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../img/fast-forward-button.png" />
+                                            </image>
+                                        </ImageView>
+                                    </children>
+                                </AnchorPane>
+                            </graphic>
+                        </ToggleButton>
+                    </toggles>
+                </ToggleButtonGroup>
+            </children>
+        </VBox>
+    </top>
+   <bottom>
+      <TableView fx:id="tblFooter" prefHeight="169.0" prefWidth="743.0" styleClass="leftSideMenu" stylesheets="@../../../java/oop_lecture/styles/stylesheet.css" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn id="tableColumn" fx:id="colProject" minWidth="50.0" prefWidth="-1.0" styleClass="leftSideMenuItem" text="Project" />
+          <TableColumn id="tableColumn" fx:id="colProduct" minWidth="50.0" prefWidth="-1.0" styleClass="leftSideMenuItem" text="Product" />
+            <TableColumn id="tableColumn" fx:id="colSource" minWidth="50.0" prefWidth="-1.0" styleClass="leftSideMenuItem" text="Source" />
+            <TableColumn id="tableColumn" fx:id="colContact" prefWidth="75.0" styleClass="leftSideMenuItem" text="Contact" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </bottom>
+</BorderPane>
