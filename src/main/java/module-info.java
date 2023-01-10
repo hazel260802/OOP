@@ -3,6 +3,9 @@ module oop_lecture {
     requires javafx.fxml;
     requires com.fasterxml.jackson.databind;
 
+	requires java.desktop;
+    requires com.gluonhq.charm.glisten;
+
 
     // opens oop_lecture to javafx.fxml;
     exports oop_lecture.application;

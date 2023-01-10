@@ -5,17 +5,18 @@ import javafx.embed.swing.JFXPanel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import oop_lecture.controllers.HomeScreenController;
 
 import javax.swing.*;
 import java.io.IOException;
 
-public class InfoScreen extends JFrame {
+public class HomeScreen extends JFrame {
 
-    public InfoScreen() {
+    public HomeScreen() {
         JFXPanel fxPanel = new JFXPanel();
         this.add(fxPanel);
 
-        this.setTitle("Information Page");
+        this.setTitle("Home Page");
         this.setVisible(true);
         this.setSize(1024, 768);
 
@@ -23,8 +24,8 @@ public class InfoScreen extends JFrame {
             @Override
             public void run() {
                 try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/info.fxml"));
-                    loader.setController(new InfoScreenController());
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/home.fxml"));
+                    loader.setController(new HomeScreenController());
 
                     Parent root = loader.load();
                     Scene scene = new Scene(root);
@@ -37,6 +38,8 @@ public class InfoScreen extends JFrame {
         });
     }
     public static void main(String[] args){
-        new InfoScreen();
+        //Setup home
+
+        new HomeScreen();
     }
 }
