@@ -21,8 +21,8 @@ public class Json {
         return om.readTree(string);
     }
 
-    public static <A> A fromJson(JsonNode node, Class<A> class1) throws JsonProcessingException {
-        return om.treeToValue(node, class1);
+    public static <A> A fromJson(JsonNode node, Class<A> classA) throws JsonProcessingException {
+        return om.treeToValue(node, classA);
     }
 
     public static JsonNode toJson(Object o) {

@@ -62,6 +62,11 @@ class JsonTest {
 
 	}
 
+	@Test
+	void fromJson() {
+		JsonNode jn = Json.parse()
+	}
+
 
 	static class LoopClass1 {
 		private LoopClass1 l_;
