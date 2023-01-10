@@ -2,7 +2,7 @@ package oop_lecture.models;
 
 import java.util.Comparator;
 
-public abstract class LichSuCoTen implements Comparable<LichSuCoTen> {
+public class LichSuCoTen implements Comparable<LichSuCoTen> {
     public static Comparator<LichSuCoTen> COMPARE_BY_NAME = (t0, t1) -> Comparator.comparing(LichSuCoTen::getTen).compare(t0,t1);
 
     private String ten;
