@@ -1,4 +1,4 @@
-package oop_lecture.utility;
+package oop_lecture.data;
 
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
