@@ -1,4 +1,4 @@
-package oop_lecture.models;
+package test;
 
 import java.util.Comparator;
 
@@ -17,7 +17,12 @@ public class LichSuCoTen implements Comparable<LichSuCoTen> {
         return this.ten;
     }
 
-    @Override
+    public void setTen(String ten) {
+		this.ten = ten;
+	}
+
+
+	@Override
     public boolean equals(Object o) {
         if (o instanceof LichSuCoTen)
             return this.compareTo((LichSuCoTen) o) == 0;

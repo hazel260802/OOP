@@ -1,23 +1,24 @@
-package oop_lecture.models;
+package test;
 
-import oop_lecture.utility.SortedSetByName;
+//import oop_lecture.utility.SortedSetByName;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class LeHoiVanHoa extends LichSuCoTen {
     private String capDo;
     private boolean isDiSanQuocGia;
-    private Place place;
-    private LocalDate thoiDiemToChuc;
+    private String place;
+    private Date thoiDiemToChuc;
     private String lanDauToChuc;
 
     private List<NhanVatLichSu> nhanVatLienQuan = new ArrayList<>();
     private List<String> tenNhanVatLienQuan = new ArrayList<>();
 
 
-    public LeHoiVanHoa(String name, String capDo, boolean isDiSanQuocGia, Place place, LocalDate thoiDiemToChuc, String lanDauToChuc, List<String> tenNhanVatLienQuan) {
+    public LeHoiVanHoa(String name, String capDo, boolean isDiSanQuocGia, String place, Date thoiDiemToChuc, String lanDauToChuc, List<String> tenNhanVatLienQuan) {
         super(name);
         this.capDo = capDo;
         this.isDiSanQuocGia = isDiSanQuocGia;
@@ -27,7 +28,11 @@ public class LeHoiVanHoa extends LichSuCoTen {
         this.tenNhanVatLienQuan = tenNhanVatLienQuan;
     }
 
-    public String getCapDo() {
+//	public LeHoiVanHoa(Object object) {
+//		// TODO Auto-generated constructor stub
+//	}
+
+	public String getCapDo() {
         return capDo;
     }
 
@@ -35,11 +40,23 @@ public class LeHoiVanHoa extends LichSuCoTen {
         return isDiSanQuocGia;
     }
 
-    public Place getPlace() {
+    public void setPlace(String place) {
+		this.place = place;
+	}
+
+	public String getPlace() {
         return place;
     }
 
-    public LocalDate getThoiDiemToChuc() {
+    public void setThoiDiemToChuc(Date thoiDiemToChuc) {
+		this.thoiDiemToChuc = thoiDiemToChuc;
+	}
+
+	public void setLanDauToChuc(String lanDauToChuc) {
+		this.lanDauToChuc = lanDauToChuc;
+	}
+
+	public Date getThoiDiemToChuc() {
         return thoiDiemToChuc;
     }
 
@@ -50,9 +67,15 @@ public class LeHoiVanHoa extends LichSuCoTen {
     public List<String> getTenNhanVatLienQuan() {
         return tenNhanVatLienQuan;
     }
-
-    public void link(SortedSetByName<NhanVatLichSu> allNVLS){
-        // TODO search set => nvls
-        // nhanVatLienQuan.add(nvs);
+    
+    public LeHoiVanHoa(String name) {
+        super(name);
     }
+
+
+
+//    public void link(SortedSetByName<NhanVatLichSu> allNVLS){
+//        // TODO search set => nvls
+//        // nhanVatLienQuan.add(nvs);
+//    }
 }
