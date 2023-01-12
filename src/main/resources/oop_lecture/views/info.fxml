@@ -155,60 +155,8 @@
         </Pane>
     </left>
    <center>
-      <VBox prefWidth="766.0" style="-fx-background-color: #FCF8E8;" styleClass="headerBox" BorderPane.alignment="CENTER">
-         <children>
-            <Label fx:id="labelName" prefHeight="54.0" prefWidth="67.0" styleClass="titleLogo" text="Name">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Label>
-            <Line endX="665.0" startX="-100.0" />
-            <AnchorPane prefHeight="149.0" prefWidth="745.0">
-               <VBox.margin>
-                  <Insets top="50.0" />
-               </VBox.margin>
-               <children>
-                  <Label fx:id="subLabel1" prefHeight="49.0" prefWidth="766.0" text="Label">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <styleClass>
-                        <String fx:value="lefSideMenuItem" />
-                        <String fx:value="adminLabel" />
-                     </styleClass>
-                  </Label>
-                  <Line endX="761.0" endY="51.0" startX="-2.0" startY="51.0" />
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="167.0" prefWidth="766.0">
-               <children>
-                  <Label fx:id="subLabel2" prefHeight="49.0" prefWidth="766.0" text="Label">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <styleClass>
-                        <String fx:value="lefSideMenuItem" />
-                        <String fx:value="adminLabel" />
-                     </styleClass>
-                  </Label>
-                  <Line endX="761.0" endY="51.0" startX="-2.0" startY="51.0" />
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="167.0" prefWidth="766.0">
-               <children>
-                  <Label fx:id="subLabel3" prefHeight="49.0" prefWidth="766.0" text="Label">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <styleClass>
-                        <String fx:value="lefSideMenuItem" />
-                        <String fx:value="adminLabel" />
-                     </styleClass>
-                  </Label>
-                  <Line endX="761.0" endY="51.0" startX="-2.0" startY="51.0" />
-               </children>
-            </AnchorPane>
-         </children>
+      <VBox fx:id="vbContent" prefWidth="766.0" style="-fx-background-color: #FCF8E8;" styleClass="headerBox" BorderPane.alignment="CENTER">
+
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>

@@ -6,17 +6,18 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 public class InfoScreenController {
 
     @FXML
-    private BorderPane bp;
+    protected BorderPane bp;
 
     @FXML
-    private Icon btnBack;
+    protected Icon btnBack;
 
     @FXML
-    private Icon btnForward;
+    protected Icon btnForward;
 
     @FXML
     private Icon btnReload;
@@ -31,18 +32,8 @@ public class InfoScreenController {
     private Pane leftSideMenu;
 
     @FXML
-    private Label subLabel1;
+    protected VBox vbContent;
 
-    @FXML
-    private Label subLabel2;
-
-    @FXML
-    private Label subLabel3;
-
-    @FXML
-    private void initialize() {
-
-    }
 
     @FXML
     void btnBack(MouseEvent event) {
