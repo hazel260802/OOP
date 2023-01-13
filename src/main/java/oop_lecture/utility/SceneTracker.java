@@ -32,6 +32,7 @@ public class SceneTracker {
 
 	public void add(Scene scene) {
 		currentScene = new SceneNode(currentScene, null, scene);
+		currentScene.previous.next = currentScene;
 	}
 
 	public Scene prev() {
