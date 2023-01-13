@@ -13,4 +13,7 @@ module oop_lecture {
 
     exports oop_lecture.controllers;
     opens oop_lecture.controllers;
+
+    exports oop_lecture.models;
+    opens oop_lecture.models;
 }
