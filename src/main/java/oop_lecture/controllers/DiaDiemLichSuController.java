@@ -92,6 +92,7 @@ public class DiaDiemLichSuController extends InfoScreenController{
         tcSKLS.prefWidthProperty().bind(tvSKLS.widthProperty().multiply(0.8));
         // put column to tv
         tvSKLS.getColumns().addAll(tcIndex, tcSKLS);
+        tvSKLS.setPlaceholder(new Label(/* TODO empty message */));
         vbContent.getChildren().add(tvSKLS);
     }
 }
