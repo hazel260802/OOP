@@ -17,6 +17,26 @@ public class LichSuCoTen implements Comparable<LichSuCoTen> {
         return this.ten;
     }
 
+    /**
+     * kiểm tra object này có tên chứa chuỗi ký tự 
+     * @param subString : chuỗi con
+     * @return true : tên object này có chứa chuỗi con 
+     */
+    public boolean like(String subString) {
+        if(getTen() == null || subString == null) return false;
+
+        final int length = subString.length();
+        if (length == 0)
+            return true;
+
+        for (int i = getTen().length() - length; i >= 0; i--) {
+            if (getTen().regionMatches(true, i, subString, 0, length))
+                return true;
+        }
+
+        return false;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o instanceof LichSuCoTen)
