@@ -2,32 +2,31 @@ package oop_lecture.models;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-import selenium.LichSuCoTen;
-import selenium.NhanVatLichSu;
-
 public class NhanVatLichSu extends LichSuCoTen {
-    private List<String> suKienLichSu = new ArrayList<>();
-    private String moTaChung; 
-    private Date ngaySinh, ngayMat;
-//    private TrieuDai trieuDai;
+    private List<String> achievements = new ArrayList<>();
+    private LocalDate ngaySinh, ngayMat;
+
+    private TrieuDai trieuDai;
     private String tenTrieuDai;
 
     private List<NhanVatLichSu> nhanVatLienQuan = new ArrayList<>();
     private List<String> tenNhanVatLienQuan = new ArrayList<>();
 
 
-    public NhanVatLichSu(String ten, List<String> suKienLichSu, Date ngaySinh, Date ngayMat, String tenTrieuDai, List<String> tenNhanVatLienQuan) {
+    public NhanVatLichSu(String ten, List<String> achievements, LocalDate ngaySinh, LocalDate ngayMat, String tenTrieuDai, List<String> tenNhanVatLienQuan) {
         super(ten);
-        this.suKienLichSu = suKienLichSu;
+        this.achievements = achievements;
         this.ngaySinh = ngaySinh;
         this.ngayMat = ngayMat;
         this.tenTrieuDai = tenTrieuDai;
         this.tenNhanVatLienQuan = tenNhanVatLienQuan;
     }
 
+    public List<String> getAchievements() {
+        return achievements;
+    }
 
 	public List<String> getSuKienLichSu() {
 		return suKienLichSu;
@@ -59,11 +58,13 @@ public class NhanVatLichSu extends LichSuCoTen {
 	}
 
 
+    public LocalDate getNgayMat() {
+        return ngayMat;
+    }
 
-	public List<String> getTenNhanVatLienQuan() {
-		return tenNhanVatLienQuan;
-	}
-
+    public TrieuDai getTrieuDai() {
+        return trieuDai;
+    }
 
     // TODO link(allTrieuDai, allNhanVatLichSu)
 }
