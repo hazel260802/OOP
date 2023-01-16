@@ -1,4 +1,4 @@
-package models;
+package oop_lecture.models;
 
 public class DiaDiem {
     public String chiTietDiaDiem;
@@ -9,16 +9,8 @@ public class DiaDiem {
 		return chiTietDiaDiem;
 	}
 
-	public void setChiTietDiaDiem(String chiTietDiaDiem) {
-		this.chiTietDiaDiem = chiTietDiaDiem;
-	}
-
 	public String getTen() {
 		return ten;
 	}
-
-	public void setTen(String ten) {
-		this.ten = ten;
-	}
-    
+	
 }
