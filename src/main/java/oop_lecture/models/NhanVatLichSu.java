@@ -11,7 +11,7 @@ public class NhanVatLichSu extends LichSuCoTen {
 	  private List<String> suKienLichSu = new ArrayList<>();
 	    private String moTaChung; 
 	    private Date ngaySinh, ngayMat;
-//	    private TrieuDai trieuDai;
+	    private TrieuDai trieuDai;
 	    private String tenTrieuDai;
 
 	    private List<NhanVatLichSu> nhanVatLienQuan = new ArrayList<>();
