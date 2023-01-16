@@ -1,4 +1,4 @@
-package get_data;
+package oop_lecture.get_data;
 
 import java.time.Year;
 import java.util.ArrayList;
@@ -8,9 +8,9 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import models.SuKienLichSu;
-import models.NhanVatLichSu;
-import models.DiaDiem;
+import oop_lecture.models.SuKienLichSu;
+import oop_lecture.models.NhanVatLichSu;
+import oop_lecture.models.DiaDiem;
 
 
 public class getSuKienLichSu {
