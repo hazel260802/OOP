@@ -1,6 +1,6 @@
-package models;
+package oop_lecture.models;
 
-
+import oop_lecture.utility.SortedSetByName;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,71 +31,29 @@ public class LeHoiVanHoa extends LichSuCoTen {
 	public String getCapDo() {
 		return capDo;
 	}
-
-
-	public void setCapDo(String capDo) {
-		this.capDo = capDo;
-	}
-
-
+	
 	public boolean isLaDiSanQuocGia() {
 		return laDiSanQuocGia;
 	}
-
-
-	public void setLaDiSanQuocGia(boolean laDiSanQuocGia) {
-		this.laDiSanQuocGia = laDiSanQuocGia;
-	}
-
 
 	public DiaDiem getNoiDienRa() {
 		return noiDienRa;
 	}
 
-
-	public void setNoiDienRa(DiaDiem noiDienRa) {
-		this.noiDienRa = noiDienRa;
-	}
-
-
 	public LocalDate getThoiDiemToChuc() {
 		return thoiDiemToChuc;
 	}
-
-
-	public void setThoiDiemToChuc(LocalDate thoiDiemToChuc) {
-		this.thoiDiemToChuc = thoiDiemToChuc;
-	}
-
 
 	public String getLanDauToChuc() {
 		return lanDauToChuc;
 	}
 
-
-	public void setLanDauToChuc(String lanDauToChuc) {
-		this.lanDauToChuc = lanDauToChuc;
-	}
-
-
 	public List<NhanVatLichSu> getNhanVatLienQuan() {
 		return nhanVatLienQuan;
 	}
 
-
-	public void setNhanVatLienQuan(List<NhanVatLichSu> nhanVatLienQuan) {
-		this.nhanVatLienQuan = nhanVatLienQuan;
-	}
-
-
 	public List<String> getTenNhanVatLienQuan() {
 		return tenNhanVatLienQuan;
 	}
-
-
-	public void setTenNhanVatLienQuan(List<String> tenNhanVatLienQuan) {
-		this.tenNhanVatLienQuan = tenNhanVatLienQuan;
-	}
-
 	
 }
