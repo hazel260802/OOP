@@ -28,9 +28,35 @@ public class NhanVatLichSu extends LichSuCoTen {
         return achievements;
     }
 
-    public LocalDate getNgaySinh() {
-        return ngaySinh;
-    }
+	public List<String> getSuKienLichSu() {
+		return suKienLichSu;
+	}
+
+
+	public String getMoTaChung() {
+		return moTaChung;
+	}
+
+
+
+	public Date getNgaySinh() {
+		return ngaySinh;
+	}
+
+
+	public Date getNgayMat() {
+		return ngayMat;
+	}
+
+
+	public String getTenTrieuDai() {
+		return tenTrieuDai;
+	}
+
+	public List<NhanVatLichSu> getNhanVatLienQuan() {
+		return nhanVatLienQuan;
+	}
+
 
     public LocalDate getNgayMat() {
         return ngayMat;
@@ -39,11 +65,6 @@ public class NhanVatLichSu extends LichSuCoTen {
     public TrieuDai getTrieuDai() {
         return trieuDai;
     }
-
-    public List<NhanVatLichSu> getNhanVatLienQuan() {
-        return nhanVatLienQuan;
-    }
-
 
     // TODO link(allTrieuDai, allNhanVatLichSu)
 }
