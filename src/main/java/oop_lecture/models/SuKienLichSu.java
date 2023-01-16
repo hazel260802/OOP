@@ -1,4 +1,6 @@
-package models;
+package oop_lecture.models;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.Year;
 import java.util.ArrayList;
@@ -42,112 +44,36 @@ public class SuKienLichSu extends LichSuCoTen {
 		return namBatDau;
 	}
 
-
-
-	public void setNamBatDau(Year namBatDau) {
-		this.namBatDau = namBatDau;
-	}
-
-
-
 	public Year getNamKetThuc() {
 		return namKetThuc;
 	}
-
-
-
-	public void setNamKetThuc(Year namKetThuc) {
-		this.namKetThuc = namKetThuc;
-	}
-
-
 
 	public String getMoTa() {
 		return moTa;
 	}
 
-
-
-	public void setMoTa(String moTa) {
-		this.moTa = moTa;
-	}
-
-
-
 	public TrieuDai getTrieuDai() {
 		return trieuDai;
 	}
-
-
-
-	public void setTrieuDai(TrieuDai trieuDai) {
-		this.trieuDai = trieuDai;
-	}
-
-
 
 	public String getTenTrieuDai() {
 		return tenTrieuDai;
 	}
 
-
-
-	public void setTenTrieuDai(String tenTrieuDai) {
-		this.tenTrieuDai = tenTrieuDai;
-	}
-
-
-
 	public List<DiaDiem> getDiaDiemLienQuan() {
 		return diaDiemLienQuan;
 	}
 
-
-
-	public void setDiaDiemLienQuan(List<DiaDiem> diaDiemLienQuan) {
-		this.diaDiemLienQuan = diaDiemLienQuan;
-	}
-
-
-
 	public List<String> getTenDiaDiemLienQuan() {
 		return tenDiaDiemLienQuan;
 	}
-
-
-
-	public void setTenDiaDiemLienQuan(List<String> tenDiaDiemLienQuan) {
-		this.tenDiaDiemLienQuan = tenDiaDiemLienQuan;
-	}
-
-
 
 	public List<NhanVatLichSu> getNhanVatLienQuan() {
 		return nhanVatLienQuan;
 	}
 
 
-
-	public void setNhanVatLienQuan(List<NhanVatLichSu> nhanVatLienQuan) {
-		this.nhanVatLienQuan = nhanVatLienQuan;
-	}
-
-
-
 	public List<String> getTenNhanVatLienQuan() {
 		return tenNhanVatLienQuan;
 	}
-
-
-
-	public void setTenNhanVatLienQuan(List<String> tenNhanVatLienQuan) {
-		this.tenNhanVatLienQuan = tenNhanVatLienQuan;
-	}
-
-    
-
-	
-
-
-    // TODO: link
 }
