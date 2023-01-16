@@ -27,8 +27,8 @@ public class SortedSetByName<T extends LichSuCoTen> extends TreeSet<T> {
     }
 
     @Override
-    public Comparator<? super LichSuCoTen> comparator() {
-        return Comparator.comparing(LichSuCoTen::getTen);
+    public Comparator<? super LichSuCoTen> comparator(){
+        return LichSuCoTen.COMPARE_BY_NAME;
     }
 
     /**
