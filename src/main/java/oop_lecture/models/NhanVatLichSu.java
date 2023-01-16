@@ -1,4 +1,4 @@
-package models;
+package oop_lecture.models;
 
 import java.time.Year;
 import java.util.ArrayList;
@@ -34,66 +34,27 @@ public class NhanVatLichSu extends LichSuCoTen {
 		return suKienLichSuLienQuan;
 	}
 
-	public void setSuKienLichSuLienQuan(List<String> suKienLichSuLienQuan) {
-		this.suKienLichSuLienQuan = suKienLichSuLienQuan;
-	}
-
-
 	public String getMoTaChung() {
 		return moTaChung;
 	}
 
-
-	public void setMoTaChung(String moTaChung) {
-		this.moTaChung = moTaChung;
-	}
-
-
 	public Year getNamSinh() {
 		return namSinh;
-	}
-
-
-	public void setNamSinh(Year namSinh) {
-		this.namSinh = namSinh;
 	}
 
 	public Year getNamMat() {
 		return namMat;
 	}
 
-
-	public void setNamMat(Year namMat) {
-		this.namMat = namMat;
-	}
-
 	public String getTenTrieuDai() {
 		return tenTrieuDai;
-	}
-
-
-	public void setTenTrieuDai(String tenTrieuDai) {
-		this.tenTrieuDai = tenTrieuDai;
 	}
 
 	public List<NhanVatLichSu> getNhanVatLienQuan() {
 		return nhanVatLienQuan;
 	}
 
-
-	public void setNhanVatLienQuan(List<NhanVatLichSu> nhanVatLienQuan) {
-		this.nhanVatLienQuan = nhanVatLienQuan;
-	}
-
-
 	public List<String> getTenNhanVatLienQuan() {
 		return tenNhanVatLienQuan;
 	}
-
-
-	public void setTenNhanVatLienQuan(List<String> tenNhanVatLienQuan) {
-		this.tenNhanVatLienQuan = tenNhanVatLienQuan;
-	}
-
-	
 }
