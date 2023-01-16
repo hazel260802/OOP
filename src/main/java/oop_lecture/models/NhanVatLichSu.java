@@ -34,28 +34,14 @@ public class NhanVatLichSu extends LichSuCoTen {
 	}
 
 
-	public void setSuKienLichSu(List<String> suKienLichSu) {
-		this.suKienLichSu = suKienLichSu;
-	}
-
-
 	public String getMoTaChung() {
 		return moTaChung;
 	}
 
 
-	public void setMoTaChung(String moTaChung) {
-		this.moTaChung = moTaChung;
-	}
-
 
 	public Date getNgaySinh() {
 		return ngaySinh;
-	}
-
-
-	public void setNgaySinh(Date ngaySinh) {
-		this.ngaySinh = ngaySinh;
 	}
 
 
@@ -64,38 +50,18 @@ public class NhanVatLichSu extends LichSuCoTen {
 	}
 
 
-	public void setNgayMat(Date ngayMat) {
-		this.ngayMat = ngayMat;
-	}
-
-
 	public String getTenTrieuDai() {
 		return tenTrieuDai;
 	}
-
-
-	public void setTenTrieuDai(String tenTrieuDai) {
-		this.tenTrieuDai = tenTrieuDai;
-	}
-
 
 	public List<NhanVatLichSu> getNhanVatLienQuan() {
 		return nhanVatLienQuan;
 	}
 
 
-	public void setNhanVatLienQuan(List<NhanVatLichSu> nhanVatLienQuan) {
-		this.nhanVatLienQuan = nhanVatLienQuan;
-	}
-
 
 	public List<String> getTenNhanVatLienQuan() {
 		return tenNhanVatLienQuan;
-	}
-
-
-	public void setTenNhanVatLienQuan(List<String> tenNhanVatLienQuan) {
-		this.tenNhanVatLienQuan = tenNhanVatLienQuan;
 	}
 
 
