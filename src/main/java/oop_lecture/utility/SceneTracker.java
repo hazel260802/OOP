@@ -7,10 +7,9 @@ import javafx.scene.Scene;
  */
 public class SceneTracker {
 	private static final int MAX_SIZE = 20;
-
-	private class SceneNode {
+	private static class SceneNode {
 		private SceneNode previous, next;
-		private Scene scene;
+		private final Scene scene;
 
 		public SceneNode(SceneNode previous, SceneNode next, Scene scene) {
 			this.previous = previous;
@@ -18,6 +17,7 @@ public class SceneTracker {
 			this.scene = scene;
 		}
 	}
+
 	private SceneNode currentScene = null;
 	private int position = 0;
 	private SceneNode headScene = null;
