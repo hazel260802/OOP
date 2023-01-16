@@ -1,5 +1,6 @@
-package models;
+package oop_lecture.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,39 +31,16 @@ public class DiaDiemLichSu extends LichSuCoTen {
 		return diaDiem;
 	}
 
-
-	public void setDiaDiem(DiaDiem diaDiem) {
-		this.diaDiem = diaDiem;
-	}
-
-
 	public String getLoaiDiTich() {
 		return loaiDiTich;
 	}
-
-
-	public void setLoaiDiTich(String loaiDiTich) {
-		this.loaiDiTich = loaiDiTich;
-	}
-
 
 	public String getCapDo() {
 		return capDo;
 	}
 
-
-	public void setCapDo(String capDo) {
-		this.capDo = capDo;
-	}
-
-
-	public boolean isLaDiSanTheGioi() {
+	public boolean getLaDiSanTheGioi() {
 		return laDiSanTheGioi;
-	}
-
-
-	public void setLaDiSanTheGioi(boolean laDiSanTheGioi) {
-		this.laDiSanTheGioi = laDiSanTheGioi;
 	}
 
 
@@ -70,18 +48,8 @@ public class DiaDiemLichSu extends LichSuCoTen {
 		return suKienLichSu;
 	}
 
-
-	public void setSuKienLichSu(List<SuKienLichSu> suKienLichSu) {
-		this.suKienLichSu = suKienLichSu;
-	}
-
-
 	public List<String> getTenSuKienLichSu() {
 		return tenSuKienLichSu;
 	}
 
-
-	public void setTenSuKienLichSu(List<String> tenSuKienLichSu) {
-		this.tenSuKienLichSu = tenSuKienLichSu;
-	}
 }
