@@ -20,22 +20,15 @@ public class SuKienLichSu extends LichSuCoTen {
     private List<String> tenNhanVatLienQuan = new ArrayList<>();
 
 
-    
-    public SuKienLichSu(String ten) {
-		super(ten);
-	}
-
-
-
-	public SuKienLichSu(String ten, Year namBatDau, Year namKetThuc, String moTa, TrieuDai trieuDai,
-			List<DiaDiem> diaDiemLienQuan, List<NhanVatLichSu> nhanVatLienQuan) {
+	public SuKienLichSu(String ten, Year namBatDau, Year namKetThuc, String moTa, String tenTrieuDai,
+			List<String> tenDiaDiemLienQuan, List<String> tenNhanVatLienQuan) {
 		super(ten);
 		this.namBatDau = namBatDau;
 		this.namKetThuc = namKetThuc;
 		this.moTa = moTa;
-		this.trieuDai = trieuDai;
-		this.diaDiemLienQuan = diaDiemLienQuan;
-		this.nhanVatLienQuan = nhanVatLienQuan;
+		this.tenTrieuDai = tenTrieuDai;
+		this.tenDiaDiemLienQuan = tenDiaDiemLienQuan;
+		this.tenNhanVatLienQuan = tenNhanVatLienQuan;
 	}
 
 
@@ -56,24 +49,11 @@ public class SuKienLichSu extends LichSuCoTen {
 		return trieuDai;
 	}
 
-	public String getTenTrieuDai() {
-		return tenTrieuDai;
-	}
-
 	public List<DiaDiem> getDiaDiemLienQuan() {
 		return diaDiemLienQuan;
 	}
 
-	public List<String> getTenDiaDiemLienQuan() {
-		return tenDiaDiemLienQuan;
-	}
-
 	public List<NhanVatLichSu> getNhanVatLienQuan() {
 		return nhanVatLienQuan;
-	}
-
-
-	public List<String> getTenNhanVatLienQuan() {
-		return tenNhanVatLienQuan;
 	}
 }
