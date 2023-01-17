@@ -5,6 +5,8 @@ module oop_lecture {
 
 	requires java.desktop;
     requires com.gluonhq.charm.glisten;
+    requires selenium.api;
+    requires selenium.chrome.driver;
 
 
     // opens oop_lecture to javafx.fxml;

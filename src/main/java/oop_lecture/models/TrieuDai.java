@@ -7,7 +7,7 @@ import java.util.List;
 public class TrieuDai extends LichSuCoTen {
     private String quocHieu;
     private LocalDate batDau, ketThuc;
-    private Place thuDo;
+    private DiaDiem thuDo;
 
     private List<NhanVatLichSu> hoangDe = new ArrayList<>();
     private List<String> tenHoangDe = new ArrayList<>();
@@ -32,7 +32,7 @@ public class TrieuDai extends LichSuCoTen {
         return ketThuc;
     }
 
-    public Place getThuDo() {
+    public DiaDiem getThuDo() {
         return thuDo;
     }
 

@@ -9,7 +9,7 @@ public class DiaDiem {
     public String toString() {
         StringBuilder output = new StringBuilder();
         output.append(ten).append(". ");
-        if (placeDetail != null && !placeDetail.trim().isEmpty()) output.append(chiTietDiaDiem).append(". ");
+        if (chiTietDiaDiem != null && !chiTietDiaDiem.trim().isEmpty()) output.append(chiTietDiaDiem).append(". ");
 
         return output.toString();
     }

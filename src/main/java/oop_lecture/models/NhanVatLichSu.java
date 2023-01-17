@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import selenium.NhanVatLichSu;
-
 public class NhanVatLichSu extends LichSuCoTen {
 	  private List<String> suKienLichSu = new ArrayList<>();
 	    private String moTaChung; 
