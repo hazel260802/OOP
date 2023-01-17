@@ -27,8 +27,8 @@ class SortedSetByNameTest {
 		sortedSetByName.add(nna);
 		assertEquals(bht,sortedSetByName.find("BHT"));
 		assertEquals(lht,sortedSetByName.find("LHT"));
-		assertEquals(hbd,sortedSetByName.find("HBD"));
-		assertEquals(nna,sortedSetByName.find("NNA"));
+		assertEquals(hbd,sortedSetByName.find("HBd"));
+		assertEquals(nna,sortedSetByName.find("nnA"));
 
 		// not in set
 		assertNull(sortedSetByName.find("MNNH"));
