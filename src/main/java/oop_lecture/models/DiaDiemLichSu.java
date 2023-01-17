@@ -18,13 +18,13 @@ public class DiaDiemLichSu extends LichSuCoTen {
     
 
     public DiaDiemLichSu(String ten, DiaDiem diaDiem, String loaiDiTich, String capDo, boolean laDiSanTheGioi,
-			List<SuKienLichSu> suKienLichSu) {
+			List<String> tenSuKienLichSu) {
 		super(ten);
 		this.diaDiem = diaDiem;
 		this.loaiDiTich = loaiDiTich;
 		this.capDo = capDo;
 		this.laDiSanTheGioi = laDiSanTheGioi;
-		this.suKienLichSu = suKienLichSu;
+		this.tenSuKienLichSu = tenSuKienLichSu;
 	}
 
 	public DiaDiem getDiaDiem() {
@@ -47,9 +47,4 @@ public class DiaDiemLichSu extends LichSuCoTen {
 	public List<SuKienLichSu> getSuKienLichSu() {
 		return suKienLichSu;
 	}
-
-	public List<String> getTenSuKienLichSu() {
-		return tenSuKienLichSu;
-	}
-
 }
