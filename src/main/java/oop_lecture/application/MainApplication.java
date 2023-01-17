@@ -8,6 +8,7 @@ import oop_lecture.controllers.HomeScreenController;
 import oop_lecture.utility.SceneTracker;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class MainApplication extends Application {
     public static Stage mainStage;
@@ -26,6 +27,7 @@ public class MainApplication extends Application {
         Scene scene;
         try {
             scene = new Scene(fxmlLoader.load());
+            scene.getStylesheets().add(Objects.requireNonNull(MainApplication.class.getResource("/oop_lecture/styles/stylesheet.css")).toExternalForm());
             mainStage.setScene(scene);
             scenes.add(scene);
         } catch (IOException e) {

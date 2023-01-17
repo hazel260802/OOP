@@ -29,7 +29,7 @@
                <children>
                   <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="tfFilter" prefHeight="41.0" prefWidth="360.0" styleClass="searchContainer" stylesheets="@../path/stylesheet.css">
+                        <TextField fx:id="tfFilter" prefHeight="41.0" prefWidth="360.0" styleClass="searchContainer">
                            <padding>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
@@ -78,11 +78,11 @@
       </VBox>
    </center>
     <top>
-        <VBox fx:id="header" prefHeight="22.0" prefWidth="600.0" styleClass="headerBox" stylesheets="@../../../java/oop_lecture/styles/stylesheet.css" BorderPane.alignment="CENTER">
+        <VBox fx:id="header" prefHeight="22.0" prefWidth="600.0" styleClass="headerBox" BorderPane.alignment="CENTER">
             <children>
-                <ToggleButtonGroup fx:id="btnHeader" prefHeight="71.0" prefWidth="750.0" selectionType="SINGLE" styleClass="headerBox" stylesheets="@../path/stylesheet.css">
+                <ToggleButtonGroup fx:id="btnHeader" prefHeight="71.0" prefWidth="750.0" selectionType="SINGLE" styleClass="headerBox">
                     <toggles>
-                        <ToggleButton fx:id="btnBack" contentDisplay="CENTER" minWidth="46.0" prefHeight="46.0" prefWidth="46.0" style="-fx-background-color: transparent;" styleClass="btnHeader" stylesheets="@../path/stylesheet.css">
+                        <ToggleButton fx:id="btnBack" contentDisplay="CENTER" minWidth="46.0" prefHeight="46.0" prefWidth="46.0" style="-fx-background-color: transparent;" styleClass="btnHeader" >
                             <opaqueInsets>
                                 <Insets />
                             </opaqueInsets>
@@ -98,9 +98,9 @@
                         </AnchorPane>
                      </graphic>
                         </ToggleButton>
-                        <ToggleButton minWidth="42.0" prefHeight="60.0" prefWidth="42.0" selected="true" style="-fx-background-color: transparent;" styleClass="btnHeader" stylesheets="@../path/stylesheet.css">
+                        <ToggleButton minWidth="42.0" prefHeight="60.0" prefWidth="42.0" selected="true" style="-fx-background-color: transparent;" styleClass="btnHeader">
                             <graphic>
-                                <AnchorPane styleClass="btnReload" stylesheets="@../path/stylesheet.css">
+                                <AnchorPane styleClass="btnReload">
                                     <children>
                                         <ImageView fitHeight="32.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                             <image>

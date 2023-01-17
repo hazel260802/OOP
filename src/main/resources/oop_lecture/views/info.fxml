@@ -21,7 +21,7 @@
 
 <BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="736.0" prefWidth="1003.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
     <left>
-        <Pane fx:id="leftSideMenu" prefHeight="650.0" prefWidth="234.0" styleClass="leftSideMenu" stylesheets="@../path/stylesheet.css" BorderPane.alignment="CENTER">
+        <Pane fx:id="leftSideMenu" prefHeight="650.0" prefWidth="234.0" styleClass="leftSideMenu" BorderPane.alignment="CENTER">
             <children>
                 <AnchorPane prefHeight="104.0" prefWidth="200.0">
                     <children>
@@ -166,15 +166,15 @@
       </VBox>
    </center>
     <top>
-        <VBox fx:id="header" prefHeight="22.0" prefWidth="600.0" styleClass="headerBox" stylesheets="@../path/stylesheet.css" BorderPane.alignment="CENTER">
+        <VBox fx:id="header" prefHeight="22.0" prefWidth="600.0" styleClass="headerBox" BorderPane.alignment="CENTER">
             <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                      <ToggleButtonGroup fx:id="btnHeader" prefHeight="88.0" prefWidth="1031.0" selectionType="SINGLE" styleClass="headerBox" stylesheets="@../path/stylesheet.css">
+                      <ToggleButtonGroup fx:id="btnHeader" prefHeight="88.0" prefWidth="1031.0" selectionType="SINGLE" styleClass="headerBox" >
                           <toggles>
-                              <ToggleButton fx:id="btnBack" contentDisplay="CENTER" minWidth="46.0" prefHeight="46.0" prefWidth="46.0" style="-fx-background-color: transparent;" styleClass="btnHeader" stylesheets="@../path/stylesheet.css">
+                              <ToggleButton fx:id="btnBack" contentDisplay="CENTER" minWidth="46.0" prefHeight="46.0" prefWidth="46.0" style="-fx-background-color: transparent;" styleClass="btnHeader" >
                                   <graphic>
-                              <AnchorPane prefHeight="32.0" prefWidth="22.0" styleClass="btnHeader" stylesheets="@../path/stylesheet.css">
+                              <AnchorPane prefHeight="32.0" prefWidth="22.0" styleClass="btnHeader" >
                                  <children>
                                     <ImageView fitHeight="29.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" styleClass="btnHeader">
                                        <image>
@@ -188,9 +188,9 @@
                               <Insets />
                            </opaqueInsets>
                               </ToggleButton>
-                              <ToggleButton blendMode="SRC_ATOP" minWidth="42.0" prefHeight="60.0" prefWidth="42.0" selected="true" style="-fx-background-color: transparent;" styleClass="btnHeader" stylesheets="@../path/stylesheet.css">
+                              <ToggleButton blendMode="SRC_ATOP" minWidth="42.0" prefHeight="60.0" prefWidth="42.0" selected="true" style="-fx-background-color: transparent;" styleClass="btnHeader" >
                                   <graphic>
-                              <AnchorPane prefHeight="50.0" prefWidth="63.0" styleClass="btnHeader" stylesheets="@../path/stylesheet.css">
+                              <AnchorPane prefHeight="50.0" prefWidth="63.0" styleClass="btnHeader" >
                                  <children>
                                     <ImageView fitHeight="28.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true" styleClass="btnHeader">
                                        <image>
@@ -201,9 +201,9 @@
                               </AnchorPane>
                                   </graphic>
                               </ToggleButton>
-                        <ToggleButton fx:id="btnBack1" contentDisplay="CENTER" minWidth="46.0" prefHeight="46.0" prefWidth="46.0" style="-fx-background-color: transparent;" styleClass="btnHeader" stylesheets="@../path/stylesheet.css">
+                        <ToggleButton fx:id="btnBack1" contentDisplay="CENTER" minWidth="46.0" prefHeight="46.0" prefWidth="46.0" style="-fx-background-color: transparent;" styleClass="btnHeader" >
                            <graphic>
-                              <AnchorPane prefHeight="32.0" prefWidth="22.0" styleClass="btnHeader" stylesheets="@../path/stylesheet.css">
+                              <AnchorPane prefHeight="32.0" prefWidth="22.0" styleClass="btnHeader" >
                                  <children>
                                     <ImageView fitHeight="29.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" styleClass="btnHeader">
                                        <image>
@@ -219,7 +219,7 @@
                         </ToggleButton>
                           </toggles>
                       </ToggleButtonGroup>
-                  <TextField fx:id="tfFilter" alignment="CENTER" prefHeight="26.0" prefWidth="412.0" styleClass="searchContainer" stylesheets="@../path/stylesheet.css">
+                  <TextField fx:id="tfFilter" alignment="CENTER" prefHeight="26.0" prefWidth="412.0" styleClass="searchContainer" >
                      <HBox.margin>
                         <Insets top="8.0" />
                      </HBox.margin>

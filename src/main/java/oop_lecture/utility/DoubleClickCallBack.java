@@ -11,6 +11,7 @@ import oop_lecture.controllers.*;
 import oop_lecture.models.*;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class DoubleClickCallBack<S extends LichSuCoTen> implements Callback<TableView<S>, TableRow<S>> {
 	public static void doubleClick(MouseEvent mouseEvent, LichSuCoTen target) {
@@ -21,6 +22,7 @@ public class DoubleClickCallBack<S extends LichSuCoTen> implements Callback<Tabl
 			Scene scene;
 			try {
 				scene = new Scene(fxmlLoader.load());
+				scene.getStylesheets().add(Objects.requireNonNull(MainApplication.class.getResource("/oop_lecture/styles/stylesheet.css")).toExternalForm());
 				MainApplication.mainStage.setScene(scene);
 				MainApplication.scenes.add(scene);
 			} catch (IOException e) {
