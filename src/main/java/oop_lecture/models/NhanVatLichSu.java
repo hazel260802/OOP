@@ -18,8 +18,9 @@ public class NhanVatLichSu extends LichSuCoTen {
 	    private List<String> tenNhanVatLienQuan = new ArrayList<>();
 
 
-	    public NhanVatLichSu(String ten, List<String> suKienLichSu, Date ngaySinh, Date ngayMat, String tenTrieuDaimoTaChungmoTaChung, List<String> tenNhanVatLienQuan) {
+	    public NhanVatLichSu(String ten, List<String> suKienLichSu, Date ngaySinh, Date ngayMat, String tenTrieuDai,String moTaChung, List<String> tenNhanVatLienQuan) {
 	        super(ten);
+		this.moTaChung=moTaChung;
 	        this.suKienLichSu = suKienLichSu;
 	        this.ngaySinh = ngaySinh;
 	        this.ngayMat = ngayMat;
