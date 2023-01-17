@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import selenium.NhanVatLichSu;
-
 public class NhanVatLichSu extends LichSuCoTen {
 	private String moTaChung;
 	private Date ngaySinh, ngayMat;
