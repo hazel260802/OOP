@@ -5,12 +5,12 @@ public class DiaDiem {
 
     public String ten;
 
-	public String getChiTietDiaDiem() {
-		return chiTietDiaDiem;
-	}
+	@Override
+    public String toString() {
+        StringBuilder output = new StringBuilder();
+        output.append(ten).append(". ");
+        if (placeDetail != null && !placeDetail.trim().isEmpty()) output.append(chiTietDiaDiem).append(". ");
 
-	public String getTen() {
-		return ten;
-	}
-	
+        return output.toString();
+    }
 }
