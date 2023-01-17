@@ -16,15 +16,14 @@ public class LeHoiVanHoa extends LichSuCoTen {
     private List<String> tenNhanVatLienQuan = new ArrayList<>();
 
 
-    public LeHoiVanHoa(String ten, String capDo, boolean laDiSanQuocGia, DiaDiem noiDienRa, LocalDate thoiDiemToChuc,
-			String lanDauToChuc, List<NhanVatLichSu> nhanVatLienQuan) {
+    public LeHoiVanHoa(String ten, String capDo, boolean laDiSanQuocGia, DiaDiem noiDienRa, LocalDate thoiDiemToChuc,String lanDauToChuc, List<String> tenNhanVatLienQuan) {
 		super(ten);
 		this.capDo = capDo;
 		this.laDiSanQuocGia = laDiSanQuocGia;
 		this.noiDienRa = noiDienRa;
 		this.thoiDiemToChuc = thoiDiemToChuc;
 		this.lanDauToChuc = lanDauToChuc;
-		this.nhanVatLienQuan = nhanVatLienQuan;
+		this.tenNhanVatLienQuan = tenNhanVatLienQuan;
 	}
 
 
@@ -50,10 +49,6 @@ public class LeHoiVanHoa extends LichSuCoTen {
 
 	public List<NhanVatLichSu> getNhanVatLienQuan() {
 		return nhanVatLienQuan;
-	}
-
-	public List<String> getTenNhanVatLienQuan() {
-		return tenNhanVatLienQuan;
 	}
 	
 }
