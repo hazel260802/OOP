@@ -1,6 +1,5 @@
 package oop_lecture.utility;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TableRow;
@@ -13,7 +12,7 @@ import oop_lecture.models.*;
 
 import java.io.IOException;
 
-public class DoubleClick<S extends LichSuCoTen> implements Callback<TableView<S>, TableRow<S>> {
+public class DoubleClickCallBack<S extends LichSuCoTen> implements Callback<TableView<S>, TableRow<S>> {
 	public static void doubleClick(MouseEvent mouseEvent, LichSuCoTen target) {
 		if (mouseEvent.getClickCount() == 2 && target != null) {
 			FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/oop_lecture/views/info.fxml"));
