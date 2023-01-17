@@ -47,8 +47,8 @@ public class LeHoiVanHoa extends LichSuCoTen {
         return lanDauToChuc;
     }
 
-    public List<String> getTenNhanVatLienQuan() {
-        return tenNhanVatLienQuan;
+    public List<NhanVatLichSu> getNhanVatLienQuan() {
+        return nhanVatLienQuan;
     }
 
     public void link(SortedSetByName<NhanVatLichSu> allNVLS){

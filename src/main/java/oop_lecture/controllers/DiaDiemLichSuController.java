@@ -1,23 +1,18 @@
 package oop_lecture.controllers;
 
-import javafx.beans.binding.Bindings;
-import javafx.beans.binding.ObjectBinding;
-import javafx.beans.property.ReadOnlyObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
-import oop_lecture.application.MainApplication;
 import oop_lecture.models.DiaDiemLichSu;
 import oop_lecture.models.SuKienLichSu;
+import oop_lecture.utility.IndexCallBack;
 import oop_lecture.utility.RowCallBack;
-
-import java.util.concurrent.Callable;
 
 
 public class DiaDiemLichSuController extends InfoScreenController{
@@ -54,45 +49,26 @@ public class DiaDiemLichSuController extends InfoScreenController{
 
         Label subLabel4 = new Label("Là di sản Quốc Gia");
         subLabel4.setPadding(new Insets(1,1,1,1));
-        if (!base.isDiSanTheGioi()) vbContent.getChildren().add(subLabel4);
+        if (base.isDiSanTheGioi()) vbContent.getChildren().add(subLabel4);
 
         Label subLabel5 = new Label("Sự Kiện Lịch Sử ");
         subLabel5.setPadding(new Insets(1,1,1,1));
-        vbContent.getChildren().add(subLabel5);
-
+        // content
         TableView<SuKienLichSu> tvSKLS = new TableView<>(FXCollections.observableList(base.getSuKienLichSu()));
         // index column
         TableColumn<SuKienLichSu, Integer> tcIndex = new TableColumn<>();
-        tcIndex.setCellFactory(col -> {
-            TableCell<SuKienLichSu, Integer> indexCell = new TableCell<>();
-            ReadOnlyObjectProperty<TableRow<SuKienLichSu>> rowProperty = indexCell.tableRowProperty();
-            ObjectBinding<Integer> rowBinding = Bindings.createObjectBinding(
-                    () -> {
-                        TableRow<SuKienLichSu> row = rowProperty.get();
-                        if (row != null) {
-                            int rowIndex = row.getIndex();
-                            if (rowIndex < row.getTableView().getItems().size()) {
-                                return rowIndex;
-                            }
-                        }
-                        return null;
-                    },
-                    rowProperty
-            );
-            indexCell.textProperty().bind(new SimpleStringProperty(rowBinding.toString()));
-            return indexCell;
-        });
+        tcIndex.setCellFactory(new IndexCallBack<>());
         tcIndex.setMinWidth(20);
         tcIndex.prefWidthProperty().bind(tvSKLS.widthProperty().multiply(0.2));
         // data column 
         TableColumn<SuKienLichSu, String> tcSKLS = new TableColumn<>("Sự kiện");
-        tcSKLS.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tcSKLS.setCellValueFactory(new PropertyValueFactory<>("ten"));
         tcSKLS.prefWidthProperty().bind(tvSKLS.widthProperty().multiply(0.8));
         // put column to tv
         tvSKLS.getColumns().addAll(tcIndex, tcSKLS);
         tvSKLS.setPlaceholder(new Label(/* TODO empty message */));
         // set double click on row
         tvSKLS.setRowFactory(new RowCallBack<>());
-        vbContent.getChildren().add(tvSKLS);
+        vbContent.getChildren().addAll(subLabel5, tvSKLS);
     }
 }
