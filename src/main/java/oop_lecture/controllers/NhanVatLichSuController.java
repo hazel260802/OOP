@@ -3,8 +3,16 @@ package oop_lecture.controllers;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import oop_lecture.models.NhanVatLichSu;
 
 public class NhanVatLichSuController extends InfoScreenController {
+    private NhanVatLichSu base;
+
+    public NhanVatLichSuController(NhanVatLichSu base) {
+        this.base = base;
+    }
+
+
     @FXML
     private void initialize() {
         Label subLabel1 = new Label("Ngày Sinh");

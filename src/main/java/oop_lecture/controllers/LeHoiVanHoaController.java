@@ -3,8 +3,16 @@ package oop_lecture.controllers;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import oop_lecture.models.LeHoiVanHoa;
 
 public class LeHoiVanHoaController extends InfoScreenController {
+    private LeHoiVanHoa base;
+
+    public LeHoiVanHoaController(LeHoiVanHoa base) {
+        this.base = base;
+    }
+
+
     @FXML
     private void initialize() {
         Label subLabel1 = new Label("Cấp Độ");
