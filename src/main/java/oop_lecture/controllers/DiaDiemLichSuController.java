@@ -12,7 +12,7 @@ import javafx.scene.text.TextFlow;
 import oop_lecture.models.DiaDiemLichSu;
 import oop_lecture.models.SuKienLichSu;
 import oop_lecture.utility.IndexCallBack;
-import oop_lecture.utility.RowCallBack;
+import oop_lecture.utility.DoubleClickCallBack;
 
 
 public class DiaDiemLichSuController extends InfoScreenController{
@@ -68,7 +68,7 @@ public class DiaDiemLichSuController extends InfoScreenController{
         tvSKLS.getColumns().addAll(tcIndex, tcSKLS);
         tvSKLS.setPlaceholder(new Label(/* TODO empty message */));
         // set double click on row
-        tvSKLS.setRowFactory(new RowCallBack<>());
+        tvSKLS.setRowFactory(new DoubleClickCallBack<>());
         vbContent.getChildren().addAll(subLabel5, tvSKLS);
     }
 }

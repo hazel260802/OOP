@@ -12,7 +12,7 @@ import javafx.scene.text.TextFlow;
 import oop_lecture.models.LeHoiVanHoa;
 import oop_lecture.models.NhanVatLichSu;
 import oop_lecture.utility.IndexCallBack;
-import oop_lecture.utility.RowCallBack;
+import oop_lecture.utility.DoubleClickCallBack;
 
 public class LeHoiVanHoaController extends InfoScreenController {
     private final LeHoiVanHoa base;
@@ -78,7 +78,7 @@ public class LeHoiVanHoaController extends InfoScreenController {
         tvNVLQ.getColumns().addAll(tcIndex, tcNVLQ);
         tvNVLQ.setPlaceholder(new Label("Lễ hội không liên quan đến danh nhân nào"));
         // set double click on row
-        tvNVLQ.setRowFactory(new RowCallBack<>());
-        vbContent.getChildren().add(subLabel7);
+        tvNVLQ.setRowFactory(new DoubleClickCallBack<>());
+        vbContent.getChildren().addAll(subLabel7, tvNVLQ);
     }
 }
