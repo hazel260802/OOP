@@ -33,12 +33,12 @@ public class LeHoiVanHoaController extends InfoScreenController {
 
         Label subLabel2 = new Label("Di sản Quốc Gia");
         subLabel2.setPadding(new Insets(1,1,1,1));
-        if (base.isDiSanQuocGia()) vbContent.getChildren().addAll(subLabel2);
+        if (base.isLaDiSanQuocGia()) vbContent.getChildren().addAll(subLabel2);
 
         Label subLabel3 = new Label("Địa Điểm");
         subLabel3.setPadding(new Insets(1,1,1,1));
         // content
-        tmpText = new Text(base.getPlace().toString());
+        tmpText = new Text(base.getNoiDienRa().toString());
         tmpTextFlow = new TextFlow(tmpText);
         vbContent.getChildren().addAll(subLabel3, tmpTextFlow);
 
