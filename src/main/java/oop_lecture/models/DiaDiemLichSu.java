@@ -6,43 +6,45 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DiaDiemLichSu extends LichSuCoTen {
-    private Place place;
+    private DiaDiem diaDiem;
     private String loaiDiTich;
     private String capDo;
-    private boolean isDiSanTheGioi;
+    private boolean laDiSanTheGioi;
 
     private List<SuKienLichSu> suKienLichSu = new ArrayList<>();
-    private List<String> tenskls = new ArrayList<>();
+    private List<String> tenSuKienLichSu = new ArrayList<>();
 
 
-    public DiaDiemLichSu(String name, Place place, String loaiDiTich, String capDo, boolean isDiSanTheGioi, List<String> tenskls) {
-        super(name);
-        this.place = place;
-        this.loaiDiTich = loaiDiTich;
-        this.capDo = capDo;
-        this.isDiSanTheGioi = isDiSanTheGioi;
-        this.tenskls = tenskls;
-    }
+    
 
-    public Place getPlace() {
-        return place;
-    }
+    public DiaDiemLichSu(String ten, DiaDiem diaDiem, String loaiDiTich, String capDo, boolean laDiSanTheGioi,
+			List<String> tenSuKienLichSu) {
+		super(ten);
+		this.diaDiem = diaDiem;
+		this.loaiDiTich = loaiDiTich;
+		this.capDo = capDo;
+		this.laDiSanTheGioi = laDiSanTheGioi;
+		this.tenSuKienLichSu = tenSuKienLichSu;
+	}
 
-    public String getLoaiDiTich() {
-        return loaiDiTich;
-    }
+	public DiaDiem getDiaDiem() {
+		return diaDiem;
+	}
 
-    public String getCapDo() {
-        return capDo;
-    }
+	public String getLoaiDiTich() {
+		return loaiDiTich;
+	}
 
-    public boolean isDiSanTheGioi() {
-        return isDiSanTheGioi;
-    }
+	public String getCapDo() {
+		return capDo;
+	}
 
-    public List<SuKienLichSu> getSuKienLichSu() {
-        return suKienLichSu;
-    }
+	public boolean getLaDiSanTheGioi() {
+		return laDiSanTheGioi;
+	}
 
-    // TODO link
+
+	public List<SuKienLichSu> getSuKienLichSu() {
+		return suKienLichSu;
+	}
 }

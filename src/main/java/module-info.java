@@ -1,16 +1,15 @@
-module oop_lecture {
-    requires javafx.controls;
-    requires javafx.fxml;
-    requires com.fasterxml.jackson.databind;
+module OOP {
+	exports oop_lecture.get_data.LeHoiVanHoa;
+	exports oop_lecture.utility;
+	exports oop_lecture.application;
+	exports oop_lecture.controllers;
+	exports oop_lecture.models;
 
-	requires java.desktop;
-    requires com.gluonhq.charm.glisten;
-
-
-    // opens oop_lecture to javafx.fxml;
-    exports oop_lecture.application;
-    opens oop_lecture.application;
-
-    exports oop_lecture.controllers;
-    opens oop_lecture.controllers;
+	requires com.fasterxml.jackson.annotation;
+	requires com.gluonhq.charm.glisten;
+	requires javafx.base;
+	requires javafx.controls;
+	requires javafx.fxml;
+	requires javafx.graphics;
+	requires org.openqa.selenium.core;
 }
