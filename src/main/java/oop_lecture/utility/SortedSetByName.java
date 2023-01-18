@@ -2,7 +2,9 @@ package oop_lecture.utility;
 
 import oop_lecture.models.LichSuCoTen;
 
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 import java.util.TreeSet;
 
 public class SortedSetByName<T extends LichSuCoTen> extends TreeSet<T> {
@@ -24,6 +26,14 @@ public class SortedSetByName<T extends LichSuCoTen> extends TreeSet<T> {
             if (res > 0) lowIndex = midIndex + 1;
         }
         return null;
+    }
+
+    public List<T> search(String filter) {
+        List<T> res = new ArrayList<>();
+        for (var x : this) {
+            if (x.like(filter)) res.add(x);
+        }
+        return res;
     }
 
     @Override

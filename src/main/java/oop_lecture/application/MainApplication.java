@@ -5,7 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import oop_lecture.controllers.HomeScreenController;
+import oop_lecture.models.*;
 import oop_lecture.utility.SceneTracker;
+import oop_lecture.utility.SortedSetByName;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -13,6 +15,11 @@ import java.util.Objects;
 public class MainApplication extends Application {
     public static Stage mainStage;
     public static final SceneTracker scenes = new SceneTracker();
+    public static final SortedSetByName<DiaDiemLichSu> ssDiaDiemLichSu = new SortedSetByName<>();
+    public static final SortedSetByName<LeHoiVanHoa> ssLeHoiVanHoa = new SortedSetByName<>();
+    public static final SortedSetByName<NhanVatLichSu> ssNhanVatLichSu = new SortedSetByName<>();
+    public static final SortedSetByName<SuKienLichSu> ssSuKienLichSu = new SortedSetByName<>();
+    public static final SortedSetByName<TrieuDai> ssTrieuDai = new SortedSetByName<>();
 
     @Override
     public void start(Stage stage){
@@ -38,6 +45,7 @@ public class MainApplication extends Application {
     }
 
     public static void main(String[] args) {
+        // TODO: 18/01/2023 Load sorted set
         launch(args);
     }
 }

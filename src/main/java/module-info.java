@@ -7,7 +7,6 @@ module oop_lecture {
     requires com.gluonhq.charm.glisten;
 
 
-    // opens oop_lecture to javafx.fxml;
     exports oop_lecture.application;
     opens oop_lecture.application;
 
@@ -16,4 +15,7 @@ module oop_lecture {
 
     exports oop_lecture.models;
     opens oop_lecture.models;
+
+    exports oop_lecture.utility;
+    opens oop_lecture.utility;
 }
