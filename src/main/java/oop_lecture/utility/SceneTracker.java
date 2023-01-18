@@ -35,9 +35,12 @@ public class SceneTracker {
 
 	public void add(Scene scene) {
 		currentScene = new SceneNode(currentScene, null, scene);
-		currentScene.previous.next = currentScene;
 		position ++;
-		if(headScene == null) headScene = currentScene;
+		if(headScene == null) {
+			headScene = currentScene;
+		} else {
+			currentScene.previous.next = currentScene;
+		}
 		if (position >= MAX_SIZE) {
 			headScene = headScene.next;
 			headScene.previous = null; // detach oversize scene

@@ -10,23 +10,7 @@ import javafx.scene.input.MouseEvent;
 
 
 public class HomeScreenController {
-
-    @FXML
-    private Icon btnBack;
-
-    @FXML
-    private Icon btnForward;
-
-    @FXML
-    private Icon btnReload;
-
-    @FXML
-    private Icon btnSearch;
-
-    @FXML
-    private TableView<String> tblFooter;
-
-    @FXML
+   @FXML
     private TextField tfFilter;
 
     @FXML
