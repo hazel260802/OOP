@@ -1,75 +1,72 @@
 package oop_lecture.controllers;
 
-import com.gluonhq.charm.glisten.control.Icon;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import oop_lecture.application.MainApplication;
+import oop_lecture.models.LichSuCoTen;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class HomeScreenController {
+	@FXML
+	private TextField tfFilter;
 
-    @FXML
-    private Icon btnBack;
+	@FXML
+	private TableColumn<String, String> colContact;
 
-    @FXML
-    private Icon btnForward;
+	@FXML
+	private TableColumn<String, String> colProduct;
 
-    @FXML
-    private Icon btnReload;
+	@FXML
+	private TableColumn<String, String> colProject;
 
-    @FXML
-    private Icon btnSearch;
+	@FXML
+	private TableColumn<String, String> colSource;
 
-    @FXML
-    private TableView<String> tblFooter;
+	@FXML
+	private void initialize() {
 
-    @FXML
-    private TextField tfFilter;
+		colProject.setCellValueFactory(
+				new PropertyValueFactory<String, String>("Project"));
+		colProduct.setCellValueFactory(
+				new PropertyValueFactory<String, String>("Product"));
+		colSource.setCellValueFactory(
+				new PropertyValueFactory<String, String>("Source"));
+		colContact.setCellValueFactory(
+				new PropertyValueFactory<String, String>("Contact"));
+	}
+	@FXML
+	void btnBackPressed(MouseEvent ignoredEvent) {
+		MainApplication.mainStage.setScene(MainApplication.scenes.prev());
+	}
 
-    @FXML
-    private TableColumn<String, String> colContact;
+	@FXML
+	void btnFwdPressed(MouseEvent event) {
+		MainApplication.mainStage.setScene(MainApplication.scenes.next());
+	}
 
-    @FXML
-    private TableColumn<String, String> colProduct;
+	@FXML
+	void btnReloadPressed(MouseEvent event) {
+		// TODO: 18/01/2023 read from json
+	}
 
-    @FXML
-    private TableColumn<String, String> colProject;
+	@FXML
+	void btnSearchPressed(MouseEvent event) {
+		String strFilter = tfFilter.getText();
 
-    @FXML
-    private TableColumn<String, String> colSource;
+		List<LichSuCoTen> searchRes = new ArrayList<>();
 
-    @FXML
-    private void initialize() {
+		searchRes.addAll(MainApplication.ssDiaDiemLichSu.search(strFilter));
+		searchRes.addAll(MainApplication.ssLeHoiVanHoa.search(strFilter));
+		searchRes.addAll(MainApplication.ssNhanVatLichSu.search(strFilter));
+		searchRes.addAll(MainApplication.ssTrieuDai.search(strFilter));
+		searchRes.addAll(MainApplication.ssSuKienLichSu.search(strFilter));
 
-        colProject.setCellValueFactory(
-                new PropertyValueFactory<String, String>("Project"));
-        colProduct.setCellValueFactory(
-                new PropertyValueFactory<String, String>("Product"));
-        colSource.setCellValueFactory(
-                new PropertyValueFactory<String, String>("Source"));
-        colContact.setCellValueFactory(
-                new PropertyValueFactory<String, String>("Contact"));
-    }
-    @FXML
-    void btnBackPressed(MouseEvent event) {
-
-    }
-
-    @FXML
-    void btnFwdPressed(MouseEvent event) {
-
-    }
-
-    @FXML
-    void btnReloadPressed(MouseEvent event) {
-
-    }
-
-    @FXML
-    void btnSearchPressed(MouseEvent event) {
-
-    }
+		// TODO: 18/01/2023 find result view
+	}
 }

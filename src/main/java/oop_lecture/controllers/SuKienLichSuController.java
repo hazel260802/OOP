@@ -3,8 +3,16 @@ package oop_lecture.controllers;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import oop_lecture.models.SuKienLichSu;
 
 public class SuKienLichSuController  extends InfoScreenController {
+    private SuKienLichSu base;
+
+    public SuKienLichSuController(SuKienLichSu base) {
+        this.base = base;
+    }
+
+
     @FXML
     private void initialize() {
         Label subLabel1 = new Label("Thời Gian");

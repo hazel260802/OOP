@@ -1,15 +1,13 @@
 package oop_lecture.models;
 
-import oop_lecture.utility.SortedSetByName;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class LeHoiVanHoa extends LichSuCoTen {
     private String capDo;
-    private boolean isDiSanQuocGia;
-    private Place place;
+    private boolean laDiSanQuocGia;
+    private DiaDiem noiDienRa;
     private LocalDate thoiDiemToChuc;
     private String lanDauToChuc;
 
@@ -17,42 +15,39 @@ public class LeHoiVanHoa extends LichSuCoTen {
     private List<String> tenNhanVatLienQuan = new ArrayList<>();
 
 
-    public LeHoiVanHoa(String name, String capDo, boolean isDiSanQuocGia, Place place, LocalDate thoiDiemToChuc, String lanDauToChuc, List<String> tenNhanVatLienQuan) {
-        super(name);
-        this.capDo = capDo;
-        this.isDiSanQuocGia = isDiSanQuocGia;
-        this.place = place;
-        this.thoiDiemToChuc = thoiDiemToChuc;
-        this.lanDauToChuc = lanDauToChuc;
-        this.tenNhanVatLienQuan = tenNhanVatLienQuan;
-    }
+    public LeHoiVanHoa(String ten, String capDo, boolean laDiSanQuocGia, DiaDiem noiDienRa, LocalDate thoiDiemToChuc,String lanDauToChuc, List<String> tenNhanVatLienQuan) {
+		super(ten);
+		this.capDo = capDo;
+		this.laDiSanQuocGia = laDiSanQuocGia;
+		this.noiDienRa = noiDienRa;
+		this.thoiDiemToChuc = thoiDiemToChuc;
+		this.lanDauToChuc = lanDauToChuc;
+		this.tenNhanVatLienQuan = tenNhanVatLienQuan;
+	}
 
-    public String getCapDo() {
-        return capDo;
-    }
 
-    public boolean isDiSanQuocGia() {
-        return isDiSanQuocGia;
-    }
+	public String getCapDo() {
+		return capDo;
+	}
+	
+	public boolean isLaDiSanQuocGia() {
+		return laDiSanQuocGia;
+	}
 
-    public Place getPlace() {
-        return place;
-    }
+	public DiaDiem getNoiDienRa() {
+		return noiDienRa;
+	}
 
-    public LocalDate getThoiDiemToChuc() {
-        return thoiDiemToChuc;
-    }
+	public LocalDate getThoiDiemToChuc() {
+		return thoiDiemToChuc;
+	}
 
-    public String getLanDauToChuc() {
-        return lanDauToChuc;
-    }
+	public String getLanDauToChuc() {
+		return lanDauToChuc;
+	}
 
-    public List<String> getTenNhanVatLienQuan() {
-        return tenNhanVatLienQuan;
-    }
-
-    public void link(SortedSetByName<NhanVatLichSu> allNVLS){
-        // TODO search set => nvls
-        // nhanVatLienQuan.add(nvs);
-    }
+	public List<NhanVatLichSu> getNhanVatLienQuan() {
+		return nhanVatLienQuan;
+	}
+	
 }
