@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import oop_lecture.models.DiaDiem;
 
-public class Data_Crawl_Detail_DiaDiem_ThuVienLichSu {
+public class getDiaDiem {
 	public static void main(String[] args) throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Hp\\Code\\Selenium\\Selenium_First_Project\\chromedriver.exe");
 		
