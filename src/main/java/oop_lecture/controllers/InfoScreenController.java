@@ -9,7 +9,7 @@ import oop_lecture.application.MainApplication;
 
 import java.io.IOException;
 
-public class InfoScreenController {
+public abstract class InfoScreenController {
     @FXML
     protected VBox vbContent;
 

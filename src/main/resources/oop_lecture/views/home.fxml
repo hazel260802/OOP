@@ -36,7 +36,7 @@
                               <Font size="18.0" />
                            </font>
                         </TextField>
-                        <ToggleButton fx:id="btnSearch" alignment="TOP_CENTER" contentDisplay="CENTER" style="-fx-background-color: transparent;" textAlignment="CENTER">
+                        <ToggleButton fx:id="btnSearch" alignment="TOP_CENTER" contentDisplay="CENTER" onAction="#btnSearchPressed" style="-fx-background-color: transparent;" textAlignment="CENTER">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
