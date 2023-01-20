@@ -45,12 +45,6 @@ public class getDiaDiem {
 			System.out.println(place.toString());
 		}
 		
-		/*
-		 * Đang còn trong quá trình cài đặt, vui lòng đừng giục. Đến lúc cần tôi tự có thể add
-		 * vào các Class có sẵn. Bình tĩnh thôi
-		 * 
-		 */
-		
 		driver.quit();
 	}
 }
