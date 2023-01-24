@@ -15,7 +15,7 @@ public abstract class InfoScreenController {
 
 
     @FXML
-    void btnBack(MouseEvent event) {
+    void btnBackPressed() {
         // TODO make this button blur when not has previous
         if (!MainApplication.scenes.hasPrev()) {
             MainApplication.mainStage.setScene(MainApplication.scenes.prev());
@@ -23,17 +23,16 @@ public abstract class InfoScreenController {
     }
 
     @FXML
-    void btnForward(MouseEvent event) {
-        // TODO make this button blur when not has next
+    void btnFwdPressed() {
+        // TODO make this button blur when not has previous
         if (!MainApplication.scenes.hasNext()) {
             MainApplication.mainStage.setScene(MainApplication.scenes.next());
         }
     }
 
     @FXML
-    void btnReload(MouseEvent event) {
-        // TODO call all pull data here as new thread
-        // TODO: 13/01/2023 make this button as stop button
+    void btnReloadPressed() {
+        // TODO: 18/01/2023 read from json
     }
 
     @FXML
