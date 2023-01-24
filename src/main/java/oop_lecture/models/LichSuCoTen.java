@@ -2,10 +2,10 @@ package oop_lecture.models;
 
 import java.util.Comparator;
 
-public class LichSuCoTen implements Comparable<LichSuCoTen> {
+public abstract class LichSuCoTen implements Comparable<LichSuCoTen> {
     public static final Comparator<LichSuCoTen> COMPARE_BY_NAME = (t0, t1) -> Comparator.comparing(LichSuCoTen::getTen, String.CASE_INSENSITIVE_ORDER).compare(t0,t1);
 
-    private String ten;
+    private final String ten;
 
 
     public LichSuCoTen(String ten) {

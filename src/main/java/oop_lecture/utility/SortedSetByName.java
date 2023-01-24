@@ -15,7 +15,7 @@ public class SortedSetByName<T extends LichSuCoTen> extends TreeSet<T> {
      */
     public T find(String name) {
         var arrayThis = this.toArray();
-        var x = new LichSuCoTen(name);
+        var x = new LichSuCoTen(name) {};
         int lowIndex = 0, highIndex = arrayThis.length -1;
 
         while (lowIndex <= highIndex) {

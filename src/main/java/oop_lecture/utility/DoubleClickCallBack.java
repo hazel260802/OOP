@@ -30,7 +30,7 @@ public class DoubleClickCallBack<S extends LichSuCoTen> implements Callback<Tabl
 			}
 		}
 	}
-	private static Object findController(LichSuCoTen parent) {
+	private static InfoScreenController findController(LichSuCoTen parent) {
 		if (parent instanceof DiaDiemLichSu) return new DiaDiemLichSuController((DiaDiemLichSu) parent);
 		if (parent instanceof LeHoiVanHoa) return new LeHoiVanHoaController((LeHoiVanHoa) parent);
 		if (parent instanceof NhanVatLichSu) return new NhanVatLichSuController((NhanVatLichSu) parent);
