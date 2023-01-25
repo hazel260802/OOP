@@ -2,10 +2,10 @@ package oop_lecture.models;
 
 import java.util.Comparator;
 
-public class LichSuCoTen implements Comparable<LichSuCoTen> {
+public abstract class LichSuCoTen implements Comparable<LichSuCoTen> {
     public static final Comparator<LichSuCoTen> COMPARE_BY_NAME = (t0, t1) -> Comparator.comparing(LichSuCoTen::getTen, String.CASE_INSENSITIVE_ORDER).compare(t0,t1);
 
-    private String ten;
+    private final String ten;
 
 
     public LichSuCoTen(String ten) {
@@ -23,7 +23,7 @@ public class LichSuCoTen implements Comparable<LichSuCoTen> {
      * @return true : tên object này có chứa chuỗi con 
      */
     public boolean like(String subString) {
-        if(getTen() == null || subString == null) return false;
+        if(getTen() == null || subString == null || subString.trim().isEmpty()) return false;
 
         final int length = subString.length();
         if (length == 0)

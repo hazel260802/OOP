@@ -5,60 +5,52 @@ import java.util.Date;
 import java.util.List;
 
 public class NhanVatLichSu extends LichSuCoTen {
-	  private List<String> suKienLichSu = new ArrayList<>();
-	    private String moTaChung; 
-	    private Date ngaySinh, ngayMat;
-//	    private TrieuDai trieuDai;
-	    private String tenTrieuDai;
+	private String moTaChung;
+	private Date ngaySinh, ngayMat;
 
-	    private List<NhanVatLichSu> nhanVatLienQuan = new ArrayList<>();
-	    private List<String> tenNhanVatLienQuan = new ArrayList<>();
+	private List<String> tenSuKienLichSu = new ArrayList<>();
+	private List<SuKienLichSu> suKienLichSu = new ArrayList<>();
 
+	private TrieuDai trieuDai;
+	private String tenTrieuDai;
 
-	    public NhanVatLichSu(String ten, List<String> suKienLichSu, Date ngaySinh, Date ngayMat, String tenTrieuDai, List<String> tenNhanVatLienQuan) {
-	        super(ten);
-	        this.suKienLichSu = suKienLichSu;
-	        this.ngaySinh = ngaySinh;
-	        this.ngayMat = ngayMat;
-	        this.tenTrieuDai = tenTrieuDai;
-	        this.tenNhanVatLienQuan = tenNhanVatLienQuan;
-	    }
+	private List<NhanVatLichSu> nhanVatLienQuan = new ArrayList<>();
+	private List<String> tenNhanVatLienQuan = new ArrayList<>();
 
 
-		public List<String> getSuKienLichSu() {
-			return suKienLichSu;
-		}
+	public NhanVatLichSu(String ten, List<String> tenSuKienLichSu, Date ngaySinh, Date ngayMat, String tenTrieuDai, List<String> tenNhanVatLienQuan) {
+		super(ten);
+		this.tenSuKienLichSu = tenSuKienLichSu;
+		this.ngaySinh = ngaySinh;
+		this.ngayMat = ngayMat;
+		this.tenTrieuDai = tenTrieuDai;
+		this.tenNhanVatLienQuan = tenNhanVatLienQuan;
+	}
 
 
-		public String getMoTaChung() {
-			return moTaChung;
-		}
+	public String getMoTaChung() {
+		return moTaChung;
+	}
 
+	public Date getNgaySinh() {
+		return ngaySinh;
+	}
 
+	public Date getNgayMat() {
+		return ngayMat;
+	}
 
-		public Date getNgaySinh() {
-			return ngaySinh;
-		}
+	public TrieuDai getTrieuDai() {
+		return trieuDai;
+	}
 
+	public List<NhanVatLichSu> getNhanVatLienQuan() {
+		return nhanVatLienQuan;
+	}
 
-		public Date getNgayMat() {
-			return ngayMat;
-		}
+	public List<SuKienLichSu> getSuKienLichSu() {
+		return suKienLichSu;
+	}
 
-
-		public String getTenTrieuDai() {
-			return tenTrieuDai;
-		}
-
-		public List<NhanVatLichSu> getNhanVatLienQuan() {
-			return nhanVatLienQuan;
-		}
-
-
-
-		public List<String> getTenNhanVatLienQuan() {
-			return tenNhanVatLienQuan;
-		}
-
-    // TODO link(allTrieuDai, allNhanVatLichSu)
+	// TODO link(allTrieuDai, allNhanVatLichSu)
 }
