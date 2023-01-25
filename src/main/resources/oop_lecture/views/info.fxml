@@ -176,7 +176,7 @@
                <children>
                       <ToggleButtonGroup fx:id="btnHeader" prefHeight="88.0" prefWidth="1031.0" selectionType="SINGLE" styleClass="headerBox">
                           <toggles>
-                              <ToggleButton fx:id="btnBack" contentDisplay="CENTER" minWidth="46.0" prefHeight="46.0" prefWidth="46.0" style="-fx-background-color: transparent;" styleClass="btnHeader">
+                              <ToggleButton fx:id="btnBack" contentDisplay="CENTER" minWidth="46.0" onAction="#btnBackPressed" prefHeight="46.0" prefWidth="46.0" style="-fx-background-color: transparent;" styleClass="btnHeader">
                                   <graphic>
                               <AnchorPane prefHeight="32.0" prefWidth="22.0" styleClass="btnHeader">
                                  <children>
@@ -192,7 +192,7 @@
                               <Insets />
                            </opaqueInsets>
                               </ToggleButton>
-                              <ToggleButton blendMode="SRC_ATOP" minWidth="42.0" prefHeight="60.0" prefWidth="42.0" selected="true" style="-fx-background-color: transparent;" styleClass="btnHeader">
+                              <ToggleButton blendMode="SRC_ATOP" minWidth="42.0" onAction="#btnReloadPressed" prefHeight="60.0" prefWidth="42.0" selected="true" style="-fx-background-color: transparent;" styleClass="btnHeader">
                                   <graphic>
                               <AnchorPane prefHeight="50.0" prefWidth="63.0" styleClass="btnHeader">
                                  <children>
@@ -205,7 +205,7 @@
                               </AnchorPane>
                                   </graphic>
                               </ToggleButton>
-                        <ToggleButton fx:id="btnBack1" contentDisplay="CENTER" minWidth="46.0" prefHeight="46.0" prefWidth="46.0" style="-fx-background-color: transparent;" styleClass="btnHeader">
+                        <ToggleButton fx:id="btnBack1" contentDisplay="CENTER" minWidth="46.0" onAction="#btnFwdPressed" prefHeight="46.0" prefWidth="46.0" style="-fx-background-color: transparent;" styleClass="btnHeader">
                            <graphic>
                               <AnchorPane prefHeight="32.0" prefWidth="22.0" styleClass="btnHeader">
                                  <children>
@@ -228,7 +228,7 @@
                         <Insets top="8.0" />
                      </HBox.margin>
                   </TextField>
-                        <ToggleButton style="-fx-background-color: transparent;" styleClass="btnHeader">
+                        <ToggleButton onAction="#btnSearchPressed" style="-fx-background-color: transparent;" styleClass="btnHeader">
                             <graphic>
                         <AnchorPane style="-fx-background-color: transparent;" styleClass="btnHeader">
                            <children>

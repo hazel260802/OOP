@@ -47,7 +47,7 @@ public class HomeScreenController {
 	@FXML
 	void btnBackPressed() {
 		// TODO make this button blur when not has previous
-		if (!MainApplication.scenes.hasPrev()) {
+		if (MainApplication.scenes.hasPrev()) {
 			MainApplication.mainStage.setScene(MainApplication.scenes.prev());
 		}
 	}
@@ -55,7 +55,7 @@ public class HomeScreenController {
 	@FXML
 	void btnFwdPressed() {
 		// TODO make this button blur when not has previous
-		if (!MainApplication.scenes.hasNext()) {
+		if (MainApplication.scenes.hasNext()) {
 			MainApplication.mainStage.setScene(MainApplication.scenes.next());
 		}
 	}

@@ -77,7 +77,7 @@
             <children>
                 <ToggleButtonGroup fx:id="btnHeader" prefHeight="71.0" prefWidth="750.0" selectionType="SINGLE" styleClass="headerBox">
                     <toggles>
-                        <ToggleButton fx:id="btnBack" contentDisplay="CENTER" minWidth="46.0" prefHeight="46.0" prefWidth="46.0" style="-fx-background-color: transparent;" styleClass="btnHeader">
+                        <ToggleButton fx:id="btnBack" contentDisplay="CENTER" minWidth="46.0" onAction="#btnBackPressed" prefHeight="46.0" prefWidth="46.0" style="-fx-background-color: transparent;" styleClass="btnHeader">
                             <opaqueInsets>
                                 <Insets />
                             </opaqueInsets>
@@ -89,7 +89,7 @@
                         </ImageView>
                      </graphic>
                         </ToggleButton>
-                        <ToggleButton minWidth="42.0" prefHeight="60.0" prefWidth="42.0" selected="true" style="-fx-background-color: transparent;" styleClass="btnHeader">
+                        <ToggleButton minWidth="42.0" onAction="#btnReloadPressed" prefHeight="60.0" prefWidth="42.0" selected="true" style="-fx-background-color: transparent;" styleClass="btnHeader">
                      <graphic>
                                   <ImageView fitHeight="32.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                       <image>
@@ -98,7 +98,7 @@
                                   </ImageView>
                      </graphic>
                         </ToggleButton>
-                        <ToggleButton style="-fx-background-color: transparent;" styleClass="btnHeader">
+                        <ToggleButton onAction="#btnFwdPressed" style="-fx-background-color: transparent;" styleClass="btnHeader">
                      <graphic>
                                   <ImageView fitHeight="31.0" fitWidth="33.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                                       <image>
