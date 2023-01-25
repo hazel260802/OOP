@@ -29,7 +29,7 @@ public class DiaDiemLichSuController extends InfoScreenController{
         Label subLabel1 = new Label("Địa điểm");
         subLabel1.setPadding(new Insets(1,1,1,1));
         // content
-        Text tmpText = new Text(base.getDiaDiem().toString());
+        Text tmpText = new Text(base.getDiaDiem() == null ? "Hiện chưa rõ vị trí cụ thể" : base.getDiaDiem().toString());
         TextFlow tmpTextFlow = new TextFlow(tmpText);
         vbContent.getChildren().addAll(subLabel1, tmpTextFlow);
 

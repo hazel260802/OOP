@@ -30,12 +30,13 @@ public class KetQuaTimKiemController extends InfoScreenController {
     private void initialize() {
         Label subLabel1 = new Label("Kết Quả Tìm Kiếm");
         subLabel1.setPadding(new Insets(1,1,1,1));
+        vbContent.getChildren().add(subLabel1);
         // content
         for(LichSuCoTen X : base){
             Text tmpText = new Text(X.getTen());
             TextFlow tmpTextFlow = new TextFlow(tmpText);
             tmpTextFlow.setOnMouseClicked(mouseEvent -> DoubleClickCallBack.doubleClick(mouseEvent, X));
-            vbContent.getChildren().addAll(subLabel1, tmpTextFlow);
+            vbContent.getChildren().add(tmpTextFlow);
         }
     }
 
