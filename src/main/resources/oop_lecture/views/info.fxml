@@ -211,7 +211,7 @@
                                  <children>
                                     <ImageView fitHeight="29.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" styleClass="btnHeader">
                                        <image>
-                                          <Image url="@../img/turn-back.png" />
+                                          <Image url="@../img/fast-forward-button.png" />
                                        </image>
                                     </ImageView>
                                  </children>
