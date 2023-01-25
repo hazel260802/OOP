@@ -38,14 +38,14 @@ public class LeHoiVanHoaController extends InfoScreenController {
         Label subLabel3 = new Label("Địa Điểm");
         subLabel3.setPadding(new Insets(1,1,1,1));
         // content
-        tmpText = new Text(base.getNoiDienRa().toString());
+        tmpText = new Text(base.getNoiDienRa() == null ? "Hiện chưa rõ nơi diễn ra" : base.getNoiDienRa().toString());
         tmpTextFlow = new TextFlow(tmpText);
         vbContent.getChildren().addAll(subLabel3, tmpTextFlow);
 
         Label subLabel4 = new Label("Thời Điểm Tổ Chức");
         subLabel4.setPadding(new Insets(1,1,1,1));
         // content
-        tmpText = new Text(base.getThoiDiemToChuc().toString());
+        tmpText = new Text(base.getThoiDiemToChuc() == null ? "Hiện không rõ thời điểm tổ chức" : base.getThoiDiemToChuc().toString());
         tmpTextFlow = new TextFlow(tmpText);
         vbContent.getChildren().addAll(subLabel4, tmpTextFlow);
 

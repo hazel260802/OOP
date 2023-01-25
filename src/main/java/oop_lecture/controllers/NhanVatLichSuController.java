@@ -27,21 +27,21 @@ public class NhanVatLichSuController extends InfoScreenController {
         Label subLabel1 = new Label("Ngày Sinh");
         subLabel1.setPadding(new Insets(1,1,1,1));
         // content
-        Text tmpText = new Text(base.getNgaySinh().toString());
+        Text tmpText = new Text(base.getNgaySinh() == null ? "Không rõ" : base.getNgaySinh().toString());
         TextFlow tmpTextFlow = new TextFlow(tmpText);
         vbContent.getChildren().addAll(subLabel1, tmpTextFlow);
 
         Label subLabel2 = new Label("Ngày Mất");
         subLabel2.setPadding(new Insets(1,1,1,1));
         // content
-        tmpText = new Text(base.getNgayMat().toString());
+        tmpText = new Text(base.getNgayMat() == null ? "Không rõ" : base.getNgayMat().toString());
         tmpTextFlow = new TextFlow(tmpText);
         vbContent.getChildren().addAll(subLabel2, tmpTextFlow);
 
         Label subLabel3 = new Label("Triều Đại");
         subLabel3.setPadding(new Insets(1,1,1,1));
         // content
-        tmpText = new Text(base.getTrieuDai().getTen());
+        tmpText = new Text(base.getTrieuDai() == null ? "Không rõ" : base.getTrieuDai().getTen());
         tmpTextFlow = new TextFlow(tmpText);
         tmpTextFlow.setOnMouseClicked(mouseEvent -> DoubleClickCallBack.doubleClick(mouseEvent, base.getTrieuDai()));
         vbContent.getChildren().addAll(subLabel3, tmpTextFlow);
