@@ -23,7 +23,7 @@ public abstract class LichSuCoTen implements Comparable<LichSuCoTen> {
      * @return true : tên object này có chứa chuỗi con 
      */
     public boolean like(String subString) {
-        if(getTen() == null || subString == null) return false;
+        if(getTen() == null || subString == null || subString.trim().isEmpty()) return false;
 
         final int length = subString.length();
         if (length == 0)
