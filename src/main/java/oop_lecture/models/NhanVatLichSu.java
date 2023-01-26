@@ -1,41 +1,30 @@
 package oop_lecture.models;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import selenium.LichSuCoTen;
-import selenium.NhanVatLichSu;
-
 public class NhanVatLichSu extends LichSuCoTen {
-    private List<String> suKienLichSu = new ArrayList<>();
-    private String moTaChung; 
-    private Date ngaySinh, ngayMat;
-//    private TrieuDai trieuDai;
-    private String tenTrieuDai;
+	private String moTaChung;
+	private Date ngaySinh, ngayMat;
 
-    private List<NhanVatLichSu> nhanVatLienQuan = new ArrayList<>();
-    private List<String> tenNhanVatLienQuan = new ArrayList<>();
+	private List<String> tenSuKienLichSu = new ArrayList<>();
+	private List<SuKienLichSu> suKienLichSu = new ArrayList<>();
 
+	private TrieuDai trieuDai;
+	private String tenTrieuDai;
 
-    public NhanVatLichSu(String ten, List<String> suKienLichSu, Date ngaySinh, Date ngayMat, String tenTrieuDai, List<String> tenNhanVatLienQuan) {
-        super(ten);
-        this.suKienLichSu = suKienLichSu;
-        this.ngaySinh = ngaySinh;
-        this.ngayMat = ngayMat;
-        this.tenTrieuDai = tenTrieuDai;
-        this.tenNhanVatLienQuan = tenNhanVatLienQuan;
-    }
+	private List<NhanVatLichSu> nhanVatLienQuan = new ArrayList<>();
+	private List<String> tenNhanVatLienQuan = new ArrayList<>();
 
 
-	public List<String> getSuKienLichSu() {
-		return suKienLichSu;
-	}
-
-
-	public void setSuKienLichSu(List<String> suKienLichSu) {
-		this.suKienLichSu = suKienLichSu;
+	public NhanVatLichSu(String ten, List<String> tenSuKienLichSu, Date ngaySinh, Date ngayMat, String tenTrieuDai, List<String> tenNhanVatLienQuan) {
+		super(ten);
+		this.tenSuKienLichSu = tenSuKienLichSu;
+		this.ngaySinh = ngaySinh;
+		this.ngayMat = ngayMat;
+		this.tenTrieuDai = tenTrieuDai;
+		this.tenNhanVatLienQuan = tenNhanVatLienQuan;
 	}
 
 
@@ -43,61 +32,25 @@ public class NhanVatLichSu extends LichSuCoTen {
 		return moTaChung;
 	}
 
-
-	public void setMoTaChung(String moTaChung) {
-		this.moTaChung = moTaChung;
-	}
-
-
 	public Date getNgaySinh() {
 		return ngaySinh;
 	}
-
-
-	public void setNgaySinh(Date ngaySinh) {
-		this.ngaySinh = ngaySinh;
-	}
-
 
 	public Date getNgayMat() {
 		return ngayMat;
 	}
 
-
-	public void setNgayMat(Date ngayMat) {
-		this.ngayMat = ngayMat;
+	public TrieuDai getTrieuDai() {
+		return trieuDai;
 	}
-
-
-	public String getTenTrieuDai() {
-		return tenTrieuDai;
-	}
-
-
-	public void setTenTrieuDai(String tenTrieuDai) {
-		this.tenTrieuDai = tenTrieuDai;
-	}
-
 
 	public List<NhanVatLichSu> getNhanVatLienQuan() {
 		return nhanVatLienQuan;
 	}
 
-
-	public void setNhanVatLienQuan(List<NhanVatLichSu> nhanVatLienQuan) {
-		this.nhanVatLienQuan = nhanVatLienQuan;
+	public List<SuKienLichSu> getSuKienLichSu() {
+		return suKienLichSu;
 	}
 
-
-	public List<String> getTenNhanVatLienQuan() {
-		return tenNhanVatLienQuan;
-	}
-
-
-	public void setTenNhanVatLienQuan(List<String> tenNhanVatLienQuan) {
-		this.tenNhanVatLienQuan = tenNhanVatLienQuan;
-	}
-
-
-    // TODO link(allTrieuDai, allNhanVatLichSu)
+	// TODO link(allTrieuDai, allNhanVatLichSu)
 }
