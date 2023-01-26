@@ -17,6 +17,14 @@ public abstract class LichSuCoTen implements Comparable<LichSuCoTen> {
         return this.ten;
     }
 
+<<<<<<< HEAD
+    public void setTen(String ten) {
+		this.ten = ten;
+	}
+
+
+	@Override
+=======
     /**
      * kiểm tra object này có tên chứa chuỗi ký tự 
      * @param subString : chuỗi con
@@ -38,6 +46,7 @@ public abstract class LichSuCoTen implements Comparable<LichSuCoTen> {
     }
 
     @Override
+>>>>>>> d61e8c9a8c2cbaad1c40e73abc85fc5d46501fdd
     public boolean equals(Object o) {
         if (o instanceof LichSuCoTen)
             return this.compareTo((LichSuCoTen) o) == 0;

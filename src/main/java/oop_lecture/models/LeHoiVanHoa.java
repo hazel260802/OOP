@@ -1,53 +1,56 @@
 package oop_lecture.models;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class LeHoiVanHoa extends LichSuCoTen {
-    private String capDo;
-    private boolean laDiSanQuocGia;
+    //private String capDo;
+    //private boolean isDiSanQuocGia;
     private DiaDiem noiDienRa;
-    private LocalDate thoiDiemToChuc;
+    private Date thoiDiemToChuc;
     private String lanDauToChuc;
 
     private List<NhanVatLichSu> nhanVatLienQuan = new ArrayList<>();
     private List<String> tenNhanVatLienQuan = new ArrayList<>();
 
 
-    public LeHoiVanHoa(String ten, String capDo, boolean laDiSanQuocGia, DiaDiem noiDienRa, LocalDate thoiDiemToChuc,String lanDauToChuc, List<String> tenNhanVatLienQuan) {
-		super(ten);
-		this.capDo = capDo;
-		this.laDiSanQuocGia = laDiSanQuocGia;
-		this.noiDienRa = noiDienRa;
-		this.thoiDiemToChuc = thoiDiemToChuc;
-		this.lanDauToChuc = lanDauToChuc;
-		this.tenNhanVatLienQuan = tenNhanVatLienQuan;
-	}
+    public LeHoiVanHoa(String ten, DiaDiem noiDienRa, Date thoiDiemToChuc, String lanDauToChuc, List<String> tenNhanVatLienQuan) {
+        super(ten);
+//        this.capDo = capDo;
+//        this.isDiSanQuocGia = isDiSanQuocGia;
+        this.noiDienRa = noiDienRa;
+        this.thoiDiemToChuc = thoiDiemToChuc;
+        this.lanDauToChuc = lanDauToChuc;
+        this.tenNhanVatLienQuan = tenNhanVatLienQuan;
+    }
 
+//	public String getCapDo() {
+//        return capDo;
+//    }
+//
+//    public boolean isDiSanQuocGia() {
+//        return isDiSanQuocGia;
+//    }
 
-	public String getCapDo() {
-		return capDo;
-	}
-	
-	public boolean isLaDiSanQuocGia() {
-		return laDiSanQuocGia;
-	}
 
 	public DiaDiem getNoiDienRa() {
-		return noiDienRa;
-	}
+        return noiDienRa;
+    }
 
-	public LocalDate getThoiDiemToChuc() {
-		return thoiDiemToChuc;
-	}
+	public Date getThoiDiemToChuc() {
+        return thoiDiemToChuc;
+    }
 
-	public String getLanDauToChuc() {
-		return lanDauToChuc;
-	}
-
-	public List<NhanVatLichSu> getNhanVatLienQuan() {
+    public String getLanDauToChuc() {
+        return lanDauToChuc;
+    }
+    
+    public List<NhanVatLichSu> getNhanVatLienQuan() {
 		return nhanVatLienQuan;
 	}
-	
+
+    public List<String> getTenNhanVatLienQuan() {
+    	return tenNhanVatLienQuan;
+    }
 }
