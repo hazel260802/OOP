@@ -17,6 +17,7 @@ public abstract class LichSuCoTen implements Comparable<LichSuCoTen> {
         return this.ten;
     }
 
+
     /**
      * kiểm tra object này có tên chứa chuỗi ký tự 
      * @param subString : chuỗi con

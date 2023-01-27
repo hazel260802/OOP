@@ -5,6 +5,8 @@ module oop_lecture {
 
 	requires java.desktop;
     requires com.gluonhq.charm.glisten;
+	requires org.seleniumhq.selenium.api;
+	requires org.seleniumhq.selenium.chrome_driver;
 
 
     exports oop_lecture.application;

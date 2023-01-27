@@ -86,4 +86,5 @@ public class TrieuDaiController  extends InfoScreenController {
 			vbContent.getChildren().addAll(tvSKLS);
 		}
 	}
+
 }
