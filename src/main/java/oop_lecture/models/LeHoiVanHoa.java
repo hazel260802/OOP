@@ -1,6 +1,5 @@
 package oop_lecture.models;
 
-import oop_lecture.utility.SortedSetByName;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;

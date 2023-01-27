@@ -5,6 +5,10 @@ public class DiaDiem {
 
     public String ten;
 
+	public DiaDiem(String ten) {
+		this.ten = ten;
+	}
+
 	public String getChiTietDiaDiem() {
 		return chiTietDiaDiem;
 	}

@@ -1,7 +1,5 @@
 package oop_lecture.models;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
