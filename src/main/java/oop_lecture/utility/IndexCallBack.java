@@ -8,9 +8,8 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.util.Callback;
-import oop_lecture.models.LichSuCoTen;
 
-public class IndexCallBack<S extends LichSuCoTen> implements Callback<TableColumn<S, Integer>, TableCell<S, Integer>> {
+public class IndexCallBack<S> implements Callback<TableColumn<S, Integer>, TableCell<S, Integer>> {
 	@Override
 	public TableCell<S, Integer> call(TableColumn<S, Integer> sIntegerTableColumn) {
 		TableCell<S, Integer> indexCell = new TableCell<>();
