@@ -53,10 +53,10 @@ public class LeHoiVanHoaController extends InfoScreenController {
         tmpTextFlow = new TextFlow(tmpText);
         vbContent.getChildren().addAll(subLabel4, tmpTextFlow);
 
-        Label subLabel5 = new Label("Sự Kiện Lịch Sử ");
-        subLabel5.setPadding(new Insets(1,1,1,1));
-        // TODO not found
-        vbContent.getChildren().addAll(subLabel5);
+//        Label subLabel5 = new Label("Sự Kiện Lịch Sử ");
+//        subLabel5.setPadding(new Insets(1,1,1,1));
+//        //
+//        vbContent.getChildren().addAll(subLabel5);
 
         Label subLabel6 = new Label("Lần Đầu Tổ Chức");
         subLabel6.setPadding(new Insets(1,1,1,1));
