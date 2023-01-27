@@ -25,6 +25,9 @@ public class SuKienLichSuController  extends InfoScreenController {
 
 	@FXML
 	private void initialize() {
+		Label lName = new Label(base.getTen());
+		vbContent.getChildren().add(lName);
+
 		// T Gian
 		{
 			Label label = new Label("Thời Gian");
@@ -65,8 +68,8 @@ public class SuKienLichSuController  extends InfoScreenController {
 			tcDD.setCellValueFactory(diaDiemStringCellDataFeatures -> new SimpleStringProperty(diaDiemStringCellDataFeatures.getValue().toString()));
 			tcDD.prefWidthProperty().bind(tvDDLQ.widthProperty().multiply(0.8));
 			// setup table
+			tvDDLQ.getColumns().addAll(tcIndex, tcDD);
 			tvDDLQ.setPlaceholder(new Label("Không rõ sự kiện diễn ra tại đâu"));
-
 			vbContent.getChildren().addAll(tvDDLQ);
 		}
 		// nvlq
@@ -82,6 +85,7 @@ public class SuKienLichSuController  extends InfoScreenController {
 			tcNV.setCellValueFactory(diaDiemStringCellDataFeatures -> new SimpleStringProperty(diaDiemStringCellDataFeatures.getValue().getTen()));
 			tcNV.prefWidthProperty().bind(tvNVLQ.widthProperty().multiply(0.8));
 			// setup table
+			tvNVLQ.getColumns().addAll(tcIndex, tcNV);
 			tvNVLQ.setRowFactory(new DoubleClickCallBack<>());
 			tvNVLQ.setPlaceholder(new Label("Không rõ những ai đã tham gia sự kiện này"));
 			vbContent.getChildren().addAll(tvNVLQ);

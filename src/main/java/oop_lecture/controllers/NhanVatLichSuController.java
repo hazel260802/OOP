@@ -10,7 +10,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import oop_lecture.models.NhanVatLichSu;
-import oop_lecture.models.SuKienLichSu;
 import oop_lecture.utility.DoubleClickCallBack;
 import oop_lecture.utility.IndexCallBack;
 
@@ -24,6 +23,9 @@ public class NhanVatLichSuController extends InfoScreenController {
 
     @FXML
     private void initialize() {
+        Label lName = new Label(base.getTen());
+        vbContent.getChildren().add(lName);
+
         Label subLabel1 = new Label("Ngày Sinh");
         subLabel1.setPadding(new Insets(1,1,1,1));
         // content
@@ -46,9 +48,7 @@ public class NhanVatLichSuController extends InfoScreenController {
         tmpTextFlow.setOnMouseClicked(mouseEvent -> DoubleClickCallBack.doubleClick(mouseEvent, base.getTrieuDai()));
         vbContent.getChildren().addAll(subLabel3, tmpTextFlow);
 
-        Label subLabel4 = new Label("Nhân Vật Liên Quan");
-        subLabel4.setPadding(new Insets(1,1,1,1));
-        // content
+        // nvlq
         TableView<NhanVatLichSu> tvNVLQ = new TableView<>(FXCollections.observableList(base.getNhanVatLienQuan()));
         // index column
         TableColumn<NhanVatLichSu, Integer> tcIndex = new TableColumn<>();
@@ -64,6 +64,6 @@ public class NhanVatLichSuController extends InfoScreenController {
         tvNVLQ.setPlaceholder(new Label(/* TODO empty message */));
         // set double click on row
         tvNVLQ.setRowFactory(new DoubleClickCallBack<>());
-        vbContent.getChildren().addAll(subLabel4, tvNVLQ);
+        vbContent.getChildren().addAll(tvNVLQ);
     }
 }

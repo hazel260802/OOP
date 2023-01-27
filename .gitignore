@@ -39,6 +39,6 @@ build/
 /bin1/
 java/build/**
 
-# Don't add try classes
-[tT]ry*
+# Don't add to_do
+todo.txt
 

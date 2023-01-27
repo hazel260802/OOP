@@ -26,6 +26,9 @@ public class DiaDiemLichSuController extends InfoScreenController{
 
     @FXML
     private void initialize() {
+        Label lName = new Label(base.getTen());
+        vbContent.getChildren().add(lName);
+
         Label subLabel1 = new Label("Địa điểm");
         subLabel1.setPadding(new Insets(1,1,1,1));
         // content
@@ -51,9 +54,6 @@ public class DiaDiemLichSuController extends InfoScreenController{
         subLabel4.setPadding(new Insets(1,1,1,1));
         if (base.getLaDiSanTheGioi()) vbContent.getChildren().add(subLabel4);
 
-        Label subLabel5 = new Label("Sự Kiện Lịch Sử ");
-        subLabel5.setPadding(new Insets(1,1,1,1));
-        // content
         TableView<SuKienLichSu> tvSKLS = new TableView<>(FXCollections.observableList(base.getSuKienLichSu()));
         // index column
         TableColumn<SuKienLichSu, Integer> tcIndex = new TableColumn<>();
@@ -61,14 +61,14 @@ public class DiaDiemLichSuController extends InfoScreenController{
         tcIndex.setMinWidth(20);
         tcIndex.prefWidthProperty().bind(tvSKLS.widthProperty().multiply(0.2));
         // data column 
-        TableColumn<SuKienLichSu, String> tcSKLS = new TableColumn<>("Sự kiện");
+        TableColumn<SuKienLichSu, String> tcSKLS = new TableColumn<>("Sự kiện lịch sử");
         tcSKLS.setCellValueFactory(new PropertyValueFactory<>("ten"));
         tcSKLS.prefWidthProperty().bind(tvSKLS.widthProperty().multiply(0.8));
         // put column to tv
         tvSKLS.getColumns().addAll(tcIndex, tcSKLS);
-        tvSKLS.setPlaceholder(new Label(/* TODO empty message */));
+        tvSKLS.setPlaceholder(new Label(""));
         // set double click on row
         tvSKLS.setRowFactory(new DoubleClickCallBack<>());
-        vbContent.getChildren().addAll(subLabel5, tvSKLS);
+        vbContent.getChildren().addAll(tvSKLS);
     }
 }
