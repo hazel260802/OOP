@@ -39,5 +39,5 @@ build/
 /bin1/
 java/build/**
 
-# Don't add to_do classes
+# Don't add to_do
 todo.txt

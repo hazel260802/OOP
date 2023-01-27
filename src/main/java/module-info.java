@@ -9,7 +9,7 @@ module oop_lecture {
 	requires org.seleniumhq.selenium.chrome_driver;
 
 
-	exports oop_lecture.application;
+    exports oop_lecture.application;
     opens oop_lecture.application;
 
     exports oop_lecture.controllers;
