@@ -61,16 +61,10 @@ public class SuKienLichSu extends LichSuCoTen {
 		return diaDiemLienQuan;
 	}
 
-	public List<String> getTenDiaDiemLienQuan() {
-		return tenDiaDiemLienQuan;
-	}
-
 	public List<NhanVatLichSu> getNhanVatLienQuan() {
 		return nhanVatLienQuan;
 	}
 
 
-	public List<String> getTenNhanVatLienQuan() {
-		return tenNhanVatLienQuan;
-	}
 }
+

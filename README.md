@@ -18,8 +18,8 @@
  2. Get update from main branch
 ```Console
     git switch your_branch_name     # make sure you are on right branch 
-    git fetch origin                # update with remote repo
-    git merge origin/master         # get master update
+    git pull origin main            # update with remote main repo
+    git merge origin/main           # get master update
 ```
  2. Commit your work    
 ```Console

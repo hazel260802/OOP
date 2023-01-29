@@ -2,6 +2,7 @@ package oop_lecture.models;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class LeHoiVanHoa extends LichSuCoTen {
@@ -24,6 +25,10 @@ public class LeHoiVanHoa extends LichSuCoTen {
 		this.thoiDiemToChuc = thoiDiemToChuc;
 		this.lanDauToChuc = lanDauToChuc;
 		this.nhanVatLienQuan = nhanVatLienQuan;
+	}
+
+
+	public LeHoiVanHoa(String name, DiaDiem place, Date date, String firstHeld, List<String> tenNhanVatLienQuan) {
 	}
 
 
