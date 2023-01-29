@@ -1,15 +1,20 @@
 package oop_lecture.get_data;
 
-import java.io.FileWriter;
+import java.io.File;
 import java.io.IOException;
-import java.time.Year;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-import com.google.gson.Gson;
+import com.fasterxml.jackson.core.type.TypeReference;
+import oop_lecture.models.TrieuDai;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import oop_lecture.models.SuKienLichSu;
 import oop_lecture.models.NhanVatLichSu;
@@ -21,7 +26,6 @@ public class getSuKienLichSu {
 		driver.navigate().to(web);
 		int i = 0;
 		while(true) {
-
 			try {
 				List<WebElement> list=driver.findElements(By.xpath("/html/body/div/div[3]/div[2]/div[1]/div/div/div/div/div/a"));
 
@@ -30,7 +34,7 @@ public class getSuKienLichSu {
 					listHref.add(href);
 				});
 				i=i+1;
-				if(i==1)break;
+				if(i==3)break;
 
 
 				WebElement ele = driver.findElement(By.xpath("//a[contains(text(),'»')]"));
@@ -48,7 +52,62 @@ public class getSuKienLichSu {
 		}
 	}
 
-	public static void getDataEvent(WebDriver driver,String href,List<SuKienLichSu> eventList) {
+	public static void getHrefTrieuDai(WebDriver driver,String web,List<String> listHref){
+		driver.navigate().to(web);
+			try {
+				List<WebElement> list=driver.findElements(By.xpath("/html/body/div/div[3]/div[2]/div[1]/div/div/a"));
+				list.forEach(e -> {
+					String href = e.getAttribute("href");
+					listHref.add(href);
+				});
+			}catch (Exception e) {
+			}
+	}
+
+	public static void getTimeTrieuDai(WebDriver driver,String href,List<TrieuDai> trieuDaiList) throws ParseException {
+		driver.navigate().to(href);
+		WebElement title =driver.findElement(By.xpath("/html/body/div/div[3]/div[1]/div/h1"));
+		String fullName = title.getText().trim();
+		String[] str = fullName.split("\\(");
+		String name = str[0].trim();
+		System.out.println(name);
+
+		Date yearStart = null;
+		Date yearEnd = null;
+		if(str[0].trim() != fullName) {
+			String[] time = null;
+			String startTime = null;
+			String endTime = null;
+			if (str[1].trim().charAt(0) == '-') {
+				if (str[1].trim().length() > 6) {
+					time = str[1].trim().split("\\)")[0].split(" - ");
+					startTime = time[0].trim();
+					endTime = time[1].trim();
+				} else {
+					startTime = endTime = str[1].trim().split("\\)")[0].trim();
+				}
+			} else {
+				if (str[1].contains("-")) {
+					time = str[1].trim().split("\\-");
+					startTime = time[0].trim();
+					endTime = time[1].split("\\)")[0].trim();
+				} else {
+					startTime = endTime = str[1].split("\\)")[0].trim();
+				}
+			}
+			System.out.println(startTime);
+			System.out.println(endTime);
+			if (startTime != null) {
+				yearStart = new SimpleDateFormat("yyyy").parse(startTime);
+			}
+			if (endTime != null) {
+				yearEnd = new SimpleDateFormat("yyyy").parse(endTime);
+			}
+		}
+		TrieuDai t = new TrieuDai(name, yearStart, yearEnd);
+		trieuDaiList.add(t);
+	}
+	public static void getDataEvent(WebDriver driver,String href,List<SuKienLichSu> eventList, List<TrieuDai> trieuDaiList) throws ParseException {
 		driver.navigate().to(href);
 		WebElement title =driver.findElement(By.xpath("/html/body/div/div[3]/div[2]/div[1]/div[2]/div/div[1]/h3"));
 
@@ -88,12 +147,13 @@ public class getSuKienLichSu {
 			}
 //     		System.out.println(startTime);
 //     		System.out.println(endTime);
-			Year yearStart = null,yearEnd = null;
+			Date yearStart = null;
+			Date yearEnd = null;
 			if(startTime != null) {
-				yearStart = Year.parse(startTime);
+				yearStart = new SimpleDateFormat("yyyy").parse(startTime);
 			}
 			if(endTime != null) {
-				yearEnd = Year.parse(endTime);
+				yearEnd = new SimpleDateFormat("yyyy").parse(endTime);
 			}
 
 
@@ -146,15 +206,37 @@ public class getSuKienLichSu {
 			} catch (Exception e) {
 //				System.out.println(e);
 			}
-			SuKienLichSu event = new SuKienLichSu(name, null, null, descript, null, listRelatedLocation, listRelatedFigures);
-			eventList.add(event);
+
+			//get trieu dai
+			boolean checked = false;
+			for(int j = 0; j < trieuDaiList.size();j++){
+				TrieuDai t = trieuDaiList.get(j);
+				if((yearStart.compareTo(t.getNamBatDau()) >= 0) && (yearEnd.compareTo(t.getNamKetThuc()) <= 0)){
+					checked = true;
+					TrieuDai td = new TrieuDai(t.getTen(), t.getNamBatDau(), t.getNamKetThuc());
+					System.out.println(t.getTen());
+					SuKienLichSu event = new SuKienLichSu(name, yearStart, yearEnd, descript, td, listRelatedLocation, listRelatedFigures);
+					eventList.add(event);
+					break;
+				}
+			}
+
+			if(!checked){
+				SuKienLichSu event = new SuKienLichSu(name, yearStart, yearEnd, descript, null, listRelatedLocation, listRelatedFigures);
+				eventList.add(event);
+			}
+
 		}
 	}
 
-	public static void main(String[] args) throws InterruptedException, IOException {
+	public static void main(String[] args) throws InterruptedException, IOException, ParseException {
 		List<SuKienLichSu> eventList = new ArrayList<>();
-		List<String> listHref= new ArrayList<String>();
-		// TODO Auto-generated method stub
+		ObjectMapper mapper = new ObjectMapper();
+		List<TrieuDai> lists = mapper.readValue(new File("data\\dynasty.json"),
+				new TypeReference<List<TrieuDai>>() {});
+		lists.forEach(x -> System.out.println(x.getTen()));
+
+		List<String> listHref = new ArrayList<String>();
 
 		System.setProperty("webdriver.chrome.driver","chromedriver.exe");
 		ChromeOptions options = new ChromeOptions();
@@ -163,25 +245,22 @@ public class getSuKienLichSu {
 		String url = "https://thuvienlichsu.com/su-kien";
 
 		getHrefSuKienLichSu(driver, url, listHref);
-
 		for(int i=0;i<listHref.size();i++) {
-			getDataEvent(driver,listHref.get(i),eventList);
+			getDataEvent(driver,listHref.get(i),eventList, lists);
 		}
-
 		driver.quit();
-		Gson gson = new Gson();
-		String json = gson.toJson(eventList);
 
-		FileWriter writer = new FileWriter("/event.json");
-		writer.write(json);
-		writer.close();
+
+		mapper = new ObjectMapper();
+		mapper.writeValue(new File("data\\event.json"), eventList);
 
 		for(int i = 0; i < eventList.size();i++) {
-			System.out.print((i+1) + ", ");
 			SuKienLichSu e = eventList.get(i);
+			System.out.print((i+1) + ", ");
 			System.out.println("Tên sự kiện: " + e.getTen());
 			System.out.println("Thời điểm bắt đầu: " + e.getNamBatDau());
 			System.out.println("Thời điểm kết thúc: " + e.getNamKetThuc());
+			if(e.getTrieuDai() != null) System.out.println("Triều đại: " + e.getTrieuDai().getTen());
 			System.out.println("Mô tả: " + e.getMoTa());
 			if(e.getDiaDiemLienQuan().size() != 0) {
 				System.out.print("Địa điểm liên quan: ");

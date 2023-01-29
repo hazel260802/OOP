@@ -7,6 +7,8 @@ public class LichSuCoTen implements Comparable<LichSuCoTen> {
 
     private String ten;
 
+    public LichSuCoTen() {
+    }
 
     public LichSuCoTen(String ten) {
         this.ten = ten;

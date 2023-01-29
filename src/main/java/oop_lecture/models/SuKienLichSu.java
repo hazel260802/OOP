@@ -2,10 +2,11 @@ package oop_lecture.models;
 
 import java.time.Year;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class SuKienLichSu extends LichSuCoTen {
-    private Year namBatDau, namKetThuc;
+    private Date namBatDau, namKetThuc;
     private String moTa;
 
     private TrieuDai trieuDai;
@@ -18,15 +19,13 @@ public class SuKienLichSu extends LichSuCoTen {
     private List<String> tenNhanVatLienQuan = new ArrayList<>();
 
 
-    
+
     public SuKienLichSu(String ten) {
 		super(ten);
 	}
 
-
-
-	public SuKienLichSu(String ten, Year namBatDau, Year namKetThuc, String moTa, TrieuDai trieuDai,
-			List<DiaDiem> diaDiemLienQuan, List<NhanVatLichSu> nhanVatLienQuan) {
+	public SuKienLichSu(String ten, Date namBatDau, Date namKetThuc, String moTa, TrieuDai trieuDai,
+						List<DiaDiem> diaDiemLienQuan, List<NhanVatLichSu> nhanVatLienQuan) {
 		super(ten);
 		this.namBatDau = namBatDau;
 		this.namKetThuc = namKetThuc;
@@ -38,11 +37,11 @@ public class SuKienLichSu extends LichSuCoTen {
 
 
 
-	public Year getNamBatDau() {
+	public Date getNamBatDau() {
 		return namBatDau;
 	}
 
-	public Year getNamKetThuc() {
+	public Date getNamKetThuc() {
 		return namKetThuc;
 	}
 
