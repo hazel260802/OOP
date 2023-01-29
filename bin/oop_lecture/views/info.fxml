@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="736.0" prefWidth="1003.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
+    <left>
+        <Pane fx:id="leftSideMenu" prefHeight="650.0" prefWidth="234.0" styleClass="leftSideMenu" stylesheets="@../path/stylesheet.css" BorderPane.alignment="CENTER">
+            <children>
+                <AnchorPane prefHeight="104.0" prefWidth="200.0">
+                    <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label styleClass="titleLogo" text="History Nerd">
+                                  <font>
+                                      <Font name="System Bold" size="24.0" />
+                                  </font>
+                              </Label>
+                              <Label styleClass="subTitleLogo" text="You'll learn everything from us" textFill="#3367d6">
+                                  <font>
+                                      <Font name="System Italic" size="14.0" />
+                                  </font>
+                              </Label>
+                     </children>
+                  </VBox>
+                    </children></AnchorPane>
+                <VBox layoutX="7.0" layoutY="241.0" prefHeight="323.0" prefWidth="200.0">
+                    <children>
+                        <Pane id="studentMenuItem" onMouseClicked="#home" prefHeight="56.0" prefWidth="200.0" styleClass="leftSideMenuItem">
+                            <children>
+                                <Pane layoutX="21.0" layoutY="16.0" prefHeight="29.0" prefWidth="32.0" styleClass="studentIcon" />
+                                <Label fx:id="homePage" layoutX="59.0" layoutY="16.0" styleClass="studentLabel" text="Home page">
+                                    <font>
+                                        <Font name="Oswald Regular" size="16.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane onMouseClicked="#page1" prefHeight="56.0" prefWidth="200.0" styleClass="leftSideMenuItem">
+                            <children>
+                                <Label layoutX="68.0" layoutY="16.0" text="Contents">
+                                    <font>
+                                        <Font name="Oswald Regular" size="16.0" />
+                                    </font>
+                                    <styleClass>
+                                        <String fx:value="lefSideMenuItem" />
+                                        <String fx:value="transactionLabel" />
+                                    </styleClass>
+                                </Label>
+                                <Pane layoutX="21.0" layoutY="19.0" prefHeight="29.0" prefWidth="32.0" styleClass="transactionIcon" />
+                            </children>
+                        </Pane>
+                        <Pane onMouseClicked="#page2" prefHeight="56.0" prefWidth="200.0" styleClass="leftSideMenuItem">
+                            <children>
+                                <Pane layoutX="21.0" layoutY="18.0" prefHeight="29.0" prefWidth="32.0" styleClass="donatorIcon" />
+                                <Label layoutX="49.0" layoutY="17.0" text="Current events">
+                                    <font>
+                                        <Font name="Oswald Regular" size="16.0" />
+                                    </font>
+                                    <styleClass>
+                                        <String fx:value="lefSideMenuItem" />
+                                        <String fx:value="donatorLabel" />
+                                    </styleClass>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <Pane onMouseClicked="#page3" prefHeight="56.0" prefWidth="200.0" styleClass="leftSideMenuItem">
+                            <children>
+                                <Label layoutX="63.0" layoutY="17.0" text="Contact us">
+                                    <font>
+                                        <Font name="Oswald Regular" size="16.0" />
+                                    </font>
+                                    <styleClass>
+                                        <String fx:value="lefSideMenuItem" />
+                                        <String fx:value="reportLabel" />
+                                    </styleClass>
+                                </Label>
+                                <Pane layoutX="21.0" layoutY="18.0" prefHeight="29.0" prefWidth="32.0" styleClass="reportIcon" />
+                            </children>
+                        </Pane>
+                        <Pane onMouseClicked="#page4" prefHeight="56.0" prefWidth="200.0" styleClass="leftSideMenuItem">
+                            <children>
+                                <Pane layoutX="21.0" layoutY="18.0" prefHeight="29.0" prefWidth="32.0" styleClass="adminIcon" />
+                                <Label layoutX="83.0" layoutY="17.0" text="Help">
+                                    <font>
+                                        <Font name="Oswald Regular" size="16.0" />
+                                    </font>
+                                    <styleClass>
+                                        <String fx:value="lefSideMenuItem" />
+                                        <String fx:value="adminLabel" />
+                                    </styleClass>
+                                </Label>
+                            </children>
+                        </Pane>
+                    </children>
+                </VBox>
+                <Label layoutX="27.0" layoutY="619.0" styleClass="teamName" text="IT-EP K65 team" textFill="#7d6fff">
+                    <font>
+                        <Font name="System Italic" size="12.0" />
+                    </font>
+                </Label>
+                <Label layoutX="27.0" layoutY="602.0" styleClass="proudlyDevelopedText" text="proudly developed by">
+                    <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                            <stops>
+                                <Stop>
+                                    <color>
+                                        <Color red="0.8421052694320679" green="0.8421052694320679" blue="0.8421052694320679" />
+                                    </color>
+                                </Stop>
+                                <Stop offset="1.0">
+                                    <color>
+                                        <Color red="1.0" green="1.0" blue="1.0" />
+                                    </color>
+                                </Stop>
+                            </stops>
+                        </LinearGradient>
+                    </textFill></Label>
+                <Line endX="12.0" layoutX="165.0" layoutY="629.0" startX="-57.556640625">
+                    <stroke>
+                        <LinearGradient endX="1.0" endY="1.0">
+                            <stops>
+                                <Stop>
+                                    <color>
+                                        <Color red="0.4429824650287628" green="0.6195175647735596" blue="0.9473684430122375" />
+                                    </color>
+                                </Stop>
+                                <Stop offset="1.0">
+                                    <color>
+                                        <Color red="0.20000000298023224" green="0.40392157435417175" blue="0.8392156958580017" />
+                                    </color>
+                                </Stop>
+                            </stops>
+                        </LinearGradient>
+                    </stroke>
+                </Line>
+            </children>
+        </Pane>
+    </left>
+   <center>
+      <VBox prefWidth="766.0" style="-fx-background-color: #FCF8E8;" styleClass="headerBox" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="labelName" prefHeight="54.0" prefWidth="67.0" styleClass="titleLogo" text="Name">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Line endX="665.0" startX="-100.0" />
+            <AnchorPane prefHeight="149.0" prefWidth="745.0">
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+               <children>
+                  <Label fx:id="subLabel1" prefHeight="49.0" prefWidth="766.0" text="Label">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="lefSideMenuItem" />
+                        <String fx:value="adminLabel" />
+                     </styleClass>
+                  </Label>
+                  <Line endX="761.0" endY="51.0" startX="-2.0" startY="51.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="167.0" prefWidth="766.0">
+               <children>
+                  <Label fx:id="subLabel2" prefHeight="49.0" prefWidth="766.0" text="Label">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="lefSideMenuItem" />
+                        <String fx:value="adminLabel" />
+                     </styleClass>
+                  </Label>
+                  <Line endX="761.0" endY="51.0" startX="-2.0" startY="51.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="167.0" prefWidth="766.0">
+               <children>
+                  <Label fx:id="subLabel3" prefHeight="49.0" prefWidth="766.0" text="Label">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="lefSideMenuItem" />
+                        <String fx:value="adminLabel" />
+                     </styleClass>
+                  </Label>
+                  <Line endX="761.0" endY="51.0" startX="-2.0" startY="51.0" />
+               </children>
+            </AnchorPane>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </VBox>
+   </center>
+    <top>
+        <VBox fx:id="header" prefHeight="22.0" prefWidth="600.0" styleClass="headerBox" stylesheets="@../path/stylesheet.css" BorderPane.alignment="CENTER">
+            <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                      <ToggleButtonGroup fx:id="btnHeader" prefHeight="88.0" prefWidth="1031.0" selectionType="SINGLE" styleClass="headerBox" stylesheets="@../path/stylesheet.css">
+                          <toggles>
+                              <ToggleButton fx:id="btnBack" contentDisplay="CENTER" minWidth="46.0" prefHeight="46.0" prefWidth="46.0" style="-fx-background-color: transparent;" styleClass="btnHeader" stylesheets="@../path/stylesheet.css">
+                                  <graphic>
+                              <AnchorPane prefHeight="32.0" prefWidth="22.0" styleClass="btnHeader" stylesheets="@../path/stylesheet.css">
+                                 <children>
+                                    <ImageView fitHeight="29.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" styleClass="btnHeader">
+                                       <image>
+                                          <Image url="@../img/turn-back.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                                  </graphic>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                              </ToggleButton>
+                              <ToggleButton blendMode="SRC_ATOP" minWidth="42.0" prefHeight="60.0" prefWidth="42.0" selected="true" style="-fx-background-color: transparent;" styleClass="btnHeader" stylesheets="@../path/stylesheet.css">
+                                  <graphic>
+                              <AnchorPane prefHeight="50.0" prefWidth="63.0" styleClass="btnHeader" stylesheets="@../path/stylesheet.css">
+                                 <children>
+                                    <ImageView fitHeight="28.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true" styleClass="btnHeader">
+                                       <image>
+                                          <Image url="@../img/loading.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                                  </graphic>
+                              </ToggleButton>
+                        <ToggleButton fx:id="btnBack1" contentDisplay="CENTER" minWidth="46.0" prefHeight="46.0" prefWidth="46.0" style="-fx-background-color: transparent;" styleClass="btnHeader" stylesheets="@../path/stylesheet.css">
+                           <graphic>
+                              <AnchorPane prefHeight="32.0" prefWidth="22.0" styleClass="btnHeader" stylesheets="@../path/stylesheet.css">
+                                 <children>
+                                    <ImageView fitHeight="29.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" styleClass="btnHeader">
+                                       <image>
+                                          <Image url="@../img/turn-back.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                           </graphic>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </ToggleButton>
+                          </toggles>
+                      </ToggleButtonGroup>
+                  <TextField fx:id="tfFilter" alignment="CENTER" prefHeight="26.0" prefWidth="412.0" styleClass="searchContainer" stylesheets="@../path/stylesheet.css">
+                     <HBox.margin>
+                        <Insets top="8.0" />
+                     </HBox.margin>
+                  </TextField>
+                        <ToggleButton style="-fx-background-color: transparent;" styleClass="btnHeader">
+                            <graphic>
+                        <AnchorPane style="-fx-background-color: transparent;" styleClass="btnHeader">
+                           <children>
+                              <ImageView fitHeight="28.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" styleClass="btnHeader" AnchorPane.topAnchor="0.0">
+                                 <image>
+                                    <Image url="@../img/search.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                            </graphic>
+                        </ToggleButton>
+               </children>
+            </HBox>
+            </children>
+        </VBox>
+    </top>
+</BorderPane>

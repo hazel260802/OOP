@@ -1,14 +1,16 @@
 package oop_lecture.get_data;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import oop_lecture.models.NhanVatLichSu;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -142,15 +144,15 @@ public class getNhanVatLichSu {
 	
 	
 
-	public static void main(String[] args) throws InterruptedException, ParseException {
+	public static void main(String[] args) throws InterruptedException, ParseException, IOException {
 			System.setProperty("testHref.java", "UTF-8");
 			List<String> listHref= new ArrayList<String>();
 			List<NhanVatLichSu> listNhanVat = new ArrayList<NhanVatLichSu>();
 			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-//		    WebDriver driver1 = new ChromeDriver();
-		    ChromeOptions options = new ChromeOptions();
-		    options.setHeadless(true);
-		    WebDriver driver1 = new ChromeDriver(options);
+		    WebDriver driver1 = new ChromeDriver();
+//		    ChromeOptions options = new ChromeOptions();
+//		    options.setHeadless(true);
+//		    WebDriver driver1 = new ChromeDriver(options);
 		    
 		   
 		    String url ="https://thuvienlichsu.com/nhan-vat";
@@ -161,6 +163,7 @@ public class getNhanVatLichSu {
 		    }
 	        // Thoát hẳn Browser
 	        driver1.quit();
+
 	        
 	        for(int i=0;i<listNhanVat.size();i++) { 
 	        	System.out.println("Nhan vat"+(i+1));
@@ -182,8 +185,12 @@ public class getNhanVatLichSu {
 			    		System.out.println(nv.getSuKienLichSu().get(i1));
 			    	} 
 		    	}
+
 		    	
 		    }
+		ObjectMapper mapper = new ObjectMapper();
+		//Object to JSON in file
+		mapper.writeValue(new File("data\\listNhanVat.json"), listNhanVat);
 			
 			
 	}
