@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import oop_lecture.models.LeHoiVanHoa;
@@ -24,6 +25,9 @@ public class LeHoiVanHoaController extends InfoScreenController {
 
     @FXML
     private void initialize() {
+        Label lName = new Label(base.getTen());
+        vbContent.getChildren().add(lName);
+
         Label subLabel1 = new Label("Cấp Độ");
         subLabel1.setPadding(new Insets(1,1,1,1));
         // content
@@ -38,21 +42,21 @@ public class LeHoiVanHoaController extends InfoScreenController {
         Label subLabel3 = new Label("Địa Điểm");
         subLabel3.setPadding(new Insets(1,1,1,1));
         // content
-        tmpText = new Text(base.getNoiDienRa().toString());
+        tmpText = new Text(base.getNoiDienRa() == null ? "Hiện chưa rõ nơi diễn ra" : base.getNoiDienRa().toString());
         tmpTextFlow = new TextFlow(tmpText);
         vbContent.getChildren().addAll(subLabel3, tmpTextFlow);
 
         Label subLabel4 = new Label("Thời Điểm Tổ Chức");
         subLabel4.setPadding(new Insets(1,1,1,1));
         // content
-        tmpText = new Text(base.getThoiDiemToChuc().toString());
+        tmpText = new Text(base.getThoiDiemToChuc() == null ? "Hiện không rõ thời điểm tổ chức" : base.getThoiDiemToChuc().toString());
         tmpTextFlow = new TextFlow(tmpText);
         vbContent.getChildren().addAll(subLabel4, tmpTextFlow);
 
-        Label subLabel5 = new Label("Sự Kiện Lịch Sử ");
-        subLabel5.setPadding(new Insets(1,1,1,1));
-        // TODO not found
-        vbContent.getChildren().addAll(subLabel5);
+//        Label subLabel5 = new Label("Sự Kiện Lịch Sử ");
+//        subLabel5.setPadding(new Insets(1,1,1,1));
+//        //
+//        vbContent.getChildren().addAll(subLabel5);
 
         Label subLabel6 = new Label("Lần Đầu Tổ Chức");
         subLabel6.setPadding(new Insets(1,1,1,1));
@@ -61,9 +65,6 @@ public class LeHoiVanHoaController extends InfoScreenController {
         tmpTextFlow = new TextFlow(tmpText);
         vbContent.getChildren().addAll(subLabel6, tmpTextFlow);
 
-        Label subLabel7 = new Label("Nhân Vật Liên Quan");
-        subLabel7.setPadding(new Insets(1,1,1,1));
-        // content
         TableView<NhanVatLichSu> tvNVLQ = new TableView<>(FXCollections.observableList(base.getNhanVatLienQuan()));
         // index column
         TableColumn<NhanVatLichSu, Integer> tcIndex = new TableColumn<>();
@@ -79,6 +80,6 @@ public class LeHoiVanHoaController extends InfoScreenController {
         tvNVLQ.setPlaceholder(new Label("Lễ hội không liên quan đến danh nhân nào"));
         // set double click on row
         tvNVLQ.setRowFactory(new DoubleClickCallBack<>());
-        vbContent.getChildren().addAll(subLabel7, tvNVLQ);
+        vbContent.getChildren().addAll(tvNVLQ);
     }
 }

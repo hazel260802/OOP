@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import oop_lecture.models.DiaDiem;
+import oop_lecture.models.LeHoiVanHoa;
+import oop_lecture.models.NhanVatLichSu;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,7 +17,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class CaoDuLieuLeHoiVanHoa {
 
 	public static void main(String[] args) throws InterruptedException {
-		List<LeHoiVanHoa> listleHoi = new ArrayList<>();		
+		List<LeHoiVanHoa> listleHoi = new ArrayList<>();
 		
 		System.setProperty("webdriver.chrome.driver", "/Users/buudinhha/Downloads/chromedriver");
 		
@@ -63,7 +66,8 @@ public class CaoDuLieuLeHoiVanHoa {
 					place = null;
 				}
                 else {
-					place = new DiaDiem(placeString);
+					place = new DiaDiem();
+					place.ten = placeString;
 				}
                 
             } catch (Exception e) {
@@ -132,8 +136,8 @@ public class CaoDuLieuLeHoiVanHoa {
         	System.out.println(e.getNoiDienRa());
         	System.out.println(e.getThoiDiemToChuc());
         	System.out.println(e.getLanDauToChuc());
-        	for (String eString : e.getTenNhanVatLienQuan()) {
-        		System.out.println(eString);
+        	for (NhanVatLichSu eString : e.getNhanVatLienQuan()) {
+        		System.out.println(eString.getTen());
         	}
         	System.out.println("\n");
         	i++;

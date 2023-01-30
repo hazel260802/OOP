@@ -8,14 +8,14 @@ public class LeHoiVanHoa extends LichSuCoTen {
     private String capDo;
     private boolean laDiSanQuocGia;
     private DiaDiem noiDienRa;
-    private LocalDate thoiDiemToChuc;
+    private Date thoiDiemToChuc;
     private String lanDauToChuc;
 
     private List<NhanVatLichSu> nhanVatLienQuan = new ArrayList<>();
     private List<String> tenNhanVatLienQuan = new ArrayList<>();
 
 
-    public LeHoiVanHoa(String ten, String capDo, boolean laDiSanQuocGia, DiaDiem noiDienRa, LocalDate thoiDiemToChuc,String lanDauToChuc, List<String> tenNhanVatLienQuan) {
+    public LeHoiVanHoa(String ten, String capDo, boolean laDiSanQuocGia, DiaDiem noiDienRa, Date thoiDiemToChuc,String lanDauToChuc, List<String> tenNhanVatLienQuan) {
 		super(ten);
 		this.capDo = capDo;
 		this.laDiSanQuocGia = laDiSanQuocGia;
@@ -38,7 +38,7 @@ public class LeHoiVanHoa extends LichSuCoTen {
 		return noiDienRa;
 	}
 
-	public LocalDate getThoiDiemToChuc() {
+	public Date getThoiDiemToChuc() {
 		return thoiDiemToChuc;
 	}
 

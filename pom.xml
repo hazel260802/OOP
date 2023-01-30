@@ -103,6 +103,19 @@
             <artifactId>util</artifactId>
             <version>4.0.16</version>
         </dependency>
+
+        <!-- selenium -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.8.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-chrome-driver</artifactId>
+            <version>4.8.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>

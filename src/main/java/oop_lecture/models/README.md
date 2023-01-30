@@ -1,1 +1,0 @@
-Only data providing classes is accepted in this package
