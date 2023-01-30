@@ -1,11 +1,10 @@
-package oop;
+package oop_lecture.models;
 
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TrieuDai extends LichSuCoTen {
-    private QuocHieu quocHieu;
     private Year batDau, ketThuc;
     private String kinhDo;
 
@@ -27,10 +26,6 @@ public class TrieuDai extends LichSuCoTen {
     
     public void setKinhDo(String kinhDo) {
     	this.kinhDo = kinhDo;
-    }
-
-    public String getQuocHieu() {
-        return quocHieu.getQuocHieu();
     }
 
     public Year getBatDau() {

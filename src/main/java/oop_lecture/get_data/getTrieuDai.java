@@ -1,6 +1,6 @@
-package oop;
+package oop_lecture.get_data;
 
-import TestBasic.TrieuDai;
+import oop_lecture.models.TrieuDai;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;

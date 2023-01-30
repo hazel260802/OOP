@@ -2,8 +2,8 @@ package oop_lecture.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import TestBasic.LichSuCoTen;
-import oop.DiaDiem;
+import oop_lecture.models.LichSuCoTen;
+import oop_lecture.models.DiaDiem;
 import oop_lecture.utility.SortedSetByName;
 
 import java.util.ArrayList;
