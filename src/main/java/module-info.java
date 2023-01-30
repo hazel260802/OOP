@@ -5,14 +5,19 @@ module oop_lecture {
 
 	requires java.desktop;
     requires com.gluonhq.charm.glisten;
-    requires selenium.api;
-    requires selenium.chrome.driver;
+	requires org.seleniumhq.selenium.api;
+	requires org.seleniumhq.selenium.chrome_driver;
 
 
-    // opens oop_lecture to javafx.fxml;
-    exports oop_lecture.application;
+	exports oop_lecture.application;
     opens oop_lecture.application;
 
     exports oop_lecture.controllers;
     opens oop_lecture.controllers;
+
+    exports oop_lecture.models;
+    opens oop_lecture.models;
+
+    exports oop_lecture.utility;
+    opens oop_lecture.utility;
 }

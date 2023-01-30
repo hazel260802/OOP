@@ -16,8 +16,14 @@ public class TrieuDai extends LichSuCoTen {
     private List<String> tenSuKien = new ArrayList<>();
 
 
-    public TrieuDai(String name) {
-        super(name);
+    public TrieuDai(String ten, String quocHieu, LocalDate batDau, LocalDate ketThuc, DiaDiem thuDo, List<String> tenHoangDe, List<String> tenSuKien) {
+        super(ten);
+        this.quocHieu = quocHieu;
+        this.batDau = batDau;
+        this.ketThuc = ketThuc;
+        this.thuDo = thuDo;
+        this.tenHoangDe = tenHoangDe;
+        this.tenSuKien = tenSuKien;
     }
 
     public String getQuocHieu() {

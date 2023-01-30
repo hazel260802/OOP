@@ -19,6 +19,9 @@ hs_err_pid*
 *.iml
 *.iws
 
+# VSCode
+.vscode
+
 # Mac
 .DS_Store
 
@@ -36,6 +39,5 @@ build/
 /bin1/
 java/build/**
 
-# Don't add try classes
-[tT]ry*
-
+# Don't add to_do classes
+todo.txt

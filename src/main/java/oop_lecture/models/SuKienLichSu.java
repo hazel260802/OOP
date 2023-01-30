@@ -20,8 +20,7 @@ public class SuKienLichSu extends LichSuCoTen {
     private List<String> tenNhanVatLienQuan = new ArrayList<>();
 
 
-	public SuKienLichSu(String ten, Year namBatDau, Year namKetThuc, String moTa, String tenTrieuDai,
-			List<String> tenDiaDiemLienQuan, List<String> tenNhanVatLienQuan) {
+	public SuKienLichSu(String ten, Year namBatDau, Year namKetThuc, String moTa, String tenTrieuDai, List<String> tenDiaDiemLienQuan, List<String> tenNhanVatLienQuan) {
 		super(ten);
 		this.namBatDau = namBatDau;
 		this.namKetThuc = namKetThuc;
@@ -30,8 +29,6 @@ public class SuKienLichSu extends LichSuCoTen {
 		this.tenDiaDiemLienQuan = tenDiaDiemLienQuan;
 		this.tenNhanVatLienQuan = tenNhanVatLienQuan;
 	}
-
-
 
 	public Year getNamBatDau() {
 		return namBatDau;
