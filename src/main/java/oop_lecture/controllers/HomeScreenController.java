@@ -1,75 +1,93 @@
 package oop_lecture.controllers;
 
-import com.gluonhq.charm.glisten.control.Icon;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import oop_lecture.application.MainApplication;
+import oop_lecture.models.LichSuCoTen;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 
 public class HomeScreenController {
+	@FXML
+	private TextField tfFilter;
 
-    @FXML
-    private Icon btnBack;
+	@FXML
+	private TableColumn<String, String> colContact;
 
-    @FXML
-    private Icon btnForward;
+	@FXML
+	private TableColumn<String, String> colProduct;
 
-    @FXML
-    private Icon btnReload;
+	@FXML
+	private TableColumn<String, String> colProject;
 
-    @FXML
-    private Icon btnSearch;
+	@FXML
+	private TableColumn<String, String> colSource;
 
-    @FXML
-    private TableView<String> tblFooter;
+	@FXML
+	private void initialize() {
 
-    @FXML
-    private TextField tfFilter;
+		colProject.setCellValueFactory(
+				new PropertyValueFactory<String, String>("Project"));
+		colProduct.setCellValueFactory(
+				new PropertyValueFactory<String, String>("Product"));
+		colSource.setCellValueFactory(
+				new PropertyValueFactory<String, String>("Source"));
+		colContact.setCellValueFactory(
+				new PropertyValueFactory<String, String>("Contact"));
+	}
+	@FXML
+	void btnBackPressed() {
+		// TODO make this button blur when not has previous
+		if (MainApplication.scenes.hasPrev()) {
+			MainApplication.mainStage.setScene(MainApplication.scenes.prev());
+		}
+	}
 
-    @FXML
-    private TableColumn<String, String> colContact;
+	@FXML
+	void btnFwdPressed() {
+		// TODO make this button blur when not has previous
+		if (MainApplication.scenes.hasNext()) {
+			MainApplication.mainStage.setScene(MainApplication.scenes.next());
+		}
+	}
 
-    @FXML
-    private TableColumn<String, String> colProduct;
+	@FXML
+	void btnReloadPressed() {
+		// TODO: 18/01/2023 read from json
+	}
 
-    @FXML
-    private TableColumn<String, String> colProject;
+	@FXML
+	void btnSearchPressed() {
+		String strFilter = tfFilter.getText();
 
-    @FXML
-    private TableColumn<String, String> colSource;
+		List<LichSuCoTen> searchRes = new ArrayList<>();
 
-    @FXML
-    private void initialize() {
+		searchRes.addAll(MainApplication.ssDiaDiemLichSu.search(strFilter));
+		searchRes.addAll(MainApplication.ssLeHoiVanHoa.search(strFilter));
+		searchRes.addAll(MainApplication.ssNhanVatLichSu.search(strFilter));
+		searchRes.addAll(MainApplication.ssTrieuDai.search(strFilter));
+		searchRes.addAll(MainApplication.ssSuKienLichSu.search(strFilter));
 
-        colProject.setCellValueFactory(
-                new PropertyValueFactory<String, String>("Project"));
-        colProduct.setCellValueFactory(
-                new PropertyValueFactory<String, String>("Product"));
-        colSource.setCellValueFactory(
-                new PropertyValueFactory<String, String>("Source"));
-        colContact.setCellValueFactory(
-                new PropertyValueFactory<String, String>("Contact"));
-    }
-    @FXML
-    void btnBackPressed(MouseEvent event) {
+		FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/oop_lecture/views/info.fxml"));
+		fxmlLoader.setController(new KetQuaTimKiemController(searchRes));
 
-    }
-
-    @FXML
-    void btnFwdPressed(MouseEvent event) {
-
-    }
-
-    @FXML
-    void btnReloadPressed(MouseEvent event) {
-
-    }
-
-    @FXML
-    void btnSearchPressed(MouseEvent event) {
-
-    }
+		Scene scene;
+		try {
+			scene = new Scene(fxmlLoader.load());
+			scene.getStylesheets().add(Objects.requireNonNull(MainApplication.class.getResource("/oop_lecture/styles/stylesheet.css")).toExternalForm());
+			MainApplication.mainStage.setScene(scene);
+			MainApplication.scenes.add(scene);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }

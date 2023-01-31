@@ -1,49 +1,56 @@
 package oop_lecture.models;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class NhanVatLichSu extends LichSuCoTen {
-    private List<String> achievements = new ArrayList<>();
-    private LocalDate ngaySinh, ngayMat;
+	private String moTaChung;
+	private Date ngaySinh, ngayMat;
 
-    private TrieuDai trieuDai;
-    private String tenTrieuDai;
+	private List<String> tenSuKienLichSu = new ArrayList<>();
+	private List<SuKienLichSu> suKienLichSu = new ArrayList<>();
 
-    private List<NhanVatLichSu> nhanVatLienQuan = new ArrayList<>();
-    private List<String> tenNhanVatLienQuan = new ArrayList<>();
+	private TrieuDai trieuDai;
+	private String tenTrieuDai;
 
-
-    public NhanVatLichSu(String ten, List<String> achievements, LocalDate ngaySinh, LocalDate ngayMat, String tenTrieuDai, List<String> tenNhanVatLienQuan) {
-        super(ten);
-        this.achievements = achievements;
-        this.ngaySinh = ngaySinh;
-        this.ngayMat = ngayMat;
-        this.tenTrieuDai = tenTrieuDai;
-        this.tenNhanVatLienQuan = tenNhanVatLienQuan;
-    }
-
-    public List<String> getAchievements() {
-        return achievements;
-    }
-
-    public LocalDate getNgaySinh() {
-        return ngaySinh;
-    }
-
-    public LocalDate getNgayMat() {
-        return ngayMat;
-    }
-
-    public TrieuDai getTrieuDai() {
-        return trieuDai;
-    }
-
-    public List<NhanVatLichSu> getNhanVatLienQuan() {
-        return nhanVatLienQuan;
-    }
+	private List<NhanVatLichSu> nhanVatLienQuan = new ArrayList<>();
+	private List<String> tenNhanVatLienQuan = new ArrayList<>();
 
 
-    // TODO link(allTrieuDai, allNhanVatLichSu)
+	public NhanVatLichSu(String ten, List<String> tenSuKienLichSu, Date ngaySinh, Date ngayMat, String tenTrieuDai, List<String> tenNhanVatLienQuan) {
+		super(ten);
+		this.tenSuKienLichSu = tenSuKienLichSu;
+		this.ngaySinh = ngaySinh;
+		this.ngayMat = ngayMat;
+		this.tenTrieuDai = tenTrieuDai;
+		this.tenNhanVatLienQuan = tenNhanVatLienQuan;
+	}
+
+
+	public String getMoTaChung() {
+		return moTaChung;
+	}
+
+	public Date getNgaySinh() {
+		return ngaySinh;
+	}
+
+	public Date getNgayMat() {
+		return ngayMat;
+	}
+
+	public TrieuDai getTrieuDai() {
+		return trieuDai;
+	}
+
+	public List<NhanVatLichSu> getNhanVatLienQuan() {
+		return nhanVatLienQuan;
+	}
+
+	public List<SuKienLichSu> getSuKienLichSu() {
+		return suKienLichSu;
+	}
+
+	// TODO link(allTrieuDai, allNhanVatLichSu)
 }

@@ -3,9 +3,9 @@ package oop_lecture.models;
 import java.util.Comparator;
 
 public abstract class LichSuCoTen implements Comparable<LichSuCoTen> {
-    public static Comparator<LichSuCoTen> COMPARE_BY_NAME = (t0, t1) -> Comparator.comparing(LichSuCoTen::getTen).compare(t0,t1);
+    public static final Comparator<LichSuCoTen> COMPARE_BY_NAME = (t0, t1) -> Comparator.comparing(LichSuCoTen::getTen, String.CASE_INSENSITIVE_ORDER).compare(t0,t1);
 
-    private String ten;
+    private final String ten;
 
 
     public LichSuCoTen(String ten) {
@@ -15,6 +15,27 @@ public abstract class LichSuCoTen implements Comparable<LichSuCoTen> {
 
     public String getTen() {
         return this.ten;
+    }
+
+
+    /**
+     * kiểm tra object này có tên chứa chuỗi ký tự 
+     * @param subString : chuỗi con
+     * @return true : tên object này có chứa chuỗi con 
+     */
+    public boolean like(String subString) {
+        if(getTen() == null || subString == null || subString.trim().isEmpty()) return false;
+
+        final int length = subString.length();
+        if (length == 0)
+            return true;
+
+        for (int i = getTen().length() - length; i >= 0; i--) {
+            if (getTen().regionMatches(true, i, subString, 0, length))
+                return true;
+        }
+
+        return false;
     }
 
     @Override
