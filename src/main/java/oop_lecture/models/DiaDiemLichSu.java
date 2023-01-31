@@ -47,12 +47,13 @@ public class DiaDiemLichSu extends LichSuCoTen {
 
 
 	/**
-	 * Link this DDLS with other by their names
+	 * Tìm và liên kết với các object ở mảng khác
 	 */
 	public void link(SortedSetByName<SuKienLichSu> allSKLS) {
 		for (var tenSK : tenSuKienLichSu) {
 			var x = allSKLS.find(tenSK);
 			if (x != null) suKienLichSu.add(x);
+			else suKienLichSu.add(new SuKienLichSu(tenSK,null,null,null,null,null,null));
 		}
 	}
 }

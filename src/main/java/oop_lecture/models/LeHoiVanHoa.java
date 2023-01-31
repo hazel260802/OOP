@@ -12,7 +12,7 @@ public class LeHoiVanHoa extends LichSuCoTen {
     private String lanDauToChuc;
 
     private List<NhanVatLichSu> nhanVatLienQuan = new ArrayList<>();
-    private List<String> tenNhanVatLienQuan = new ArrayList<>();
+    private List<String> tenNhanVatLienQuan;
 
 
     public LeHoiVanHoa(String ten, String capDo, boolean laDiSanQuocGia, DiaDiem noiDienRa, Date thoiDiemToChuc,String lanDauToChuc, List<String> tenNhanVatLienQuan) {
