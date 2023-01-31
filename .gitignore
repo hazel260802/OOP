@@ -19,9 +19,6 @@ hs_err_pid*
 *.iml
 *.iws
 
-# VSCode
-.vscode
-
 # Mac
 .DS_Store
 
@@ -41,3 +38,8 @@ java/build/**
 
 # Don't add to_do
 todo.txt
+
+# jfx output
+**/production/
+**/out/
+

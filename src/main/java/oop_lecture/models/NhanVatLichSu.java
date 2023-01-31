@@ -1,12 +1,13 @@
 package oop_lecture.models;
 
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class NhanVatLichSu extends LichSuCoTen {
 	private String moTaChung;
-	private Date ngaySinh, ngayMat;
+	private Year ngaySinh, ngayMat;
 
 	private List<String> tenSuKienLichSu = new ArrayList<>();
 	private List<SuKienLichSu> suKienLichSu = new ArrayList<>();
@@ -18,8 +19,9 @@ public class NhanVatLichSu extends LichSuCoTen {
 	private List<String> tenNhanVatLienQuan = new ArrayList<>();
 
 
-	public NhanVatLichSu(String ten, List<String> tenSuKienLichSu, Date ngaySinh, Date ngayMat, String tenTrieuDai, List<String> tenNhanVatLienQuan) {
+	public NhanVatLichSu(String ten, List<String> tebSuKienLichSu, Year ngaySinh, Year ngayMat, String tenTrieuDai, String moTaChung, List<String> tenNhanVatLienQuan) {
 		super(ten);
+		this.moTaChung=moTaChung;
 		this.tenSuKienLichSu = tenSuKienLichSu;
 		this.ngaySinh = ngaySinh;
 		this.ngayMat = ngayMat;
@@ -28,15 +30,16 @@ public class NhanVatLichSu extends LichSuCoTen {
 	}
 
 
+
 	public String getMoTaChung() {
 		return moTaChung;
 	}
 
-	public Date getNgaySinh() {
+	public Year getNgaySinh() {
 		return ngaySinh;
 	}
 
-	public Date getNgayMat() {
+	public Year getNgayMat() {
 		return ngayMat;
 	}
 
