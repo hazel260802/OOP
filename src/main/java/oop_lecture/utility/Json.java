@@ -1,5 +1,6 @@
 package oop_lecture.utility;
 
+import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -321,6 +322,30 @@ public class Json {
 		));
 		// endregion
 
+		// region SSBN
+		om.registerModule(new SimpleModule().addSerializer(
+				SortedSetByName.class,
+				new StdSerializer<>(SortedSetByName.class) {
+					@Override
+					public void serialize(SortedSetByName sortedSetByName, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
+						jsonGenerator.writeStartObject();
+						for (var x : sortedSetByName) {
+							jsonGenerator.writeObject(x);
+						}
+						jsonGenerator.writeEndObject();
+					}
+				})
+		);
+		om.registerModule(new SimpleModule().addDeserializer(
+				SortedSetByName.class,
+				new StdDeserializer<>(SortedSetByName.class) {
+					@Override
+					public SortedSetByName deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JacksonException {
+						JsonNode jn = jsonParser.getCodec().readTree(jsonParser);
+						return om.treeToValue(jn, SortedSetByName.class);
+					}
+				})
+		);
 
         return om;
     }
