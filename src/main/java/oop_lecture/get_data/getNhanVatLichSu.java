@@ -3,18 +3,19 @@ package oop_lecture.get_data;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import oop_lecture.models.NhanVatLichSu;
+import oop_lecture.utility.SortedSetByName;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.Year;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 //import com.fasterxml.jackson.core.JsonProcessingException;
@@ -51,7 +52,7 @@ public class getNhanVatLichSu {
 		}
 	}
 	
-	public static void GetThongTinNVLSThuVienLS(WebDriver driver,String href,List<NhanVatLichSu> listNhanVat) throws ParseException {
+	public static void GetThongTinNVLSThuVienLS(WebDriver driver,String href,SortedSetByName<NhanVatLichSu> listNhanVat) throws ParseException {
 		driver.navigate().to(href);
 		
 		
@@ -59,8 +60,8 @@ public class getNhanVatLichSu {
    	  
 	       String TenVaNamSinhNamMat = elementTenVaNamSinhNamMat.getText().trim();
 	       String tenDayDu ;
-	       Date namSinh=null;
-	       Date namMat = null ;
+	       Year namSinh=null;
+		Year namMat = null ;
 	       List<String> listNhanVatLienQuanTamThoi = new ArrayList<String>();
 			List<String> listSuKienTamThoi = new ArrayList<String>();
 //	        	  
@@ -74,7 +75,7 @@ public class getNhanVatLichSu {
 	            	  if(namSinhTamThoi[0].trim().equals("?")) {
 	            		  namSinh=null;
 	            	  }else {
-	            		  namSinh = new SimpleDateFormat("yyyy").parse(namSinhTamThoi[0].trim());  
+	            		  namSinh = Year.parse(namSinhTamThoi[0].trim());
 	            	  }
 	          
 	            	  //Nam Mat Nhan vat 
@@ -83,7 +84,7 @@ public class getNhanVatLichSu {
 	            	  if(namMatTamThoi[0].trim().equals("?")) {
 	            		  namMat=null;
 	            	  }else {
-	            		  namMat = new SimpleDateFormat("yyyy").parse(namMatTamThoi[0].trim());  
+	            		  namMat = Year.parse(namMatTamThoi[0].trim());
 	            	  }
 	            	  };
 	            	  
@@ -147,51 +148,28 @@ public class getNhanVatLichSu {
 	public static void main(String[] args) throws InterruptedException, ParseException, IOException {
 			System.setProperty("testHref.java", "UTF-8");
 			List<String> listHref= new ArrayList<String>();
-			List<NhanVatLichSu> listNhanVat = new ArrayList<NhanVatLichSu>();
+			SortedSetByName<NhanVatLichSu> listNhanVat = new SortedSetByName<NhanVatLichSu>();
 			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-		    WebDriver driver1 = new ChromeDriver();
-//		    ChromeOptions options = new ChromeOptions();
-//		    options.setHeadless(true);
-//		    WebDriver driver1 = new ChromeDriver(options);
+//		    WebDriver driver1 = new ChromeDriver();
+		    ChromeOptions options = new ChromeOptions();
+		    options.setHeadless(true);
+		    WebDriver driver1 = new ChromeDriver(options);
 		    
 		   
 		    String url ="https://thuvienlichsu.com/nhan-vat";
 		    
 		    getHrefNThuVienLS(driver1,url,listHref);
-		    for(int i=0;i<listHref.size();i++) {    	
+		    for(int i=0;i<listHref.size();i++) {
 		    	GetThongTinNVLSThuVienLS(driver1,listHref.get(i),listNhanVat);
 		    }
 	        // Thoát hẳn Browser
 	        driver1.quit();
-
-	        
-	        for(int i=0;i<listNhanVat.size();i++) { 
-	        	System.out.println("Nhan vat"+(i+1));
-		    	NhanVatLichSu nv = listNhanVat.get(i);
-		    	System.out.println(nv.getTen());
-		    	System.out.println(nv.getNgaySinh());
-		    	System.out.println(nv.getNgayMat());
-		    	System.out.println("Mo ta chung");
-		    	System.out.println(nv.getMoTaChung());
-		    	System.out.println("Nhan vat lien quan");
-		    	if(nv.getTenNhanVatLienQuan()!=null) {
-		    		for(int i2=0;i2<nv.getTenNhanVatLienQuan().size();i2++) {    
-		    		System.out.println(nv.getTenNhanVatLienQuan().get(i2));
-		    		} 
-		    	}
-		    	System.out.println("Su kien lien quan");
-		    	if(nv.getSuKienLichSu() != null) {
-			    	for(int i1=0;i1<nv.getSuKienLichSu().size();i1++) {    
-			    		System.out.println(nv.getSuKienLichSu().get(i1));
-			    	} 
-		    	}
-
-		    	
-		    }
+//		    }
 		ObjectMapper mapper = new ObjectMapper();
+		mapper.findAndRegisterModules();
 		//Object to JSON in file
 		mapper.writeValue(new File("data\\listNhanVat.json"), listNhanVat);
-			
+//
 			
 	}
 	
