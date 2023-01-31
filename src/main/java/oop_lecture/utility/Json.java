@@ -222,7 +222,7 @@ public class Json {
 						// viết d.s json
 						jsonGenerator.writeArrayFieldStart("diaDiemLienQuan");
 						for (var sk : o.getDiaDiemLienQuan()) {
-							jsonGenerator.writeString(sk.getTen());
+							jsonGenerator.writeObject(sk.ten);
 						}
 						jsonGenerator.writeEndArray();
 
