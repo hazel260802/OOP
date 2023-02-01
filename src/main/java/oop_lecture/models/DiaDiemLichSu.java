@@ -53,7 +53,7 @@ public class DiaDiemLichSu extends LichSuCoTen {
 		for (var tenSK : tenSuKienLichSu) {
 			var x = allSKLS.find(tenSK);
 			if (x != null) suKienLichSu.add(x);
-			else suKienLichSu.add(new SuKienLichSu(tenSK,null,null,null,null,null,null));
+			else suKienLichSu.add(new SuKienLichSu(tenSK,null,null,null,null,null));
 		}
 	}
 }

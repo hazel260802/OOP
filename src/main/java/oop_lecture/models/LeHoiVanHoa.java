@@ -1,5 +1,7 @@
 package oop_lecture.models;
 
+import oop_lecture.utility.SortedSetByName;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -49,5 +51,12 @@ public class LeHoiVanHoa extends LichSuCoTen {
 	public List<NhanVatLichSu> getNhanVatLienQuan() {
 		return nhanVatLienQuan;
 	}
-	
+
+	public void link(SortedSetByName<NhanVatLichSu> allNVLS) {
+		for (var tenNV : tenNhanVatLienQuan) {
+			var x = allNVLS.find(tenNV);
+			if (x != null) nhanVatLienQuan.add(x);
+			else nhanVatLienQuan.add(new NhanVatLichSu(tenNV,null,null,null,null,null,null));
+		}
+	}
 }

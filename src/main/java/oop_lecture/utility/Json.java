@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import oop_lecture.models.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Year;
@@ -18,12 +19,13 @@ import java.util.Date;
 import java.util.List;
 
 public class Json {
-    private static final ObjectMapper om = getDefaultObjectMapper();
+	private static final ObjectMapper om = getDefaultObjectMapper();
 
-    private static ObjectMapper getDefaultObjectMapper() {
-        ObjectMapper om = new ObjectMapper();
-        om.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        // region định nghĩa Json DD
+	private static ObjectMapper getDefaultObjectMapper() {
+		ObjectMapper om = new ObjectMapper();
+		om.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		om.findAndRegisterModules();
+		// region định nghĩa Json DD
 		om.registerModule(new SimpleModule().addSerializer(
 				DiaDiem.class,
 				new StdSerializer<>(DiaDiem.class) {
@@ -99,9 +101,9 @@ public class Json {
 						);
 					}
 				}
-				));
+		));
 		// endregion
-		
+
 		om.registerModule(new SimpleModule().addSerializer(
 				LeHoiVanHoa.class,
 				new StdSerializer<>(LeHoiVanHoa.class) {
@@ -161,7 +163,7 @@ public class Json {
 						jsonGenerator.writeStartObject();
 						jsonGenerator.writeStringField("ten", o.getTen());
 						jsonGenerator.writeObjectField("ngaySinh", o.getNgaySinh());
-						jsonGenerator.writeObjectField("ngaySinh", o.getNgayMat());
+						jsonGenerator.writeObjectField("ngayMat", o.getNgayMat());
 						jsonGenerator.writeStringField("moTaChung", o.getMoTaChung());
 						// viết d.s json
 						jsonGenerator.writeArrayFieldStart("nhanVatLienQuan");
@@ -322,44 +324,47 @@ public class Json {
 		));
 		// endregion
 
-		// region SSBN
-		om.registerModule(new SimpleModule().addSerializer(
-				SortedSetByName.class,
-				new StdSerializer<>(SortedSetByName.class) {
-					@Override
-					public void serialize(SortedSetByName sortedSetByName, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
-						jsonGenerator.writeStartObject();
-						for (var x : sortedSetByName) {
-							jsonGenerator.writeObject(x);
-						}
-						jsonGenerator.writeEndObject();
-					}
-				})
-		);
-		om.registerModule(new SimpleModule().addDeserializer(
-				SortedSetByName.class,
-				new StdDeserializer<>(SortedSetByName.class) {
-					@Override
-					public SortedSetByName deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JacksonException {
-						JsonNode jn = jsonParser.getCodec().readTree(jsonParser);
-						return om.treeToValue(jn, SortedSetByName.class);
-					}
-				})
-		);
+//		// region SSBN
+//		om.registerModule(new SimpleModule().addSerializer(
+//				SortedSetByName.class,
+//				new StdSerializer<>(SortedSetByName.class) {
+//					@Override
+//					public void serialize(SortedSetByName sortedSetByName, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
+//						jsonGenerator.writeStartObject();
+//						for (var x : sortedSetByName) {
+//							jsonGenerator.writeObject(x);
+//						}
+//						jsonGenerator.writeEndObject();
+//					}
+//				})
+//		);
+//		om.registerModule(new SimpleModule().addDeserializer(
+//				SortedSetByName.class,
+//				new StdDeserializer<>(SortedSetByName.class) {
+//					@Override
+//					public SortedSetByName deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JacksonException {
+//						JsonNode jn = jsonParser.getCodec().readTree(jsonParser);
+//						return om.treeToValue(jn, SortedSetByName.class);
+//					}
+//				})
+//		);
 
-        return om;
-    }
+		return om;
+	}
 
-    public static JsonNode parse(String string) throws IOException {
-        return om.readTree(string);
-    }
+	public static JsonNode parse(String string) throws IOException {
+		return om.readTree(string);
+	}
 
-    public static <A> A fromJson(JsonNode node, Class<A> classA) throws JsonProcessingException {
-        return om.treeToValue(node, classA);
-    }
+	public static <A> A fromJson(JsonNode node, Class<A> classA) throws JsonProcessingException {
+		return om.treeToValue(node, classA);
+	}
 
-    public static JsonNode toJson(Object o) {
-        return om.valueToTree(o);
-    }
+	public static JsonNode toJson(Object o) {
+		return om.valueToTree(o);
+	}
+	public static void toFile (File file, Object o) throws IOException {
+		om.writeValue(file, o);
+	}
 
 }
