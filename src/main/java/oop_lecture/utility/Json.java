@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import oop_lecture.models.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Year;
@@ -162,7 +163,7 @@ public class Json {
 						jsonGenerator.writeStartObject();
 						jsonGenerator.writeStringField("ten", o.getTen());
 						jsonGenerator.writeObjectField("ngaySinh", o.getNgaySinh());
-						jsonGenerator.writeObjectField("ngaySinh", o.getNgayMat());
+						jsonGenerator.writeObjectField("ngayMat", o.getNgayMat());
 						jsonGenerator.writeStringField("moTaChung", o.getMoTaChung());
 						// viết d.s json
 						jsonGenerator.writeArrayFieldStart("nhanVatLienQuan");
@@ -323,30 +324,30 @@ public class Json {
 		));
 		// endregion
 
-		// region SSBN
-		om.registerModule(new SimpleModule().addSerializer(
-				SortedSetByName.class,
-				new StdSerializer<>(SortedSetByName.class) {
-					@Override
-					public void serialize(SortedSetByName sortedSetByName, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
-						jsonGenerator.writeStartObject();
-						for (var x : sortedSetByName) {
-							jsonGenerator.writeObject(x);
-						}
-						jsonGenerator.writeEndObject();
-					}
-				})
-		);
-		om.registerModule(new SimpleModule().addDeserializer(
-				SortedSetByName.class,
-				new StdDeserializer<>(SortedSetByName.class) {
-					@Override
-					public SortedSetByName deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JacksonException {
-						JsonNode jn = jsonParser.getCodec().readTree(jsonParser);
-						return om.treeToValue(jn, SortedSetByName.class);
-					}
-				})
-		);
+//		// region SSBN
+//		om.registerModule(new SimpleModule().addSerializer(
+//				SortedSetByName.class,
+//				new StdSerializer<>(SortedSetByName.class) {
+//					@Override
+//					public void serialize(SortedSetByName sortedSetByName, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
+//						jsonGenerator.writeStartObject();
+//						for (var x : sortedSetByName) {
+//							jsonGenerator.writeObject(x);
+//						}
+//						jsonGenerator.writeEndObject();
+//					}
+//				})
+//		);
+//		om.registerModule(new SimpleModule().addDeserializer(
+//				SortedSetByName.class,
+//				new StdDeserializer<>(SortedSetByName.class) {
+//					@Override
+//					public SortedSetByName deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JacksonException {
+//						JsonNode jn = jsonParser.getCodec().readTree(jsonParser);
+//						return om.treeToValue(jn, SortedSetByName.class);
+//					}
+//				})
+//		);
 
         return om;
     }
