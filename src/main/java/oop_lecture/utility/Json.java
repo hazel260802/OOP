@@ -23,6 +23,7 @@ public class Json {
     private static ObjectMapper getDefaultObjectMapper() {
         ObjectMapper om = new ObjectMapper();
         om.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        om.findAndRegisterModules();
         // region định nghĩa Json DD
 		om.registerModule(new SimpleModule().addSerializer(
 				DiaDiem.class,
@@ -361,5 +362,8 @@ public class Json {
     public static JsonNode toJson(Object o) {
         return om.valueToTree(o);
     }
+    public static void toFile (File file, Object o) throws IOException {
+		om.writeValue(file, o);
+	}
 
 }
