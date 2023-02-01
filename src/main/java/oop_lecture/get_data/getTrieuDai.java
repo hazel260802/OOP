@@ -42,11 +42,11 @@ public class getTrieuDai {
 						String[] temp2 = thoiGian.split("–");
 						if (temp[1].contains("TCN")) listTrieuDai.get(i).setThoiGian(Year.parse("-" + temp2[0]), Year.parse("-" + temp2[1]));
 						else listTrieuDai.get(i).setThoiGian(Year.parse(temp2[0]), Year.parse(temp2[1]));
-						System.out.print("- " + listTrieuDai.get(i).getTen() + " | batDau : " + listTrieuDai.get(i).getBatDau() + " - ketThuc : " + listTrieuDai.get(i).getKetThuc());
+						
 					} else {
 						listTrieuDai.add(new TrieuDai(trieuDai));
 						listTrieuDai.get(i).setThoiGian(Year.parse("-2879"), Year.parse("-258"));
-						System.out.print("- " + listTrieuDai.get(i).getTen() + " | batDau : " + listTrieuDai.get(i).getBatDau() + " - ketThuc : " + listTrieuDai.get(i).getKetThuc());
+						
 					}
 					
 					// Lấy Kinh đô của từng triều đại
@@ -54,12 +54,12 @@ public class getTrieuDai {
 						WebElement eleKinhDo = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[3]/main/div[3]/div[3]/div[1]/table[41]/tbody/tr[" + (i + 2) + "]/td[4]"));
 						String kinhDo = eleKinhDo.getText().trim();
 						listTrieuDai.get(i).setKinhDo(kinhDo);
-						System.out.print(" | kinhDo : " + listTrieuDai.get(i).getKinhDo());
+						
 					} else {
 						WebElement eleKinhDo = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[3]/main/div[3]/div[3]/div[1]/table[41]/tbody/tr[" + (i + 3) + "]/td[4]"));
 						String kinhDo = eleKinhDo.getText().trim();
 						listTrieuDai.get(i).setKinhDo(kinhDo);
-						System.out.print(" | kinhDo : " + listTrieuDai.get(i).getKinhDo());
+						
 					}
 					
 					// Lấy quốc hiệu TODO : sử dụng tham chiếu =))
@@ -72,8 +72,6 @@ public class getTrieuDai {
 						tenHoangDe.add(hoangDe);
 						listTrieuDai.get(i).setTenHoangDe(tenHoangDe);
 			        }
-					
-					System.out.println();
 		        }
 				
 				List<WebElement> list1 = driver.findElements(By.xpath("/html/body/div[1]/div[1]/div[3]/main/div[3]/div[3]/div[1]/table/tbody/tr[1]/td/h3/span[2]"));
@@ -94,17 +92,17 @@ public class getTrieuDai {
 							String[] temp2 = thoiGian.split("–");
 							if (temp[1].contains("TCN")) listTrieuDai.get(i + list.size() - 1).setThoiGian(Year.parse("-" + temp2[0]), Year.parse("-" + temp2[1]));
 							else listTrieuDai.get(i + list.size() - 1).setThoiGian(Year.parse(temp2[0]), Year.parse(temp2[1]));
-							System.out.print("- " + listTrieuDai.get(i + list.size() - 1).getTen() + " | batDau : " + listTrieuDai.get(i + list.size() - 1).getBatDau() + " - ketThuc : " + listTrieuDai.get(i + list.size() - 1).getKetThuc());
+							
 						} else {
 							listTrieuDai.add(new TrieuDai(trieuDai));
 							listTrieuDai.get(i + list.size() - 1).setThoiGian(null, null);
-							System.out.print("- " + listTrieuDai.get(i + list.size() - 1).getTen() + " | batDau : " + listTrieuDai.get(i + list.size() - 1).getBatDau() + " - ketThuc : " + listTrieuDai.get(i + list.size() - 1).getKetThuc());
+							
 						}
 						
 						WebElement eleKinhDo = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[3]/main/div[3]/div[3]/div[1]/table[41]/tbody/tr[" + (i + list.size() + 2) + "]/td[4]"));
 						String kinhDo = eleKinhDo.getText().trim();
 						listTrieuDai.get(i + list.size() - 1).setKinhDo(kinhDo);
-						System.out.print(" | kinhDo : " + listTrieuDai.get(i + list.size() - 1).getKinhDo());
+						
 						
 						List<String> tenHoangDe = new ArrayList<String>();
 						List<WebElement> listHoangDe = driver.findElements(By.xpath("/html/body/div[1]/div[1]/div[3]/main/div[3]/div[3]/div[1]/table[" + x + "]/tbody/tr/td[2]"));
@@ -129,17 +127,17 @@ public class getTrieuDai {
 							String[] temp2 = thoiGian.split("–");
 							if (temp[1].contains("TCN")) listTrieuDai.get(i + list.size() - 1).setThoiGian(Year.parse("-" + temp2[0]), Year.parse("-" + temp2[1]));
 							else listTrieuDai.get(i + list.size() - 1).setThoiGian(Year.parse(temp2[0]), Year.parse(temp2[1]));
-							System.out.print("- " + listTrieuDai.get(i + list.size() - 1).getTen() + " | batDau : " + listTrieuDai.get(i + list.size() - 1).getBatDau() + " - ketThuc : " + listTrieuDai.get(i + list.size() - 1).getKetThuc());
+							
 						} else {
 							listTrieuDai.add(new TrieuDai(trieuDai));
 							listTrieuDai.get(i + list.size() - 1).setThoiGian(null, null);
-							System.out.print("- " + listTrieuDai.get(i + list.size() - 1).getTen() + " | batDau : " + listTrieuDai.get(i + list.size() - 1).getBatDau() + " - ketThuc : " + listTrieuDai.get(i + list.size() - 1).getKetThuc());
+							
 						}
 						
 						WebElement eleKinhDo = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[3]/main/div[3]/div[3]/div[1]/table[41]/tbody/tr[" + (i + list.size() + 2) + "]/td[4]"));
 						String kinhDo = eleKinhDo.getText().trim();
 						listTrieuDai.get(i + list.size() - 1).setKinhDo(kinhDo);
-						System.out.print(" | kinhDo : " + listTrieuDai.get(i + list.size() - 1).getKinhDo());
+						
 						
 						List<String> tenHoangDe = new ArrayList<String>();
 						List<WebElement> listHoangDe = driver.findElements(By.xpath("/html/body/div[1]/div[1]/div[3]/main/div[3]/div[3]/div[1]/table[" + x + "]/tbody/tr/td[2]"));
@@ -151,7 +149,7 @@ public class getTrieuDai {
 						
 						x++;
 						
-						System.out.println();
+						
 						
 						String trieuDai1 = list.get(list.size() - 1).getText().trim();
 						
@@ -166,15 +164,15 @@ public class getTrieuDai {
 							String[] temp2 = thoiGian.split("–");
 							if (temp[1].contains("TCN")) listTrieuDai.get(i + list.size()).setThoiGian(Year.parse("-" + temp2[0]), Year.parse("-" + temp2[1]));
 							else listTrieuDai.get(i + list.size()).setThoiGian(Year.parse(temp2[0]), Year.parse(temp2[1]));
-							System.out.print("- " + listTrieuDai.get(i + list.size()).getTen() + " | batDau : " + listTrieuDai.get(i + list.size()).getBatDau() + " - ketThuc : " + listTrieuDai.get(i + list.size()).getKetThuc());
+							
 						} else {
 							listTrieuDai.add(new TrieuDai(trieuDai1));
 							listTrieuDai.get(i + list.size()).setThoiGian(null, null);
-							System.out.print("- " + listTrieuDai.get(i + list.size()).getTen() + " | batDau : " + listTrieuDai.get(i + list.size()).getBatDau() + " - ketThuc : " + listTrieuDai.get(i + list.size()).getKetThuc());
+							
 						}
 						
 						listTrieuDai.get(i + list.size()).setKinhDo(null);
-						System.out.print(" | kinhDo : " + listTrieuDai.get(i + list.size()).getKinhDo());
+						
 						
 						List<String> tenHoangDe1 = new ArrayList<String>();
 						List<WebElement> listHoangDe1 = driver.findElements(By.xpath("/html/body/div[1]/div[1]/div[3]/main/div[3]/div[3]/div[1]/table[" + x + "]/tbody/tr/td[2]"));
@@ -203,26 +201,26 @@ public class getTrieuDai {
 							
 							if (temp[1].contains("TCN")) listTrieuDai.get(i + list.size()).setThoiGian(Year.parse("-" + temp2[0]), Year.parse("-" + temp2[1]));
 							else listTrieuDai.get(i + list.size()).setThoiGian(Year.parse(temp2[0]), Year.parse(temp2[1]));
-							System.out.print("- " + listTrieuDai.get(i + list.size()).getTen() + " | batDau : " + listTrieuDai.get(i + list.size()).getBatDau() + " - ketThuc : " + listTrieuDai.get(i + list.size()).getKetThuc());
+							
 						} else {
 							listTrieuDai.add(new TrieuDai(trieuDai));
 							listTrieuDai.get(i + list.size()).setThoiGian(null, null);
-							System.out.print("- " + listTrieuDai.get(i + list.size()).getTen() + " | batDau : " + listTrieuDai.get(i + list.size()).getBatDau() + " - ketThuc : " + listTrieuDai.get(i + list.size()).getKetThuc());
+							
 						}
 						
 						if (i + list.size() < 20) {
 							WebElement eleKinhDo1 = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[3]/main/div[3]/div[3]/div[1]/table[41]/tbody/tr[" + (i + list.size() + 2) + "]/td[4]"));
 							String kinhDo1 = eleKinhDo1.getText().trim();
 							listTrieuDai.get(i + list.size()).setKinhDo(kinhDo1);
-							System.out.print(" | kinhDo : " + listTrieuDai.get(i + list.size()).getKinhDo());
+							
 						} else if (i + list.size() == 20) {
 							listTrieuDai.get(i + list.size()).setKinhDo(null);
-							System.out.print(" | kinhDo : " + listTrieuDai.get(i + list.size()).getKinhDo());
+							
 						} else {
 							WebElement eleKinhDo1 = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[3]/main/div[3]/div[3]/div[1]/table[41]/tbody/tr[" + (i + list.size() + 1) + "]/td[4]"));
 							String kinhDo1 = eleKinhDo1.getText().trim();
 							listTrieuDai.get(i + list.size()).setKinhDo(kinhDo1);
-							System.out.print(" | kinhDo : " + listTrieuDai.get(i + list.size()).getKinhDo());
+							
 						}
 						
 						List<String> tenHoangDe = new ArrayList<String>();
@@ -235,8 +233,6 @@ public class getTrieuDai {
 						
 						x += 2;
 					}
-					
-					System.out.println();
 		        }
 				
 		        break;
