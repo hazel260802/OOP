@@ -1,7 +1,5 @@
 package oop_lecture.models;
 
-import oop_lecture.utility.SortedSetByName;
-
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,16 +16,16 @@ public class TrieuDai extends LichSuCoTen {
     }
 
     public void setTenHoangDe(List<String> tenHoangDe) {
-        this.tenHoangDe = tenHoangDe;
+    	this.tenHoangDe = tenHoangDe;
     }
 
     public void setThoiGian(Year namBatDau,Year namKetThuc ) {
-        this.batDau = namBatDau;
-        this.ketThuc = namKetThuc;
+    	this.batDau = namBatDau;
+    	this.ketThuc = namKetThuc;
     }
 
     public void setKinhDo(String kinhDo) {
-        this.kinhDo = kinhDo;
+    	this.kinhDo = kinhDo;
     }
 
     public Year getBatDau() {
