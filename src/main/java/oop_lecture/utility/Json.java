@@ -98,8 +98,6 @@ public class Json {
 						// bắt đầu viết file json
 						jsonGenerator.writeStartObject();
 						jsonGenerator.writeStringField("ten", o.getTen());
-						jsonGenerator.writeStringField("capDo", o.getCapDo());
-						jsonGenerator.writeBooleanField("laDiSanQuocGia", o.isLaDiSanQuocGia());
 						jsonGenerator.writeObjectField("noiDienRa", o.getNoiDienRa());
 						jsonGenerator.writeObjectField("thoiDiemToChuc", o.getThoiDiemToChuc());
 						// viết d.s json
@@ -123,12 +121,13 @@ public class Json {
 						// đọc các trường phức tạp
 						DiaDiem noiDienRa = om.treeToValue(jn.get("diaDiem"), DiaDiem.class);
 						Date thoiDiemToChuc = om.convertValue(jn.get("thoiDiemToChuc"), Date.class);
-						List<String> tenNhanVatLienQuan = new ArrayList<String>(om.treeToValue(jn.get("tenNhanVatLienQuan"), List.class));
-
+						List<String> tenNhanVatLienQuan = new ArrayList<>();
+						var sjn = jn.get("nhanVatLienQuan");
+						if (sjn.isArray()) {
+							for (var n : sjn) tenNhanVatLienQuan.add(om.treeToValue(n, String.class));
+						}
 						return new LeHoiVanHoa(
 								jn.get("ten").asText(),
-								jn.get("capDo").asText(),
-								jn.get("laDiSanQuocGia").asBoolean(),
 								noiDienRa,
 								thoiDiemToChuc,
 								jn.get("lanDauToChuc").asText(),

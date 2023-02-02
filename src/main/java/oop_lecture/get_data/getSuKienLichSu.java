@@ -63,35 +63,38 @@ public class getSuKienLichSu {
         Year yearStart = null;
         Year yearEnd =  null;
         // get Time
-        if(!str[0].trim().equals(fullName)) {
-            String[] time = null;
-            String startTime = null;
-            String endTime = null;
-            if (str[1].trim().charAt(0) == '-') {
-                if (str[1].trim().length() > 6) {
-                    time = str[1].trim().split("\\)")[0].split(" - ");
-                    startTime = time[0].trim();
-                    endTime = time[1].trim();
+        try {
+            if (!str[0].trim().equals(fullName)) {
+                String[] time = null;
+                String startTime = null;
+                String endTime = null;
+                if (str[1].trim().charAt(0) == '-') {
+                    if (str[1].trim().length() > 6) {
+                        time = str[1].trim().split("\\)")[0].split(" - ");
+                        startTime = time[0].trim();
+                        endTime = time[1].trim();
+                    } else {
+                        startTime = endTime = str[1].trim().split("\\)")[0].trim();
+                    }
                 } else {
-                    startTime = endTime = str[1].trim().split("\\)")[0].trim();
+                    if (str[1].contains("-")) {
+                        time = str[1].trim().split("\\-");
+                        startTime = time[0].trim();
+                        endTime = time[1].split("\\)")[0].trim();
+                    } else {
+                        startTime = endTime = str[1].split("\\)")[0].trim();
+                    }
                 }
-            } else {
-                if (str[1].contains("-")) {
-                    time = str[1].trim().split("\\-");
-                    startTime = time[0].trim();
-                    endTime = time[1].split("\\)")[0].trim();
-                } else {
-                    startTime = endTime = str[1].split("\\)")[0].trim();
+                System.out.println(startTime);
+                System.out.println(endTime);
+                if (startTime != null) {
+                    yearStart = Year.parse(startTime);
+                }
+                if (endTime != null) {
+                    yearEnd = Year.parse(endTime);
                 }
             }
-     		System.out.println(startTime);
-     		System.out.println(endTime);
-            if (startTime != null) {
-                yearStart = Year.parse(startTime);
-            }
-            if (endTime != null) {
-                yearEnd = Year.parse(endTime);
-            }
+        } catch (Exception e){
         }
 
             //get description
