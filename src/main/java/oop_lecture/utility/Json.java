@@ -19,13 +19,13 @@ import java.util.Date;
 import java.util.List;
 
 public class Json {
-    private static final ObjectMapper om = getDefaultObjectMapper();
+	private static final ObjectMapper om = getDefaultObjectMapper();
 
-    private static ObjectMapper getDefaultObjectMapper() {
-        ObjectMapper om = new ObjectMapper();
-        om.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        om.findAndRegisterModules();
-        // region định nghĩa Json DD
+	private static ObjectMapper getDefaultObjectMapper() {
+		ObjectMapper om = new ObjectMapper();
+		om.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		om.findAndRegisterModules();
+		// region định nghĩa Json DD
 		om.registerModule(new SimpleModule().addSerializer(
 				DiaDiem.class,
 				new StdSerializer<>(DiaDiem.class) {
@@ -80,8 +80,11 @@ public class Json {
 						JsonNode jn = jsonParser.getCodec().readTree(jsonParser);
 						// đọc các trường phức tạp
 						DiaDiem diaDiem = om.treeToValue(jn.get("diaDiem"), DiaDiem.class);
-						
-						return new diaDiemLichSu(jn.get("ten").asText(), diaDiem,  jn.get("loaiDiTich").asText());
+						DiaDiemLichSu diaDiemLichSu = new DiaDiemLichSu(jn.get("ten").asText());
+						diaDiemLichSu.setDiaDiem(diaDiem);
+						diaDiemLichSu.setLoaiDiTich(jn.get("loaiDiTich").asText());
+
+						return diaDiemLichSu;
 					}
 				}
 				));
@@ -95,10 +98,9 @@ public class Json {
 						// bắt đầu viết file json
 						jsonGenerator.writeStartObject();
 						jsonGenerator.writeStringField("ten", o.getTen());
-						jsonGenerator.writeStringField("capDo", o.getCapDo());
-						jsonGenerator.writeBooleanField("laDiSanQuocGia", o.isLaDiSanQuocGia());
 						jsonGenerator.writeObjectField("noiDienRa", o.getNoiDienRa());
 						jsonGenerator.writeObjectField("thoiDiemToChuc", o.getThoiDiemToChuc());
+						jsonGenerator.writeStringField("lanDauToChuc", o.getLanDauToChuc());
 						// viết d.s json
 						jsonGenerator.writeArrayFieldStart("nhanVatLienQuan");
 						for (var sk : o.getNhanVatLienQuan()) {
@@ -120,12 +122,13 @@ public class Json {
 						// đọc các trường phức tạp
 						DiaDiem noiDienRa = om.treeToValue(jn.get("diaDiem"), DiaDiem.class);
 						Date thoiDiemToChuc = om.convertValue(jn.get("thoiDiemToChuc"), Date.class);
-						List<String> tenNhanVatLienQuan = new ArrayList<String>(om.treeToValue(jn.get("tenNhanVatLienQuan"), List.class));
-
+						List<String> tenNhanVatLienQuan = new ArrayList<>();
+						var sjn = jn.get("nhanVatLienQuan");
+						if (sjn.isArray()) {
+							for (var n : sjn) tenNhanVatLienQuan.add(om.treeToValue(n, String.class));
+						}
 						return new LeHoiVanHoa(
 								jn.get("ten").asText(),
-								jn.get("capDo").asText(),
-								jn.get("laDiSanQuocGia").asBoolean(),
 								noiDienRa,
 								thoiDiemToChuc,
 								jn.get("lanDauToChuc").asText(),
@@ -175,15 +178,26 @@ public class Json {
 						// đọc các trường phức tạp
 						Year ngaySinh = om.convertValue(jn.get("ngaySinh"), Year.class);
 						Year ngayMat = om.convertValue(jn.get("ngayMat"), Year.class);
-						List<String> tenNhanVatLienQuan = new ArrayList<String>(om.treeToValue(jn.get("tenNhanVatLienQuan"), List.class));
-						List<String> tenSuKienLichSu = new ArrayList<String>(om.treeToValue(jn.get("tenSuKienLichSu"), List.class));
+//						List<String> tenNhanVatLienQuan = new ArrayList<String>(om.treeToValue(jn.get("tenNhanVatLienQuan"), List.class));
+//						List<String> tenSuKienLichSu = new ArrayList<String>(om.treeToValue(jn.get("tenSuKienLichSu"), List.class));
+
+						List<String> tenNhanVatLienQuan = new ArrayList<>();
+						var sjn = jn.get("nhanVatLienQuan");
+						if (sjn.isArray()) {
+							for (var n : sjn) tenNhanVatLienQuan.add(om.treeToValue(n, String.class));
+						}
+
+						List<String> tenSuKienLichSu = new ArrayList<>();
+						sjn = jn.get("suKienLichSu");
+						if (sjn.isArray()) {
+							for (var n : sjn) tenSuKienLichSu.add(om.treeToValue(n, String.class));
+						}
 
 						return new NhanVatLichSu(
 								jn.get("ten").asText(),
 								tenSuKienLichSu,
 								ngaySinh,
 								ngayMat,
-								null,
 								jn.get("moTaChung").asText(),
 								tenNhanVatLienQuan
 						);
@@ -230,17 +244,29 @@ public class Json {
 						// lấy jnode
 						JsonNode jn = jsonParser.getCodec().readTree(jsonParser);
 						// đọc các trường phức tạp
-						Year namBatDau = om.convertValue(jn.get("ngaySinh"), Year.class);
-						Year namKetThuc = om.convertValue(jn.get("ngayMat"), Year.class);
-						List<String> tenDiaDiemLienQuan = new ArrayList<String>(om.treeToValue(jn.get("tenDiaDiemLienQuan"), List.class));
-						List<String> tenNhanVatLienQuan = new ArrayList<String>(om.treeToValue(jn.get("tenNhanVatLienQuan"), List.class));
+						Year namBatDau = om.convertValue(jn.get("namBatDau"), Year.class);
+						Year namKetThuc = om.convertValue(jn.get("namKetThuc"), Year.class);
+
+						List<String> tenDiaDiemLienQuan = new ArrayList<>();
+						var sjn = jn.get("diaDiemLienQuan");
+						if (sjn.isArray()) {
+							for (var n : sjn) tenDiaDiemLienQuan.add(om.treeToValue(n, String.class));
+						}
+
+						List<String> tenNhanVatLienQuan = new ArrayList<>();
+						sjn = jn.get("nhanVatLienQuan");
+						if (sjn.isArray()) {
+							for (var n : sjn) tenNhanVatLienQuan.add(om.treeToValue(n, String.class));
+						}
+
+//						List<String> tenDiaDiemLienQuan = new ArrayList<>(om.treeToValue(jn.get("tenDiaDiemLienQuan"), List.class));
+//						List<String> tenNhanVatLienQuan = new ArrayList<String>(om.treeToValue(jn.get("nhanVatLienQuan"), List.class));
 
 						return new SuKienLichSu(
 								jn.get("ten").asText(),
 								namBatDau,
 								namKetThuc,
 								jn.get("moTa").asText(),
-								jn.get("tenTrieuDai").asText(),
 								tenDiaDiemLienQuan,
 								tenNhanVatLienQuan
 						);
@@ -263,8 +289,8 @@ public class Json {
 						jsonGenerator.writeObjectField("thuDo", o.getKinhDo());
 						// viết d.s json
 						jsonGenerator.writeArrayFieldStart("hoangDe");
-						for (var sk : o.getTenHoangDe()) {
-							jsonGenerator.writeString(sk);
+						for (var sk : o.getHoangDe()) {
+							jsonGenerator.writeString(sk.getTen());
 						}
 						jsonGenerator.writeEndArray();
 
@@ -280,9 +306,15 @@ public class Json {
 						// lấy jnode
 						JsonNode jn = jsonParser.getCodec().readTree(jsonParser);
 						// đọc các trường phức tạp
-						LocalDate batDau = om.convertValue(jn.get("batDau"), LocalDate.class);
-						LocalDate ketThuc = om.convertValue(jn.get("ketThuc"), LocalDate.class);
-						List<String> tenHoangDe = new ArrayList<String>(om.treeToValue(jn.get("tenHoangDe"), List.class));
+						Year batDau = om.convertValue(jn.get("batDau"), Year.class);
+						Year ketThuc = om.convertValue(jn.get("ketThuc"), Year.class);
+						//List<String> tenHoangDe = new ArrayList<String>(om.treeToValue(jn.get("tenHoangDe"), List.class));
+
+						List<String> tenHoangDe = new ArrayList<>();
+						var sjn = jn.get("hoangDe");
+						if (sjn.isArray()) {
+							for (var n : sjn) tenHoangDe.add(om.treeToValue(n, String.class));
+						}
 
 						return new TrieuDai(
 								jn.get("ten").asText(),
@@ -296,46 +328,21 @@ public class Json {
 		));
 		// endregion
 
-//		// region SSBN
-//		om.registerModule(new SimpleModule().addSerializer(
-//				SortedSetByName.class,
-//				new StdSerializer<>(SortedSetByName.class) {
-//					@Override
-//					public void serialize(SortedSetByName sortedSetByName, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
-//						jsonGenerator.writeStartObject();
-//						for (var x : sortedSetByName) {
-//							jsonGenerator.writeObject(x);
-//						}
-//						jsonGenerator.writeEndObject();
-//					}
-//				})
-//		);
-//		om.registerModule(new SimpleModule().addDeserializer(
-//				SortedSetByName.class,
-//				new StdDeserializer<>(SortedSetByName.class) {
-//					@Override
-//					public SortedSetByName deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JacksonException {
-//						JsonNode jn = jsonParser.getCodec().readTree(jsonParser);
-//						return om.treeToValue(jn, SortedSetByName.class);
-//					}
-//				})
-//		);
+		return om;
+	}
 
-        return om;
-    }
+	public static JsonNode parse(String string) throws IOException {
+		return om.readTree(string);
+	}
 
-    public static JsonNode parse(String string) throws IOException {
-        return om.readTree(string);
-    }
+	public static <A> A fromJson(JsonNode node, Class<A> classA) throws JsonProcessingException {
+		return om.treeToValue(node, classA);
+	}
 
-    public static <A> A fromJson(JsonNode node, Class<A> classA) throws JsonProcessingException {
-        return om.treeToValue(node, classA);
-    }
-
-    public static JsonNode toJson(Object o) {
-        return om.valueToTree(o);
-    }
-    public static void toFile (File file, Object o) throws IOException {
+	public static JsonNode toJson(Object o) {
+		return om.valueToTree(o);
+	}
+	public static void toFile (File file, Object o) throws IOException {
 		om.writeValue(file, o);
 	}
 
