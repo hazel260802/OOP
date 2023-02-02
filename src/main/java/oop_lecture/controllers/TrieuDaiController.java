@@ -29,25 +29,31 @@ public class TrieuDaiController  extends InfoScreenController {
 		Label lName = new Label(base.getTen());
 		vbContent.getChildren().add(lName);
 
-		Label subLabel1 = new Label("Quốc Hiệu");
-		subLabel1.setPadding(new Insets(1,1,1,1));
-		// content
-		Text tmpT = new Text(base.getQuocHieu());
-		TextFlow tmpTF = new TextFlow(tmpT);
-		vbContent.getChildren().addAll(subLabel1, tmpTF);
+//		Label subLabel1 = new Label("Quốc Hiệu");
+//		subLabel1.setPadding(new Insets(1,1,1,1));
+//		// content
+//		Text tmpT = new Text(base.getKinhDo());
+//		TextFlow tmpTF = new TextFlow(tmpT);
+//		vbContent.getChildren().addAll(subLabel1, tmpTF);
 
 		Label subLabel2 = new Label("Thời gian");
-		subLabel2.setPadding(new Insets(1,1,1,1));
+		subLabel2.setStyle("-fx-font: 40 \"Readex Pro\", sans-serif");
+		subLabel2.setPadding(new Insets(20, 20, 20, 10));
 		// content
-		tmpT = new Text((base.getBatDau() == null ? "?" : base.getBatDau().toString()) + " - " + (base.getKetThuc() == null ? "?" : base.getKetThuc().toString()));
-		tmpTF = new TextFlow(tmpT);
+		Text tmpT = new Text((base.getBatDau() == null ? "?" : base.getBatDau().toString()) + " - " + (base.getKetThuc() == null ? "?" : base.getKetThuc().toString()));
+		TextFlow tmpTF = new TextFlow(tmpT);
+		tmpTF.setStyle("-fx-font: 20 \"Readex Pro\", sans-serif");
+		tmpTF.setPadding(new Insets(10, 10, 10, 10));
 		vbContent.getChildren().addAll(subLabel2, tmpTF);
 
 		Label subLabel4 = new Label("Thủ đô");
-		subLabel4.setPadding(new Insets(1,1,1,1));
+		subLabel4.setStyle("-fx-font: 40 \"Readex Pro\", sans-serif");
+		subLabel4.setPadding(new Insets(20, 20, 20, 10));
 		// content
-		tmpT = new Text(base.getThuDo().toString());
+		tmpT = new Text(base.getKinhDo());
 		tmpTF = new TextFlow(tmpT);
+		tmpTF.setStyle("-fx-font: 20 \"Readex Pro\", sans-serif");
+		tmpTF.setPadding(new Insets(10, 10, 10, 10));
 		vbContent.getChildren().addAll(subLabel4, tmpTF);
 
 		{
@@ -69,21 +75,21 @@ public class TrieuDaiController  extends InfoScreenController {
 		}
 
 		{
-			TableView<SuKienLichSu> tvSKLS = new TableView<>(FXCollections.observableList(base.getSuKien()));
-			// index
-			TableColumn<SuKienLichSu, Integer> tcIndex = new TableColumn<>();
-			tcIndex.setCellFactory(new IndexCallBack<>());
-			tcIndex.setMinWidth(20);
-			tcIndex.prefWidthProperty().bind(tvSKLS.widthProperty().multiply(0.2));
-			// vua
-			TableColumn<SuKienLichSu, String> tcSK = new TableColumn<>("Các sự kiện xảy ra");
-			tcSK.setCellValueFactory(diaDiemStringCellDataFeatures -> new SimpleStringProperty(diaDiemStringCellDataFeatures.getValue().getTen()));
-			tcSK.prefWidthProperty().bind(tvSKLS.widthProperty().multiply(0.8));
-			// setup table
-			tvSKLS.getColumns().addAll(tcIndex, tcSK);
-			tvSKLS.setPlaceholder(new Label("Không tìm thấy sự kiện nào"));
-			tvSKLS.setRowFactory(new DoubleClickCallBack<>());
-			vbContent.getChildren().addAll(tvSKLS);
+//			TableView<SuKienLichSu> tvSKLS = new TableView<>(FXCollections.observableList(base.getSuKien()));
+//			// index
+//			TableColumn<SuKienLichSu, Integer> tcIndex = new TableColumn<>();
+//			tcIndex.setCellFactory(new IndexCallBack<>());
+//			tcIndex.setMinWidth(20);
+//			tcIndex.prefWidthProperty().bind(tvSKLS.widthProperty().multiply(0.2));
+//			// vua
+//			TableColumn<SuKienLichSu, String> tcSK = new TableColumn<>("Các sự kiện xảy ra");
+//			tcSK.setCellValueFactory(diaDiemStringCellDataFeatures -> new SimpleStringProperty(diaDiemStringCellDataFeatures.getValue().getTen()));
+//			tcSK.prefWidthProperty().bind(tvSKLS.widthProperty().multiply(0.8));
+//			// setup table
+//			tvSKLS.getColumns().addAll(tcIndex, tcSK);
+//			tvSKLS.setPlaceholder(new Label("Không tìm thấy sự kiện nào"));
+//			tvSKLS.setRowFactory(new DoubleClickCallBack<>());
+//			vbContent.getChildren().addAll(tvSKLS);
 		}
 	}
 

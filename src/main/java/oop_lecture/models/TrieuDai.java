@@ -3,6 +3,7 @@ package oop_lecture.models;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
+import oop_lecture.utility.SortedSetByName;
 
 public class TrieuDai extends LichSuCoTen {
     private Year batDau, ketThuc;
@@ -15,17 +16,25 @@ public class TrieuDai extends LichSuCoTen {
         super(name);
     }
 
+    public TrieuDai(String ten, Year batDau, Year ketThuc, String thuDo, List<String> tenHoangDe) {
+        super(ten);
+        this.batDau = batDau;
+        this.ketThuc = ketThuc;
+        this.kinhDo = thuDo;
+        this.tenHoangDe = tenHoangDe;
+    }
+
     public void setTenHoangDe(List<String> tenHoangDe) {
-    	this.tenHoangDe = tenHoangDe;
+        this.tenHoangDe = tenHoangDe;
     }
 
     public void setThoiGian(Year namBatDau,Year namKetThuc ) {
-    	this.batDau = namBatDau;
-    	this.ketThuc = namKetThuc;
+        this.batDau = namBatDau;
+        this.ketThuc = namKetThuc;
     }
 
     public void setKinhDo(String kinhDo) {
-    	this.kinhDo = kinhDo;
+        this.kinhDo = kinhDo;
     }
 
     public Year getBatDau() {
