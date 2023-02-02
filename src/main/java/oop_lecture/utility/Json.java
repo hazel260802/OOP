@@ -19,13 +19,13 @@ import java.util.Date;
 import java.util.List;
 
 public class Json {
-    private static final ObjectMapper om = getDefaultObjectMapper();
+	private static final ObjectMapper om = getDefaultObjectMapper();
 
-    private static ObjectMapper getDefaultObjectMapper() {
-        ObjectMapper om = new ObjectMapper();
-        om.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        om.findAndRegisterModules();
-        // region định nghĩa Json DD
+	private static ObjectMapper getDefaultObjectMapper() {
+		ObjectMapper om = new ObjectMapper();
+		om.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		om.findAndRegisterModules();
+		// region định nghĩa Json DD
 		om.registerModule(new SimpleModule().addSerializer(
 				DiaDiem.class,
 				new StdSerializer<>(DiaDiem.class) {
@@ -83,7 +83,7 @@ public class Json {
 						DiaDiemLichSu diaDiemLichSu = new DiaDiemLichSu(jn.get("ten").asText());
 						diaDiemLichSu.setDiaDiem(diaDiem);
 						diaDiemLichSu.setLoaiDiTich(jn.get("loaiDiTich").asText());
-						
+
 						return diaDiemLichSu;
 					}
 				}
@@ -266,8 +266,8 @@ public class Json {
 						jsonGenerator.writeObjectField("thuDo", o.getKinhDo());
 						// viết d.s json
 						jsonGenerator.writeArrayFieldStart("hoangDe");
-						for (var sk : o.getTenHoangDe()) {
-							jsonGenerator.writeString(sk);
+						for (var sk : o.getHoangDe()) {
+							jsonGenerator.writeString(sk.getTen());
 						}
 						jsonGenerator.writeEndArray();
 
@@ -324,21 +324,21 @@ public class Json {
 //				})
 //		);
 
-        return om;
-    }
+		return om;
+	}
 
-    public static JsonNode parse(String string) throws IOException {
-        return om.readTree(string);
-    }
+	public static JsonNode parse(String string) throws IOException {
+		return om.readTree(string);
+	}
 
-    public static <A> A fromJson(JsonNode node, Class<A> classA) throws JsonProcessingException {
-        return om.treeToValue(node, classA);
-    }
+	public static <A> A fromJson(JsonNode node, Class<A> classA) throws JsonProcessingException {
+		return om.treeToValue(node, classA);
+	}
 
-    public static JsonNode toJson(Object o) {
-        return om.valueToTree(o);
-    }
-    public static void toFile (File file, Object o) throws IOException {
+	public static JsonNode toJson(Object o) {
+		return om.valueToTree(o);
+	}
+	public static void toFile (File file, Object o) throws IOException {
 		om.writeValue(file, o);
 	}
 
