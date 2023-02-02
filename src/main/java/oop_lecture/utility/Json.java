@@ -80,11 +80,8 @@ public class Json {
 						JsonNode jn = jsonParser.getCodec().readTree(jsonParser);
 						// đọc các trường phức tạp
 						DiaDiem diaDiem = om.treeToValue(jn.get("diaDiem"), DiaDiem.class);
-						DiaDiemLichSu diaDiemLichSu = new DiaDiemLichSu(jn.get("ten").asText());
-						diaDiemLichSu.setDiaDiem(diaDiem);
-						diaDiemLichSu.setLoaiDiTich(jn.get("loaiDiTich").asText());
 						
-						return diaDiemLichSu;
+						return new diaDiemLichSu(jn.get("ten").asText(), diaDiem,  jn.get("loaiDiTich").asText());
 					}
 				}
 				));
