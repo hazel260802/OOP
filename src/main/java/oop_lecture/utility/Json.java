@@ -87,9 +87,9 @@ public class Json {
 						return diaDiemLichSu;
 					}
 				}
-		));
+				));
 		// endregion
-
+		
 		om.registerModule(new SimpleModule().addSerializer(
 				LeHoiVanHoa.class,
 				new StdSerializer<>(LeHoiVanHoa.class) {
