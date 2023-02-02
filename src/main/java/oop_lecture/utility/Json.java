@@ -98,8 +98,6 @@ public class Json {
 						// bắt đầu viết file json
 						jsonGenerator.writeStartObject();
 						jsonGenerator.writeStringField("ten", o.getTen());
-						jsonGenerator.writeStringField("capDo", o.getCapDo());
-						jsonGenerator.writeBooleanField("laDiSanQuocGia", o.isLaDiSanQuocGia());
 						jsonGenerator.writeObjectField("noiDienRa", o.getNoiDienRa());
 						jsonGenerator.writeObjectField("thoiDiemToChuc", o.getThoiDiemToChuc());
 						// viết d.s json
@@ -123,12 +121,13 @@ public class Json {
 						// đọc các trường phức tạp
 						DiaDiem noiDienRa = om.treeToValue(jn.get("diaDiem"), DiaDiem.class);
 						Date thoiDiemToChuc = om.convertValue(jn.get("thoiDiemToChuc"), Date.class);
-						List<String> tenNhanVatLienQuan = new ArrayList<String>(om.treeToValue(jn.get("tenNhanVatLienQuan"), List.class));
-
+						List<String> tenNhanVatLienQuan = new ArrayList<>();
+						var sjn = jn.get("nhanVatLienQuan");
+						if (sjn.isArray()) {
+							for (var n : sjn) tenNhanVatLienQuan.add(om.treeToValue(n, String.class));
+						}
 						return new LeHoiVanHoa(
 								jn.get("ten").asText(),
-								jn.get("capDo").asText(),
-								jn.get("laDiSanQuocGia").asBoolean(),
 								noiDienRa,
 								thoiDiemToChuc,
 								jn.get("lanDauToChuc").asText(),
@@ -178,8 +177,20 @@ public class Json {
 						// đọc các trường phức tạp
 						Year ngaySinh = om.convertValue(jn.get("ngaySinh"), Year.class);
 						Year ngayMat = om.convertValue(jn.get("ngayMat"), Year.class);
-						List<String> tenNhanVatLienQuan = new ArrayList<String>(om.treeToValue(jn.get("tenNhanVatLienQuan"), List.class));
-						List<String> tenSuKienLichSu = new ArrayList<String>(om.treeToValue(jn.get("tenSuKienLichSu"), List.class));
+//						List<String> tenNhanVatLienQuan = new ArrayList<String>(om.treeToValue(jn.get("tenNhanVatLienQuan"), List.class));
+//						List<String> tenSuKienLichSu = new ArrayList<String>(om.treeToValue(jn.get("tenSuKienLichSu"), List.class));
+
+						List<String> tenNhanVatLienQuan = new ArrayList<>();
+						var sjn = jn.get("nhanVatLienQuan");
+						if (sjn.isArray()) {
+							for (var n : sjn) tenNhanVatLienQuan.add(om.treeToValue(n, String.class));
+						}
+
+						List<String> tenSuKienLichSu = new ArrayList<>();
+						sjn = jn.get("suKienLichSu");
+						if (sjn.isArray()) {
+							for (var n : sjn) tenSuKienLichSu.add(om.treeToValue(n, String.class));
+						}
 
 						return new NhanVatLichSu(
 								jn.get("ten").asText(),
@@ -232,10 +243,23 @@ public class Json {
 						// lấy jnode
 						JsonNode jn = jsonParser.getCodec().readTree(jsonParser);
 						// đọc các trường phức tạp
-						Year namBatDau = om.convertValue(jn.get("ngaySinh"), Year.class);
-						Year namKetThuc = om.convertValue(jn.get("ngayMat"), Year.class);
-						List<String> tenDiaDiemLienQuan = new ArrayList<String>(om.treeToValue(jn.get("tenDiaDiemLienQuan"), List.class));
-						List<String> tenNhanVatLienQuan = new ArrayList<String>(om.treeToValue(jn.get("tenNhanVatLienQuan"), List.class));
+						Year namBatDau = om.convertValue(jn.get("namBatDau"), Year.class);
+						Year namKetThuc = om.convertValue(jn.get("namKetThuc"), Year.class);
+
+						List<String> tenDiaDiemLienQuan = new ArrayList<>();
+						var sjn = jn.get("diaDiemLienQuan");
+						if (sjn.isArray()) {
+							for (var n : sjn) tenDiaDiemLienQuan.add(om.treeToValue(n, String.class));
+						}
+
+						List<String> tenNhanVatLienQuan = new ArrayList<>();
+						sjn = jn.get("nhanVatLienQuan");
+						if (sjn.isArray()) {
+							for (var n : sjn) tenNhanVatLienQuan.add(om.treeToValue(n, String.class));
+						}
+
+//						List<String> tenDiaDiemLienQuan = new ArrayList<>(om.treeToValue(jn.get("tenDiaDiemLienQuan"), List.class));
+//						List<String> tenNhanVatLienQuan = new ArrayList<String>(om.treeToValue(jn.get("nhanVatLienQuan"), List.class));
 
 						return new SuKienLichSu(
 								jn.get("ten").asText(),
@@ -283,7 +307,13 @@ public class Json {
 						// đọc các trường phức tạp
 						Year batDau = om.convertValue(jn.get("batDau"), Year.class);
 						Year ketThuc = om.convertValue(jn.get("ketThuc"), Year.class);
-						List<String> tenHoangDe = new ArrayList<String>(om.treeToValue(jn.get("tenHoangDe"), List.class));
+						//List<String> tenHoangDe = new ArrayList<String>(om.treeToValue(jn.get("tenHoangDe"), List.class));
+
+						List<String> tenHoangDe = new ArrayList<>();
+						var sjn = jn.get("hoangDe");
+						if (sjn.isArray()) {
+							for (var n : sjn) tenHoangDe.add(om.treeToValue(n, String.class));
+						}
 
 						return new TrieuDai(
 								jn.get("ten").asText(),

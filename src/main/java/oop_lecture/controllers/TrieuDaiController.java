@@ -60,7 +60,7 @@ public class TrieuDaiController  extends InfoScreenController {
 			TableView<NhanVatLichSu> tvNVLS = new TableView<>(FXCollections.observableList(base.getHoangDe()));
 			// index
 			TableColumn<NhanVatLichSu, Integer> tcIndex = new TableColumn<>();
-			tcIndex.setCellFactory(new IndexCallBack<>());
+			tcIndex.setCellValueFactory(new IndexCallBack<>());
 			tcIndex.setMinWidth(20);
 			tcIndex.prefWidthProperty().bind(tvNVLS.widthProperty().multiply(0.2));
 			// vua

@@ -72,11 +72,4 @@ public class NhanVatLichSu extends LichSuCoTen {
 			}
 		}
 	}
-	public List<String> getTenNhanVatLienQuan() {
-		return tenNhanVatLienQuan;
-	}
-	public List<String> getTenSuKienLichSu() {
-		return tenSuKienLichSu;
-	}
-
 }

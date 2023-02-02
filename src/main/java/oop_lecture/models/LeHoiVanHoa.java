@@ -7,8 +7,6 @@ import java.util.Date;
 import java.util.List;
 
 public class LeHoiVanHoa extends LichSuCoTen {
-    private String capDo;
-    private boolean laDiSanQuocGia;
     private DiaDiem noiDienRa;
     private Date thoiDiemToChuc;
     private String lanDauToChuc;
@@ -17,23 +15,12 @@ public class LeHoiVanHoa extends LichSuCoTen {
     private List<String> tenNhanVatLienQuan;
 
 
-    public LeHoiVanHoa(String ten, String capDo, boolean laDiSanQuocGia, DiaDiem noiDienRa, Date thoiDiemToChuc,String lanDauToChuc, List<String> tenNhanVatLienQuan) {
+    public LeHoiVanHoa(String ten, DiaDiem noiDienRa, Date thoiDiemToChuc,String lanDauToChuc, List<String> tenNhanVatLienQuan) {
 		super(ten);
-		this.capDo = capDo;
-		this.laDiSanQuocGia = laDiSanQuocGia;
 		this.noiDienRa = noiDienRa;
 		this.thoiDiemToChuc = thoiDiemToChuc;
 		this.lanDauToChuc = lanDauToChuc;
 		this.tenNhanVatLienQuan = tenNhanVatLienQuan;
-	}
-
-
-	public String getCapDo() {
-		return capDo;
-	}
-	
-	public boolean isLaDiSanQuocGia() {
-		return laDiSanQuocGia;
 	}
 
 	public DiaDiem getNoiDienRa() {
