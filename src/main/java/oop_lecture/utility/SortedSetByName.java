@@ -1,13 +1,12 @@
 package oop_lecture.utility;
 
+import oop_lecture.interfaces.IFindableSet;
+import oop_lecture.interfaces.ISearchableSet;
 import oop_lecture.models.LichSuCoTen;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.TreeSet;
+import java.util.*;
 
-public class SortedSetByName<T extends LichSuCoTen> extends TreeSet<T> {
+public class SortedSetByName<T extends LichSuCoTen> extends TreeSet<T> implements IFindableSet<T>, ISearchableSet<T> {
 	/**
 	 * Tìm T có tên = name.
 	 * @param name tên T cần tìm
@@ -41,24 +40,5 @@ public class SortedSetByName<T extends LichSuCoTen> extends TreeSet<T> {
 		return LichSuCoTen.COMPARE_BY_NAME;
 	}
 
-	/**
-	 * This class is for local test purpose only
-	 * @param args cli args
-	 */
-//    public static void main(String[] args) {
-//        Set<LichSuCoTen> s = new SortedSetByName<>();
-//        s.add(new NhanVatLichSu("sthg"));
-//        s.add(new SuKienLichSu("sthg"));
-//        System.out.println(s);
-//
-//        // this part is used in get_data
-//        SortedSetByName<NhanVatLichSu> nhanVatLichSuSet = new SortedSetByName<>();
-//        while (true){
-//            // found an HF from internet
-//            var tmphf = new NhanVatLichSu("name");
-//            nhanVatLichSuSet.add(tmphf);
-//            if (/*not found anything else*/ false) break;
-//        }
 
-//    }
 }
