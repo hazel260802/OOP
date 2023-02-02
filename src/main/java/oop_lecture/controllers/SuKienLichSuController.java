@@ -58,7 +58,7 @@ public class SuKienLichSuController  extends InfoScreenController {
 			label.setStyle("-fx-font: 40 \"Readex Pro\", sans-serif");
 			label.setPadding(new Insets(20, 20, 20, 10));
 			//content
-			Text tmpT = new Text(base.getTrieuDai().getTen());
+			Text tmpT = new Text(base.getTrieuDai() == null ? "ko rõ" : base.getTrieuDai().getTen());
 			TextFlow tmpTF = new TextFlow(tmpT);
 			tmpTF.setStyle("-fx-font: 20 \"Readex Pro\", sans-serif");
 			tmpTF.setPadding(new Insets(10, 10, 10, 10));

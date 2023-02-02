@@ -1,5 +1,6 @@
 package oop_lecture.application;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -21,11 +22,11 @@ import java.util.Scanner;
 public class MainApplication extends Application {
     public static Stage mainStage;
     public static final SceneTracker scenes = new SceneTracker();
-    public static final ISearchableSet<DiaDiemLichSu> ssDiaDiemLichSu = new SortedSetByName<>();
-    public static final ISearchableSet<LeHoiVanHoa> ssLeHoiVanHoa = new SortedSetByName<>();
-    public static final ISearchableSet<NhanVatLichSu> ssNhanVatLichSu = new SortedSetByName<>();
-    public static final ISearchableSet<SuKienLichSu> ssSuKienLichSu = new SortedSetByName<>();
-    public static final ISearchableSet<TrieuDai> ssTrieuDai = new SortedSetByName<>();
+    public static final SortedSetByName<DiaDiemLichSu> ssDiaDiemLichSu = new SortedSetByName<>();
+    public static final SortedSetByName<LeHoiVanHoa> ssLeHoiVanHoa = new SortedSetByName<>();
+    public static final SortedSetByName<NhanVatLichSu> ssNhanVatLichSu = new SortedSetByName<>();
+    public static final SortedSetByName<SuKienLichSu> ssSuKienLichSu = new SortedSetByName<>();
+    public static final SortedSetByName<TrieuDai> ssTrieuDai = new SortedSetByName<>();
 
     @Override
     public void start(Stage stage){
@@ -55,8 +56,15 @@ public class MainApplication extends Application {
 		Scanner fileReader = new Scanner(fileSKLS);
 		StringBuilder sb = new StringBuilder();
 		while (fileReader.hasNextLine()) sb.append(fileReader.nextLine());
-		var node = Json.parse(sb.toString());
-		ssSuKienLichSu.addAll(Json.fromJson(node, SortedSetByName.class));
+		var arrayNode = Json.parse(sb.toString());
+		if (arrayNode.isArray()) {
+			for (JsonNode n : arrayNode) {
+				var x = Json.fromJson(n, SuKienLichSu.class);
+				ssSuKienLichSu.add(x);
+				x.link(ssTrieuDai, ssNhanVatLichSu);
+			}
+		}
+
 		launch(args);
     }
 }

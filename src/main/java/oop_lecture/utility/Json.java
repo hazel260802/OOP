@@ -232,10 +232,23 @@ public class Json {
 						// lấy jnode
 						JsonNode jn = jsonParser.getCodec().readTree(jsonParser);
 						// đọc các trường phức tạp
-						Year namBatDau = om.convertValue(jn.get("ngaySinh"), Year.class);
-						Year namKetThuc = om.convertValue(jn.get("ngayMat"), Year.class);
-						List<String> tenDiaDiemLienQuan = new ArrayList<String>(om.treeToValue(jn.get("tenDiaDiemLienQuan"), List.class));
-						List<String> tenNhanVatLienQuan = new ArrayList<String>(om.treeToValue(jn.get("tenNhanVatLienQuan"), List.class));
+						Year namBatDau = om.convertValue(jn.get("namBatDau"), Year.class);
+						Year namKetThuc = om.convertValue(jn.get("namKetThuc"), Year.class);
+
+						List<String> tenDiaDiemLienQuan = new ArrayList<>();
+						var sjn = jn.get("diaDiemLienQuan");
+						if (sjn.isArray()) {
+							for (var n : sjn) tenDiaDiemLienQuan.add(om.treeToValue(n, String.class));
+						}
+
+						List<String> tenNhanVatLienQuan = new ArrayList<>();
+						sjn = jn.get("nhanVatLienQuan");
+						if (sjn.isArray()) {
+							for (var n : sjn) tenNhanVatLienQuan.add(om.treeToValue(n, String.class));
+						}
+
+//						List<String> tenDiaDiemLienQuan = new ArrayList<>(om.treeToValue(jn.get("tenDiaDiemLienQuan"), List.class));
+//						List<String> tenNhanVatLienQuan = new ArrayList<String>(om.treeToValue(jn.get("nhanVatLienQuan"), List.class));
 
 						return new SuKienLichSu(
 								jn.get("ten").asText(),
