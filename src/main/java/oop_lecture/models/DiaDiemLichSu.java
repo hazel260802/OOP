@@ -16,12 +16,6 @@ public class DiaDiemLichSu extends LichSuCoTen {
     public DiaDiemLichSu(String ten) {
     	super(ten);
 	}
-    
-    public DiaDiemLichSu(String ten, DiaDiem diaDiem, String loaiDiTich) {
-    	super(ten);
-    	this.diaDiem = diaDiem;
-    	this.loaiDiTich = loaiDiTich;
-	}
        
     public void setDiaDiem(DiaDiem diaDiem) {
     	this.diaDiem = diaDiem;
