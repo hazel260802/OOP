@@ -7,11 +7,16 @@ import javafx.stage.Stage;
 import oop_lecture.controllers.HomeScreenController;
 import oop_lecture.interfaces.ISearchableSet;
 import oop_lecture.models.*;
+import oop_lecture.utility.Json;
 import oop_lecture.utility.SceneTracker;
 import oop_lecture.utility.SortedSetByName;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Objects;
+import java.util.Scanner;
 
 public class MainApplication extends Application {
     public static Stage mainStage;
@@ -45,8 +50,13 @@ public class MainApplication extends Application {
         mainStage.show();
     }
 
-    public static void main(String[] args) {
-        // TODO: 18/01/2023 Load sorted set
-        launch(args);
+    public static void main(String[] args) throws URISyntaxException, IOException {
+        File fileSKLS = new File(MainApplication.class.getResource("/oop_lecture/data/event.json").toURI());
+		Scanner fileReader = new Scanner(fileSKLS);
+		StringBuilder sb = new StringBuilder();
+		while (fileReader.hasNextLine()) sb.append(fileReader.nextLine());
+		var node = Json.parse(sb.toString());
+		ssSuKienLichSu.addAll(Json.fromJson(node, SortedSetByName.class));
+		launch(args);
     }
 }
