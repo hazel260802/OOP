@@ -44,7 +44,7 @@ public class getNhanVatLichSu {
     	i=i+1;
     	//  số trang cần lấy dữ liệu  
     	System.out.println(i);
- 	  	if(i==2) {break;}
+ 	  	if(i==9) {break;}
 
  	  	WebElement ele = driver.findElement(By.xpath("//a[normalize-space()='»']"));
  	  	JavascriptExecutor executor = (JavascriptExecutor)driver;
@@ -75,7 +75,7 @@ public class getNhanVatLichSu {
 	              
 	              if(Ten[0].trim() !=TenVaNamSinhNamMat) {
 	            	  // Nam Sinh Nhan Vat
-	            	  String[] namSinhTamThoi = Ten[1].trim().split("\\-");
+	            	  String[] namSinhTamThoi = Ten[1].trim().split(" - ");
 	            	  if(namSinhTamThoi[0].trim().equals("?")) {
 	            		  namSinh=null;
 	            	  }else {
