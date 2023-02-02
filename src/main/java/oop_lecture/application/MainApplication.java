@@ -65,8 +65,20 @@ public class MainApplication extends Application {
 			}
 		}
 		// LHVH
-		fileSKLS = new File(MainApplication.class.getResource("/oop_lecture/data/LeHoiVanHoa.json").toURI());
-		fileReader = new Scanner(fileSKLS);
+		File fileLHVH = new File(MainApplication.class.getResource("/oop_lecture/data/LeHoiVanHoa.json").toURI());
+		fileReader = new Scanner(fileLHVH);
+		sb = new StringBuilder();
+		while (fileReader.hasNextLine()) sb.append(fileReader.nextLine());
+		arrayNode = Json.parse(sb.toString());
+		if (arrayNode.isArray()) {
+			for (JsonNode n : arrayNode) {
+				var x = Json.fromJson(n, LeHoiVanHoa.class);
+				ssLeHoiVanHoa.add(x);
+			}
+		}
+		// NVLS
+		File fileNVLS = new File(MainApplication.class.getResource("/oop_lecture/data/listNhanVat.json").toURI());
+		fileReader = new Scanner(fileNVLS);
 		sb = new StringBuilder();
 		while (fileReader.hasNextLine()) sb.append(fileReader.nextLine());
 		arrayNode = Json.parse(sb.toString());
@@ -81,6 +93,7 @@ public class MainApplication extends Application {
 		// link
 		for (var x : ssLeHoiVanHoa) x.link(ssNhanVatLichSu);
 		for (var x : ssSuKienLichSu) x.link(ssTrieuDai, ssNhanVatLichSu);
+		for (var x : ssNhanVatLichSu) x.link(ssSuKienLichSu, ssNhanVatLichSu, ssTrieuDai);
 
 		launch(args);
     }
