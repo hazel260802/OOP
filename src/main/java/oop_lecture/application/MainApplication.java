@@ -52,7 +52,8 @@ public class MainApplication extends Application {
     }
 
     public static void main(String[] args) throws URISyntaxException, IOException {
-        File fileSKLS = new File(MainApplication.class.getResource("/oop_lecture/data/event.json").toURI());
+        // get skls from json
+		File fileSKLS = new File(MainApplication.class.getResource("/oop_lecture/data/event.json").toURI());
 		Scanner fileReader = new Scanner(fileSKLS);
 		StringBuilder sb = new StringBuilder();
 		while (fileReader.hasNextLine()) sb.append(fileReader.nextLine());
@@ -61,9 +62,25 @@ public class MainApplication extends Application {
 			for (JsonNode n : arrayNode) {
 				var x = Json.fromJson(n, SuKienLichSu.class);
 				ssSuKienLichSu.add(x);
-				x.link(ssTrieuDai, ssNhanVatLichSu);
 			}
 		}
+		// LHVH
+//		fileSKLS = new File(MainApplication.class.getResource("/oop_lecture/data/LeHoiVanHoa.json").toURI());
+//		fileReader = new Scanner(fileSKLS);
+//		sb = new StringBuilder();
+//		while (fileReader.hasNextLine()) sb.append(fileReader.nextLine());
+//		arrayNode = Json.parse(sb.toString());
+//		if (arrayNode.isArray()) {
+//			for (JsonNode n : arrayNode) {
+//				var x = Json.fromJson(n, LeHoiVanHoa.class);
+//				ssLeHoiVanHoa.add(x);
+//			}
+//		}
+
+
+		// link
+//		for (var x : ssLeHoiVanHoa) x.link(ssNhanVatLichSu);
+		for (var x : ssSuKienLichSu) x.link(ssTrieuDai, ssNhanVatLichSu);
 
 		launch(args);
     }
