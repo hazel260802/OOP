@@ -44,7 +44,7 @@ public class getNhanVatLichSu {
     	i=i+1;
     	//  số trang cần lấy dữ liệu  
     	System.out.println(i);
- 	  	if(i==2) {break;}
+ 	  	if(i==9) {break;}
 
  	  	WebElement ele = driver.findElement(By.xpath("//a[normalize-space()='»']"));
  	  	JavascriptExecutor executor = (JavascriptExecutor)driver;
@@ -75,7 +75,7 @@ public class getNhanVatLichSu {
 	              
 	              if(Ten[0].trim() !=TenVaNamSinhNamMat) {
 	            	  // Nam Sinh Nhan Vat
-	            	  String[] namSinhTamThoi = Ten[1].trim().split("\\-");
+	            	  String[] namSinhTamThoi = Ten[1].trim().split(" - ");
 	            	  if(namSinhTamThoi[0].trim().equals("?")) {
 	            		  namSinh=null;
 	            	  }else {
@@ -100,7 +100,7 @@ public class getNhanVatLichSu {
 	
 	    
 	    String nameNhanVatLienQuan = NhanVatLienQuan.getText().trim();
-	    List<WebElement> tenNhanVatLienQuan=driver.findElements(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[2]/div[1]/div[6]/div/div[1]/div[2]/div[1]/a[1]/h4[1]"));  	
+	    List<WebElement> tenNhanVatLienQuan=driver.findElements(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[2]/div[1]/div[8]/div/div[1]/div[2]/div[1]/a[1]/h4[1]"));
 	    
 	    tenNhanVatLienQuan.forEach(e -> {
       	 String Ten2 = e.getText().trim();
@@ -116,7 +116,7 @@ public class getNhanVatLichSu {
 	    
 	    // Sư kien// thanh tuu //
 	    
-			List<WebElement> thanhTuu = driver.findElements(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[2]/div[1]/div[3]/div[1]/div[2]/table[1]/tbody[1]/tr/td[3]"));
+			List<WebElement> thanhTuu = driver.findElements(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[2]/div[1]/div[4]/div[1]/div[2]/table[1]/tbody[1]/tr/td[3]"));
 			if( thanhTuu.isEmpty()==false) {
 //			System.out.println("adsdsasda");
 			
@@ -149,7 +149,8 @@ public class getNhanVatLichSu {
 	public static void main(String[] args) throws InterruptedException, ParseException, IOException {
 			System.setProperty("testHref.java", "UTF-8");
 			List<String> listHref= new ArrayList<>();
-			Set<NhanVatLichSu> listNhanVat = new SortedSetByName<>();
+			SortedSetByName<NhanVatLichSu> listNhanVat = new SortedSetByName<>();
+
 			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 //		    WebDriver driver1 = new ChromeDriver();
 		    ChromeOptions options = new ChromeOptions();
@@ -161,11 +162,12 @@ public class getNhanVatLichSu {
 		    
 		    getHrefNThuVienLS(driver1,url,listHref);
 		    for(int i=0;i<listHref.size();i++) {
-		    	GetThongTinNVLSThuVienLS(driver1,listHref.get(i), (SortedSetByName<NhanVatLichSu>) listNhanVat);
+		    	GetThongTinNVLSThuVienLS(driver1,listHref.get(i), listNhanVat);
 		    }
 	        // Thoát hẳn Browser
 	        driver1.quit();
 //		    }
+
 		SortedSetByName<SuKienLichSu> suKienLichSuSet = new SortedSetByName<>();
 		SortedSetByName<TrieuDai> trieuDaiSet = new SortedSetByName<>();
 		SortedSetByName<NhanVatLichSu> nvlsSet = new SortedSetByName<>();

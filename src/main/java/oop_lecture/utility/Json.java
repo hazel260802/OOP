@@ -100,6 +100,7 @@ public class Json {
 						jsonGenerator.writeStringField("ten", o.getTen());
 						jsonGenerator.writeObjectField("noiDienRa", o.getNoiDienRa());
 						jsonGenerator.writeObjectField("thoiDiemToChuc", o.getThoiDiemToChuc());
+						jsonGenerator.writeStringField("lanDauToChuc", o.getLanDauToChuc());
 						// viết d.s json
 						jsonGenerator.writeArrayFieldStart("nhanVatLienQuan");
 						for (var sk : o.getNhanVatLienQuan()) {
@@ -177,8 +178,20 @@ public class Json {
 						// đọc các trường phức tạp
 						Year ngaySinh = om.convertValue(jn.get("ngaySinh"), Year.class);
 						Year ngayMat = om.convertValue(jn.get("ngayMat"), Year.class);
-						List<String> tenNhanVatLienQuan = new ArrayList<String>(om.treeToValue(jn.get("tenNhanVatLienQuan"), List.class));
-						List<String> tenSuKienLichSu = new ArrayList<String>(om.treeToValue(jn.get("tenSuKienLichSu"), List.class));
+//						List<String> tenNhanVatLienQuan = new ArrayList<String>(om.treeToValue(jn.get("tenNhanVatLienQuan"), List.class));
+//						List<String> tenSuKienLichSu = new ArrayList<String>(om.treeToValue(jn.get("tenSuKienLichSu"), List.class));
+
+						List<String> tenNhanVatLienQuan = new ArrayList<>();
+						var sjn = jn.get("nhanVatLienQuan");
+						if (sjn.isArray()) {
+							for (var n : sjn) tenNhanVatLienQuan.add(om.treeToValue(n, String.class));
+						}
+
+						List<String> tenSuKienLichSu = new ArrayList<>();
+						sjn = jn.get("suKienLichSu");
+						if (sjn.isArray()) {
+							for (var n : sjn) tenSuKienLichSu.add(om.treeToValue(n, String.class));
+						}
 
 						return new NhanVatLichSu(
 								jn.get("ten").asText(),
@@ -295,7 +308,13 @@ public class Json {
 						// đọc các trường phức tạp
 						Year batDau = om.convertValue(jn.get("batDau"), Year.class);
 						Year ketThuc = om.convertValue(jn.get("ketThuc"), Year.class);
-						List<String> tenHoangDe = new ArrayList<String>(om.treeToValue(jn.get("tenHoangDe"), List.class));
+						//List<String> tenHoangDe = new ArrayList<String>(om.treeToValue(jn.get("tenHoangDe"), List.class));
+
+						List<String> tenHoangDe = new ArrayList<>();
+						var sjn = jn.get("hoangDe");
+						if (sjn.isArray()) {
+							for (var n : sjn) tenHoangDe.add(om.treeToValue(n, String.class));
+						}
 
 						return new TrieuDai(
 								jn.get("ten").asText(),
