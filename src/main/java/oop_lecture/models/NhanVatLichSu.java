@@ -1,5 +1,7 @@
 package oop_lecture.models;
 
+import oop_lecture.utility.SortedSetByName;
+
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,7 +21,7 @@ public class NhanVatLichSu extends LichSuCoTen {
 	private List<String> tenNhanVatLienQuan = new ArrayList<>();
 
 
-	public NhanVatLichSu(String ten, List<String> tenSuKienLichSu, Year ngaySinh, Year ngayMat, String tenTrieuDai, String moTaChung, List<String> tenNhanVatLienQuan) {
+	public NhanVatLichSu(String ten, List<String> tenSuKienLichSu, Year ngaySinh, Year ngayMat, String moTaChung, List<String> tenNhanVatLienQuan) {
 		super(ten);
 		this.moTaChung=moTaChung;
 		this.tenSuKienLichSu = tenSuKienLichSu;
@@ -55,5 +57,23 @@ public class NhanVatLichSu extends LichSuCoTen {
 		return suKienLichSu;
 	}
 
-	// TODO link(allTrieuDai, allNhanVatLichSu)
+	public void link(SortedSetByName<SuKienLichSu> allSKLS , SortedSetByName<NhanVatLichSu> allNVLQ, SortedSetByName<TrieuDai> allTD) {
+		for (var tenSK : tenSuKienLichSu) {
+			var x = allSKLS.find(tenSK);
+			if (x != null) suKienLichSu.add(x);
+			else suKienLichSu.add(new SuKienLichSu(tenSK,null,null,null,null,null));
+		}
+		for (var tenNV : tenNhanVatLienQuan) {
+			var x = allNVLQ.find(tenNV);
+			if (x != null) nhanVatLienQuan.add(x);
+			else nhanVatLienQuan.add(new NhanVatLichSu(tenNV,null,null,null,null,null));
+		}
+		for (var TD : allTD) {
+			if(ngaySinh.compareTo(TD.getBatDau())>=0 && ngayMat.compareTo(TD.getKetThuc())<=0){
+				trieuDai=TD;
+				tenTrieuDai=TD.getTen();
+
+			}
+		}
+	}
 }

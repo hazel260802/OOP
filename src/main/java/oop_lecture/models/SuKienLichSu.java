@@ -64,7 +64,7 @@ public class SuKienLichSu extends LichSuCoTen {
 			for(var tenNV : tenNhanVatLienQuan){
 				var x = allNV.find(tenNV);
 				if(x != null) nhanVatLienQuan.add(x);
-				else nhanVatLienQuan.add(new NhanVatLichSu(tenNV, null, null, null, null, null, null));
+				else nhanVatLienQuan.add(new NhanVatLichSu(tenNV, null, null, null, null, null));
 			}
 			for (var tenDD : tenDiaDiemLienQuan){
 				DiaDiem dd = new DiaDiem();

@@ -1,5 +1,7 @@
 package oop_lecture.models;
 
+import oop_lecture.utility.SortedSetByName;
+
 import java.time.LocalDate;
 import java.time.Year;
 import java.util.ArrayList;
@@ -61,7 +63,7 @@ public class TrieuDai extends LichSuCoTen {
         for (var tenNV : tenHoangDe) {
             var x = allNVLS.find(tenNV);
             if (x != null) allNVLS.add(x);
-            else hoangDe.add(new NhanVatLichSu(tenNV,null,null,null,null,null,null));
+            else hoangDe.add(new NhanVatLichSu(tenNV,null,null,null,null,null));
         }
     }
 

@@ -3,6 +3,9 @@ package oop_lecture.get_data;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import oop_lecture.models.NhanVatLichSu;
+import oop_lecture.models.SuKienLichSu;
+import oop_lecture.models.TrieuDai;
+import oop_lecture.utility.Json;
 import oop_lecture.utility.SortedSetByName;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -108,9 +111,6 @@ public class getNhanVatLichSu {
 	    }catch (Exception e) {
 	    	
 		}
-//	    for( int i=0;i<listNhanVatLienQuanTamThoi.size();i++) {
-//	    	System.out.println(listNhanVatLienQuanTamThoi.get(i));
-//	    }
 	   
 	    
 	    
@@ -135,9 +135,9 @@ public class getNhanVatLichSu {
 			
 			//mo ta chung nhan vat
 			
-			WebElement moTaChung = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[3]/div[2]/div[1]/div[4]/div[1]/div[2]"));
+			WebElement moTaChung = driver.findElement(By.xpath("(//div[@class='card-body'])[3]"));
 			
-			NhanVatLichSu NhanVatTamThoi= new NhanVatLichSu(tenDayDu, listSuKienTamThoi, namSinh,namMat, null, moTaChung.getText().trim(), listNhanVatLienQuanTamThoi);
+			NhanVatLichSu NhanVatTamThoi= new NhanVatLichSu(tenDayDu, listSuKienTamThoi, namSinh,namMat, moTaChung.getText().trim(), listNhanVatLienQuanTamThoi);
 			
 			// thêm nhân vật vô list
 			listNhanVat.add(NhanVatTamThoi);
@@ -166,14 +166,14 @@ public class getNhanVatLichSu {
 	        // Thoát hẳn Browser
 	        driver1.quit();
 //		    }
-		ObjectMapper mapper = new ObjectMapper();
-		mapper.findAndRegisterModules();
+		SortedSetByName<SuKienLichSu> suKienLichSuSet = new SortedSetByName<>();
+		SortedSetByName<TrieuDai> trieuDaiSet = new SortedSetByName<>();
+		SortedSetByName<NhanVatLichSu> nvlsSet = new SortedSetByName<>();
+		for(var nvls : listNhanVat ){
+			nvls.link( suKienLichSuSet,nvlsSet,trieuDaiSet);
+		}
 		//Object to JSON in file
-		mapper.writeValue(new File("data\\listNhanVat.json"), listNhanVat);
-//
-			
-	}
-	public static void toFile (File file, Object o) {
+		Json.toFile(new File("src\\main\\resources\\oop_lecture\\data\\listNhanVat.json"),Json.toJson(listNhanVat));
 
 	}
 	
