@@ -263,7 +263,7 @@ public class Json {
 						jsonGenerator.writeStringField("ten", o.getTen());
 						jsonGenerator.writeObjectField("batDau", o.getBatDau());
 						jsonGenerator.writeObjectField("ketThuc", o.getKetThuc());
-						jsonGenerator.writeObjectField("thuDo", o.getThuDo());
+						jsonGenerator.writeObjectField("thuDo", o.getKinhDo());
 						// viết d.s json
 						jsonGenerator.writeArrayFieldStart("hoangDe");
 						for (var sk : o.getHoangDe()) {
@@ -283,8 +283,8 @@ public class Json {
 						// lấy jnode
 						JsonNode jn = jsonParser.getCodec().readTree(jsonParser);
 						// đọc các trường phức tạp
-						LocalDate batDau = om.convertValue(jn.get("batDau"), LocalDate.class);
-						LocalDate ketThuc = om.convertValue(jn.get("ketThuc"), LocalDate.class);
+						Year batDau = om.convertValue(jn.get("batDau"), Year.class);
+						Year ketThuc = om.convertValue(jn.get("ketThuc"), Year.class);
 						List<String> tenHoangDe = new ArrayList<String>(om.treeToValue(jn.get("tenHoangDe"), List.class));
 
 						return new TrieuDai(

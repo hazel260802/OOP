@@ -29,28 +29,36 @@ public class LeHoiVanHoaController extends InfoScreenController {
         vbContent.getChildren().add(lName);
 
         Label subLabel1 = new Label("Cấp Độ");
-        subLabel1.setPadding(new Insets(1,1,1,1));
+		subLabel1.setStyle("-fx-font: 40 \"Readex Pro\", sans-serif");
+		subLabel1.setPadding(new Insets(20, 20, 20, 10));
         // content
         Text tmpText = new Text(base.getCapDo());
         TextFlow tmpTextFlow = new TextFlow(tmpText);
         vbContent.getChildren().addAll(subLabel1, tmpTextFlow);
 
         Label subLabel2 = new Label("Di sản Quốc Gia");
-        subLabel2.setPadding(new Insets(1,1,1,1));
+		subLabel2.setStyle("-fx-font: 40 \"Readex Pro\", sans-serif");
+		subLabel2.setPadding(new Insets(20, 20, 20, 10));
         if (base.isLaDiSanQuocGia()) vbContent.getChildren().addAll(subLabel2);
 
         Label subLabel3 = new Label("Địa Điểm");
-        subLabel3.setPadding(new Insets(1,1,1,1));
+		subLabel3.setStyle("-fx-font: 40 \"Readex Pro\", sans-serif");
+		subLabel3.setPadding(new Insets(20, 20, 20, 10));
         // content
         tmpText = new Text(base.getNoiDienRa() == null ? "Hiện chưa rõ nơi diễn ra" : base.getNoiDienRa().toString());
         tmpTextFlow = new TextFlow(tmpText);
+		tmpTextFlow.setStyle("-fx-font: 20 \"Readex Pro\", sans-serif");
+		tmpTextFlow.setPadding(new Insets(10, 10, 10, 10));
         vbContent.getChildren().addAll(subLabel3, tmpTextFlow);
 
         Label subLabel4 = new Label("Thời Điểm Tổ Chức");
-        subLabel4.setPadding(new Insets(1,1,1,1));
+		subLabel4.setStyle("-fx-font: 40 \"Readex Pro\", sans-serif");
+		subLabel4.setPadding(new Insets(20, 20, 20, 10));
         // content
         tmpText = new Text(base.getThoiDiemToChuc() == null ? "Hiện không rõ thời điểm tổ chức" : base.getThoiDiemToChuc().toString());
         tmpTextFlow = new TextFlow(tmpText);
+		tmpTextFlow.setStyle("-fx-font: 20 \"Readex Pro\", sans-serif");
+		tmpTextFlow.setPadding(new Insets(10, 10, 10, 10));
         vbContent.getChildren().addAll(subLabel4, tmpTextFlow);
 
 //        Label subLabel5 = new Label("Sự Kiện Lịch Sử ");
@@ -59,10 +67,13 @@ public class LeHoiVanHoaController extends InfoScreenController {
 //        vbContent.getChildren().addAll(subLabel5);
 
         Label subLabel6 = new Label("Lần Đầu Tổ Chức");
-        subLabel6.setPadding(new Insets(1,1,1,1));
+		subLabel6.setStyle("-fx-font: 40 \"Readex Pro\", sans-serif");
+		subLabel6.setPadding(new Insets(20, 20, 20, 10));
         // content
         tmpText = new Text(base.getLanDauToChuc());
         tmpTextFlow = new TextFlow(tmpText);
+		tmpTextFlow.setStyle("-fx-font: 20 \"Readex Pro\", sans-serif");
+		tmpTextFlow.setPadding(new Insets(10, 10, 10, 10));
         vbContent.getChildren().addAll(subLabel6, tmpTextFlow);
 
         TableView<NhanVatLichSu> tvNVLQ = new TableView<>(FXCollections.observableList(base.getNhanVatLienQuan()));

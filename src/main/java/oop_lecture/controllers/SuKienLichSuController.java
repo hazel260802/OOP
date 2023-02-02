@@ -31,28 +31,37 @@ public class SuKienLichSuController  extends InfoScreenController {
 		// T Gian
 		{
 			Label label = new Label("Thời Gian");
-			label.setPadding(new Insets(1, 1, 1, 1));
+			label.setStyle("-fx-font: 40 \"Readex Pro\", sans-serif");
+			label.setPadding(new Insets(20, 20, 20, 10));
 			// content
 			Text tmpT = new Text((base.getNamBatDau() == null ? "?" : base.getNamBatDau().toString()) + " - " + (base.getNamKetThuc() == null ? "?" : base.getNamKetThuc().toString()));
 			TextFlow tmpTF = new TextFlow(tmpT);
+			tmpTF.setStyle("-fx-font: 20 \"Readex Pro\", sans-serif");
+			tmpTF.setPadding(new Insets(10, 10, 10, 10));
 			vbContent.getChildren().addAll(label, tmpTF);
 		}
 		// mo Ta
 		{
 			Label label = new Label("Mô tả");
-			label.setPadding(new Insets(1, 1, 1, 1));
+			label.setStyle("-fx-font: 40 \"Readex Pro\", sans-serif");
+			label.setPadding(new Insets(20, 20, 20, 10));
 			// content
 			Text tmpT = new Text(base.getMoTa());
 			TextFlow tmpTF = new TextFlow(tmpT);
+			tmpTF.setStyle("-fx-font: 20 \"Readex Pro\", sans-serif");
+			tmpTF.setPadding(new Insets(10, 10, 10, 10));
 			vbContent.getChildren().addAll(label, tmpTF);
 		}
 		// trieu dai
 		{
 			Label label = new Label("Triều Đại");
-			label.setPadding(new Insets(1, 1, 1, 1));
-
+			label.setStyle("-fx-font: 40 \"Readex Pro\", sans-serif");
+			label.setPadding(new Insets(20, 20, 20, 10));
+			//content
 			Text tmpT = new Text(base.getTrieuDai().getTen());
 			TextFlow tmpTF = new TextFlow(tmpT);
+			tmpTF.setStyle("-fx-font: 20 \"Readex Pro\", sans-serif");
+			tmpTF.setPadding(new Insets(10, 10, 10, 10));
 			vbContent.getChildren().addAll(label, tmpTF);
 		}
 		// dia diem
