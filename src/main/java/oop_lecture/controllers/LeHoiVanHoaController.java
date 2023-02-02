@@ -79,7 +79,7 @@ public class LeHoiVanHoaController extends InfoScreenController {
         TableView<NhanVatLichSu> tvNVLQ = new TableView<>(FXCollections.observableList(base.getNhanVatLienQuan()));
         // index column
         TableColumn<NhanVatLichSu, Integer> tcIndex = new TableColumn<>();
-        tcIndex.setCellFactory(new IndexCallBack<>());
+        tcIndex.setCellValueFactory(new IndexCallBack<>());
         tcIndex.setMinWidth(20);
         tcIndex.prefWidthProperty().bind(tvNVLQ.widthProperty().multiply(0.2));
         // data column
