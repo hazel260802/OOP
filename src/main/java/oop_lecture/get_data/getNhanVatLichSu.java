@@ -3,6 +3,7 @@ package oop_lecture.get_data;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import oop_lecture.models.NhanVatLichSu;
+import oop_lecture.utility.Json;
 import oop_lecture.utility.SortedSetByName;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -166,15 +167,11 @@ public class getNhanVatLichSu {
 	        // Thoát hẳn Browser
 	        driver1.quit();
 //		    }
-		ObjectMapper mapper = new ObjectMapper();
-		mapper.findAndRegisterModules();
 		//Object to JSON in file
-		mapper.writeValue(new File("data\\listNhanVat.json"), listNhanVat);
+		Json.toFile(new File("src\\main\\resources\\oop_lecture\\data\\listNhanVat.json"),Json.toJson(listNhanVat));
+
 //
 			
-	}
-	public static void toFile (File file, Object o) {
-
 	}
 	
 

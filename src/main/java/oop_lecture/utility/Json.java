@@ -243,7 +243,6 @@ public class Json {
 								namBatDau,
 								namKetThuc,
 								jn.get("moTa").asText(),
-								jn.get("tenTrieuDai").asText(),
 								tenDiaDiemLienQuan,
 								tenNhanVatLienQuan
 						);
