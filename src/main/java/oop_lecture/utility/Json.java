@@ -263,7 +263,7 @@ public class Json {
 						jsonGenerator.writeStringField("ten", o.getTen());
 						jsonGenerator.writeObjectField("batDau", o.getBatDau());
 						jsonGenerator.writeObjectField("ketThuc", o.getKetThuc());
-						jsonGenerator.writeObjectField("thuDo", o.getThuDo());
+						jsonGenerator.writeObjectField("thuDo", o.getKinhDo());
 						// viết d.s json
 						jsonGenerator.writeArrayFieldStart("hoangDe");
 						for (var sk : o.getTenHoangDe()) {
