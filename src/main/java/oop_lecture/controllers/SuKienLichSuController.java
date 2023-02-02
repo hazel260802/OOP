@@ -1,14 +1,18 @@
 package oop_lecture.controllers;
 
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+import javafx.util.Callback;
 import oop_lecture.models.DiaDiem;
 import oop_lecture.models.NhanVatLichSu;
 import oop_lecture.models.SuKienLichSu;
@@ -31,28 +35,37 @@ public class SuKienLichSuController  extends InfoScreenController {
 		// T Gian
 		{
 			Label label = new Label("Thời Gian");
-			label.setPadding(new Insets(1, 1, 1, 1));
+			label.setStyle("-fx-font: 40 \"Readex Pro\", sans-serif");
+			label.setPadding(new Insets(20, 20, 20, 10));
 			// content
 			Text tmpT = new Text((base.getNamBatDau() == null ? "?" : base.getNamBatDau().toString()) + " - " + (base.getNamKetThuc() == null ? "?" : base.getNamKetThuc().toString()));
 			TextFlow tmpTF = new TextFlow(tmpT);
+			tmpTF.setStyle("-fx-font: 20 \"Readex Pro\", sans-serif");
+			tmpTF.setPadding(new Insets(10, 10, 10, 10));
 			vbContent.getChildren().addAll(label, tmpTF);
 		}
 		// mo Ta
 		{
 			Label label = new Label("Mô tả");
-			label.setPadding(new Insets(1, 1, 1, 1));
+			label.setStyle("-fx-font: 40 \"Readex Pro\", sans-serif");
+			label.setPadding(new Insets(20, 20, 20, 10));
 			// content
 			Text tmpT = new Text(base.getMoTa());
 			TextFlow tmpTF = new TextFlow(tmpT);
+			tmpTF.setStyle("-fx-font: 20 \"Readex Pro\", sans-serif");
+			tmpTF.setPadding(new Insets(10, 10, 10, 10));
 			vbContent.getChildren().addAll(label, tmpTF);
 		}
 		// trieu dai
 		{
 			Label label = new Label("Triều Đại");
-			label.setPadding(new Insets(1, 1, 1, 1));
-
-			Text tmpT = new Text(base.getTrieuDai().getTen());
+			label.setStyle("-fx-font: 40 \"Readex Pro\", sans-serif");
+			label.setPadding(new Insets(20, 20, 20, 10));
+			//content
+			Text tmpT = new Text(base.getTrieuDai() == null ? "ko rõ" : base.getTrieuDai().getTen());
 			TextFlow tmpTF = new TextFlow(tmpT);
+			tmpTF.setStyle("-fx-font: 20 \"Readex Pro\", sans-serif");
+			tmpTF.setPadding(new Insets(10, 10, 10, 10));
 			vbContent.getChildren().addAll(label, tmpTF);
 		}
 		// dia diem
@@ -60,7 +73,7 @@ public class SuKienLichSuController  extends InfoScreenController {
 			TableView<DiaDiem> tvDDLQ = new TableView<>(FXCollections.observableList(base.getDiaDiemLienQuan()));
 			// index
 			TableColumn<DiaDiem, Integer> tcIndex = new TableColumn<>();
-			tcIndex.setCellFactory(new IndexCallBack<>());
+			tcIndex.setCellValueFactory(new IndexCallBack<>());
 			tcIndex.setMinWidth(20);
 			tcIndex.prefWidthProperty().bind(tvDDLQ.widthProperty().multiply(0.2));
 			// DDLQ
@@ -77,7 +90,7 @@ public class SuKienLichSuController  extends InfoScreenController {
 			TableView<NhanVatLichSu> tvNVLQ = new TableView<>(FXCollections.observableList(base.getNhanVatLienQuan()));
 			// index
 			TableColumn<NhanVatLichSu, Integer> tcIndex = new TableColumn<>();
-			tcIndex.setCellFactory(new IndexCallBack<>());
+			tcIndex.setCellValueFactory(new IndexCallBack<>());
 			tcIndex.setMinWidth(20);
 			tcIndex.prefWidthProperty().bind(tvNVLQ.widthProperty().multiply(0.2));
 			// NVLQ

@@ -27,24 +27,33 @@ public class NhanVatLichSuController extends InfoScreenController {
         vbContent.getChildren().add(lName);
 
         Label subLabel1 = new Label("Ngày Sinh");
-        subLabel1.setPadding(new Insets(1,1,1,1));
+		subLabel1.setStyle("-fx-font: 40 \"Readex Pro\", sans-serif");
+		subLabel1.setPadding(new Insets(20, 20, 20, 10));
         // content
         Text tmpText = new Text(base.getNgaySinh() == null ? "Không rõ" : base.getNgaySinh().toString());
         TextFlow tmpTextFlow = new TextFlow(tmpText);
+		tmpTextFlow.setStyle("-fx-font: 20 \"Readex Pro\", sans-serif");
+		tmpTextFlow.setPadding(new Insets(10, 10, 10, 10));
         vbContent.getChildren().addAll(subLabel1, tmpTextFlow);
 
         Label subLabel2 = new Label("Ngày Mất");
-        subLabel2.setPadding(new Insets(1,1,1,1));
+		subLabel2.setStyle("-fx-font: 40 \"Readex Pro\", sans-serif");
+		subLabel2.setPadding(new Insets(20, 20, 20, 10));
         // content
         tmpText = new Text(base.getNgayMat() == null ? "Không rõ" : base.getNgayMat().toString());
         tmpTextFlow = new TextFlow(tmpText);
+		tmpTextFlow.setStyle("-fx-font: 20 \"Readex Pro\", sans-serif");
+		tmpTextFlow.setPadding(new Insets(10, 10, 10, 10));
         vbContent.getChildren().addAll(subLabel2, tmpTextFlow);
 
         Label subLabel3 = new Label("Triều Đại");
-        subLabel3.setPadding(new Insets(1,1,1,1));
+		subLabel3.setStyle("-fx-font: 40 \"Readex Pro\", sans-serif");
+		subLabel3.setPadding(new Insets(20, 20, 20, 10));
         // content
         tmpText = new Text(base.getTrieuDai() == null ? "Không rõ" : base.getTrieuDai().getTen());
         tmpTextFlow = new TextFlow(tmpText);
+		tmpTextFlow.setStyle("-fx-font: 20 \"Readex Pro\", sans-serif");
+		tmpTextFlow.setPadding(new Insets(10, 10, 10, 10));
         tmpTextFlow.setOnMouseClicked(mouseEvent -> DoubleClickCallBack.doubleClick(mouseEvent, base.getTrieuDai()));
         vbContent.getChildren().addAll(subLabel3, tmpTextFlow);
 
@@ -52,7 +61,7 @@ public class NhanVatLichSuController extends InfoScreenController {
         TableView<NhanVatLichSu> tvNVLQ = new TableView<>(FXCollections.observableList(base.getNhanVatLienQuan()));
         // index column
         TableColumn<NhanVatLichSu, Integer> tcIndex = new TableColumn<>();
-        tcIndex.setCellFactory(new IndexCallBack<>());
+        tcIndex.setCellValueFactory(new IndexCallBack<>());
         tcIndex.setMinWidth(20);
         tcIndex.prefWidthProperty().bind(tvNVLQ.widthProperty().multiply(0.2));
         // data column

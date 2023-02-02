@@ -1,16 +1,23 @@
 package oop_lecture.application;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import oop_lecture.controllers.HomeScreenController;
+import oop_lecture.interfaces.ISearchableSet;
 import oop_lecture.models.*;
+import oop_lecture.utility.Json;
 import oop_lecture.utility.SceneTracker;
 import oop_lecture.utility.SortedSetByName;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Objects;
+import java.util.Scanner;
 
 public class MainApplication extends Application {
     public static Stage mainStage;
@@ -44,8 +51,50 @@ public class MainApplication extends Application {
         mainStage.show();
     }
 
-    public static void main(String[] args) {
-        // TODO: 18/01/2023 Load sorted set
-        launch(args);
+    public static void main(String[] args) throws URISyntaxException, IOException {
+        // get skls from json
+		File fileSKLS = new File(MainApplication.class.getResource("/oop_lecture/data/event.json").toURI());
+		Scanner fileReader = new Scanner(fileSKLS);
+		StringBuilder sb = new StringBuilder();
+		while (fileReader.hasNextLine()) sb.append(fileReader.nextLine());
+		var arrayNode = Json.parse(sb.toString());
+		if (arrayNode.isArray()) {
+			for (JsonNode n : arrayNode) {
+				var x = Json.fromJson(n, SuKienLichSu.class);
+				ssSuKienLichSu.add(x);
+			}
+		}
+		// LHVH
+		File fileLHVH = new File(MainApplication.class.getResource("/oop_lecture/data/LeHoiVanHoa.json").toURI());
+		fileReader = new Scanner(fileLHVH);
+		sb = new StringBuilder();
+		while (fileReader.hasNextLine()) sb.append(fileReader.nextLine());
+		arrayNode = Json.parse(sb.toString());
+		if (arrayNode.isArray()) {
+			for (JsonNode n : arrayNode) {
+				var x = Json.fromJson(n, LeHoiVanHoa.class);
+				ssLeHoiVanHoa.add(x);
+			}
+		}
+		// NVLS
+		File fileNVLS = new File(MainApplication.class.getResource("/oop_lecture/data/listNhanVat.json").toURI());
+		fileReader = new Scanner(fileNVLS);
+		sb = new StringBuilder();
+		while (fileReader.hasNextLine()) sb.append(fileReader.nextLine());
+		arrayNode = Json.parse(sb.toString());
+		if (arrayNode.isArray()) {
+			for (JsonNode n : arrayNode) {
+				var x = Json.fromJson(n, LeHoiVanHoa.class);
+				ssLeHoiVanHoa.add(x);
+			}
+		}
+
+
+		// link
+		for (var x : ssLeHoiVanHoa) x.link(ssNhanVatLichSu);
+		for (var x : ssSuKienLichSu) x.link(ssTrieuDai, ssNhanVatLichSu);
+		for (var x : ssNhanVatLichSu) x.link(ssSuKienLichSu, ssNhanVatLichSu, ssTrieuDai);
+
+		launch(args);
     }
 }
