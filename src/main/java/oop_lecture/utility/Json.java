@@ -67,15 +67,6 @@ public class Json {
 						jsonGenerator.writeStringField("ten", o.getTen());
 						jsonGenerator.writeObjectField("diaDiem", o.getDiaDiem());
 						jsonGenerator.writeStringField("loaiDiTich", o.getLoaiDiTich());
-						jsonGenerator.writeStringField("capDo", o.getCapDo());
-						jsonGenerator.writeBooleanField("laDiSanTheGioi", o.getLaDiSanTheGioi());
-						// viết d.s json
-						jsonGenerator.writeArrayFieldStart("tenSuKienLichSu");
-						for (var sk : o.getSuKienLichSu()) {
-							jsonGenerator.writeString(sk.getTen());
-						}
-						jsonGenerator.writeEndArray();
-
 						jsonGenerator.writeEndObject();
 					}
 				}
@@ -89,16 +80,11 @@ public class Json {
 						JsonNode jn = jsonParser.getCodec().readTree(jsonParser);
 						// đọc các trường phức tạp
 						DiaDiem diaDiem = om.treeToValue(jn.get("diaDiem"), DiaDiem.class);
-						List<String> tenSuKienLichSu = new ArrayList<String>(om.treeToValue(jn.get("tenSuKienLichSu"), List.class));
+						DiaDiemLichSu diaDiemLichSu = new DiaDiemLichSu(jn.get("ten").asText());
+						diaDiemLichSu.setDiaDiem(diaDiem);
+						diaDiemLichSu.setLoaiDiTich(jn.get("loaiDiTich").asText());
 
-						return new DiaDiemLichSu(
-								jn.get("ten").asText(),
-								diaDiem,
-								jn.get("loaiDiTich").asText(),
-								jn.get("capDo").asText(),
-								jn.get("laDiSanTheGioi").asBoolean(),
-								tenSuKienLichSu
-						);
+						return diaDiemLichSu;
 					}
 				}
 		));
@@ -275,19 +261,12 @@ public class Json {
 						// bắt đầu viết file json
 						jsonGenerator.writeStartObject();
 						jsonGenerator.writeStringField("ten", o.getTen());
-						jsonGenerator.writeStringField("quocHieu", o.getQuocHieu());
 						jsonGenerator.writeObjectField("batDau", o.getBatDau());
 						jsonGenerator.writeObjectField("ketThuc", o.getKetThuc());
 						jsonGenerator.writeObjectField("thuDo", o.getThuDo());
 						// viết d.s json
 						jsonGenerator.writeArrayFieldStart("hoangDe");
 						for (var sk : o.getHoangDe()) {
-							jsonGenerator.writeString(sk.getTen());
-						}
-						jsonGenerator.writeEndArray();
-
-						jsonGenerator.writeArrayFieldStart("suKien");
-						for (var sk : o.getSuKien()) {
 							jsonGenerator.writeString(sk.getTen());
 						}
 						jsonGenerator.writeEndArray();
@@ -306,18 +285,14 @@ public class Json {
 						// đọc các trường phức tạp
 						LocalDate batDau = om.convertValue(jn.get("batDau"), LocalDate.class);
 						LocalDate ketThuc = om.convertValue(jn.get("ketThuc"), LocalDate.class);
-						DiaDiem thuDo = om.treeToValue(jn.get("thuDo"), DiaDiem.class);
 						List<String> tenHoangDe = new ArrayList<String>(om.treeToValue(jn.get("tenHoangDe"), List.class));
-						List<String> tenSuKien = new ArrayList<String>(om.treeToValue(jn.get("tenSuKien"), List.class));
 
 						return new TrieuDai(
 								jn.get("ten").asText(),
-								jn.get("quocHieu").asText(),
 								batDau,
 								ketThuc,
-								thuDo,
-								tenHoangDe,
-								tenSuKien
+								jn.get("thuDo").asText(),
+								tenHoangDe
 						);
 					}
 				}
