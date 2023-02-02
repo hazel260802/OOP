@@ -65,21 +65,21 @@ public class MainApplication extends Application {
 			}
 		}
 		// LHVH
-//		fileSKLS = new File(MainApplication.class.getResource("/oop_lecture/data/LeHoiVanHoa.json").toURI());
-//		fileReader = new Scanner(fileSKLS);
-//		sb = new StringBuilder();
-//		while (fileReader.hasNextLine()) sb.append(fileReader.nextLine());
-//		arrayNode = Json.parse(sb.toString());
-//		if (arrayNode.isArray()) {
-//			for (JsonNode n : arrayNode) {
-//				var x = Json.fromJson(n, LeHoiVanHoa.class);
-//				ssLeHoiVanHoa.add(x);
-//			}
-//		}
+		fileSKLS = new File(MainApplication.class.getResource("/oop_lecture/data/LeHoiVanHoa.json").toURI());
+		fileReader = new Scanner(fileSKLS);
+		sb = new StringBuilder();
+		while (fileReader.hasNextLine()) sb.append(fileReader.nextLine());
+		arrayNode = Json.parse(sb.toString());
+		if (arrayNode.isArray()) {
+			for (JsonNode n : arrayNode) {
+				var x = Json.fromJson(n, LeHoiVanHoa.class);
+				ssLeHoiVanHoa.add(x);
+			}
+		}
 
 
 		// link
-//		for (var x : ssLeHoiVanHoa) x.link(ssNhanVatLichSu);
+		for (var x : ssLeHoiVanHoa) x.link(ssNhanVatLichSu);
 		for (var x : ssSuKienLichSu) x.link(ssTrieuDai, ssNhanVatLichSu);
 
 		launch(args);
