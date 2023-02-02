@@ -15,7 +15,6 @@ public class NhanVatLichSu extends LichSuCoTen {
 	private List<SuKienLichSu> suKienLichSu = new ArrayList<>();
 
 	private TrieuDai trieuDai;
-	private String tenTrieuDai;
 
 	private List<NhanVatLichSu> nhanVatLienQuan = new ArrayList<>();
 	private List<String> tenNhanVatLienQuan = new ArrayList<>();
@@ -27,7 +26,6 @@ public class NhanVatLichSu extends LichSuCoTen {
 		this.tenSuKienLichSu = tenSuKienLichSu;
 		this.ngaySinh = ngaySinh;
 		this.ngayMat = ngayMat;
-		this.tenTrieuDai = tenTrieuDai;
 		this.tenNhanVatLienQuan = tenNhanVatLienQuan;
 	}
 
@@ -71,9 +69,14 @@ public class NhanVatLichSu extends LichSuCoTen {
 		for (var TD : allTD) {
 			if(ngaySinh.compareTo(TD.getBatDau())>=0 && ngayMat.compareTo(TD.getKetThuc())<=0){
 				trieuDai=TD;
-				tenTrieuDai=TD.getTen();
-
 			}
 		}
 	}
+	public List<String> getTenNhanVatLienQuan() {
+		return tenNhanVatLienQuan;
+	}
+	public List<String> getTenSuKienLichSu() {
+		return tenSuKienLichSu;
+	}
+
 }
