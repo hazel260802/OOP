@@ -1,5 +1,6 @@
 package oop_lecture.models;
 
+import java.time.LocalDate;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +15,16 @@ public class TrieuDai extends LichSuCoTen {
     public TrieuDai(String name) {
         super(name);
     }
-    
-    public void setTenHoangDe(List<String> tenHoangDe) {
+
+	public TrieuDai(String ten, Year batDau, Year ketThuc, String thuDo, List<String> tenHoangDe) {
+		super(ten);
+		this.batDau = batDau;
+		this.ketThuc = ketThuc;
+		this.kinhDo = thuDo;
+		this.tenHoangDe = tenHoangDe;
+	}
+
+	public void setTenHoangDe(List<String> tenHoangDe) {
     	this.tenHoangDe = tenHoangDe;
     }
     
