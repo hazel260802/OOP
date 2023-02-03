@@ -20,11 +20,12 @@ public class DiaDiemLichSuController extends InfoScreenController{
     @FXML
     private void initialize() {
         Label lName = new Label(base.getTen());
+		lName.setStyle("-fx-font: 30 \"Readex Pro\", sans-serif");
         vbContent.getChildren().add(lName);
 
         Label subLabel1 = new Label("Địa điểm");
         subLabel1.setPadding(new Insets(1,1,1,1));
-		subLabel1.setStyle("-fx-font: 40 \"Readex Pro\", sans-serif");
+		subLabel1.setStyle("-fx-font: 20 \"Readex Pro\", sans-serif");
         // content
         Text tmpText = new Text(base.getDiaDiem() == null ? "Hiện chưa rõ vị trí cụ thể" : base.getDiaDiem().toString());
         TextFlow tmpTextFlow = new TextFlow(tmpText);
@@ -34,7 +35,7 @@ public class DiaDiemLichSuController extends InfoScreenController{
 
         Label subLabel2 = new Label("Loại Di Tích ");
         subLabel2.setPadding(new Insets(1,1,1,1));
-		subLabel2.setStyle("-fx-font: 40 \"Readex Pro\", sans-serif");
+		subLabel2.setStyle("-fx-font: 30 \"Readex Pro\", sans-serif");
         // content
         tmpText = new Text(base.getLoaiDiTich());
         tmpTextFlow = new TextFlow(tmpText);

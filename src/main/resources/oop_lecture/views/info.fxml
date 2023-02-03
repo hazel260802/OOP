@@ -161,7 +161,7 @@
             <Insets />
          </BorderPane.margin>
          <content>
-            <VBox fx:id="vbContent" prefWidth="766.0" style="-fx-background-color: #FCF8E8;" styleClass="headerBox">
+            <VBox fx:id="vbContent" minWidth="766.0" prefHeight="736.0" style="-fx-background-color: #FCF8E8;" styleClass="headerBox">
                <padding>
                   <Insets left="10.0" />
                </padding>

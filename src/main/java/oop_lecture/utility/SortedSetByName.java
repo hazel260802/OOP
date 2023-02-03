@@ -12,6 +12,7 @@ public class SortedSetByName<T extends LichSuCoTen> extends TreeSet<T> implement
 	 * @return T có tên = name nếu có tồn tại, null nếu không có.
 	 */
 	public T find(String name) {
+		if (name == null || name.trim().isEmpty()) return null;
 		var arrayThis = this.toArray();
 		var x = new LichSuCoTen(name) {};
 		int lowIndex = 0, highIndex = arrayThis.length -1;

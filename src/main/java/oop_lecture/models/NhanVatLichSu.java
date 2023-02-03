@@ -66,6 +66,7 @@ public class NhanVatLichSu extends LichSuCoTen {
 			else nhanVatLienQuan.add(new NhanVatLichSu(tenNV,null,null,null,null,null));
 		}
 		for (var TD : allTD) {
+			if (ngaySinh == null || ngayMat == null) continue;
 			if(ngaySinh.compareTo(TD.getBatDau())>=0 && ngayMat.compareTo(TD.getKetThuc())<=0){
 				trieuDai=TD;
 			}
