@@ -1,12 +1,11 @@
 package oop_lecture.utility;
 
-import oop_lecture.interfaces.IFindableSet;
-import oop_lecture.interfaces.ISearchableSet;
+import oop_lecture.interfaces.INamedSet;
 import oop_lecture.models.LichSuCoTen;
 
 import java.util.*;
 
-public class SortedSetByName<T extends LichSuCoTen> extends TreeSet<T> implements IFindableSet<T>, ISearchableSet<T> {
+public class SortedSetByName<T extends LichSuCoTen> extends TreeSet<T> implements INamedSet<T> {
 	/**
 	 * Tìm T có tên = name.
 	 * @param name tên T cần tìm

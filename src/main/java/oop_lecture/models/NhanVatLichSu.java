@@ -1,10 +1,9 @@
 package oop_lecture.models;
 
-import oop_lecture.utility.SortedSetByName;
+import oop_lecture.interfaces.INamedSet;
 
 import java.time.Year;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class NhanVatLichSu extends LichSuCoTen {
@@ -55,7 +54,7 @@ public class NhanVatLichSu extends LichSuCoTen {
 		return suKienLichSu;
 	}
 
-	public void link(SortedSetByName<SuKienLichSu> allSKLS , SortedSetByName<NhanVatLichSu> allNVLQ, SortedSetByName<TrieuDai> allTD) {
+	public void link(INamedSet<SuKienLichSu> allSKLS , INamedSet<NhanVatLichSu> allNVLQ, INamedSet<TrieuDai> allTD) {
 		for (var tenSK : tenSuKienLichSu) {
 			var x = allSKLS.find(tenSK);
 			if (x != null) suKienLichSu.add(x);

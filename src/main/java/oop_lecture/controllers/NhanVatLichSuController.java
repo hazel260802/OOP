@@ -14,7 +14,7 @@ import oop_lecture.utility.DoubleClickCallBack;
 import oop_lecture.utility.IndexCallBack;
 
 public class NhanVatLichSuController extends InfoScreenController {
-    private NhanVatLichSu base;
+    private final NhanVatLichSu base;
 
     public NhanVatLichSuController(NhanVatLichSu base) {
         this.base = base;
