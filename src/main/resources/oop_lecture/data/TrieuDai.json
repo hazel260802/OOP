@@ -1,0 +1,151 @@
+[ {
+  "ten" : "Bắc triều – Nhà Mạc",
+  "batDau" : 1527,
+  "ketThuc" : 1592,
+  "thuDo" : "Đông Kinh (Hà Nội)[gr]",
+  "hoangDe" : [ "Mạc Thái Tổ[dd]", "Mạc Thái Tông[de]", "Mạc Hiến Tông", "Mạc Chính Trung[df]", "Mạc Tuyên Tông", "Mạc Mục Tông\nMạc Anh Tổ", "Mạc Cảnh Tông", "Mạc Mẫn Tông[dg]", "Mạc Đại Tông[dh]", "Mạc Quang Tổ", "Mạc Minh Tông", "Mạc Quý Tông", "Mạc Đức Tông" ]
+}, {
+  "ten" : "Họ Dương",
+  "batDau" : 931,
+  "ketThuc" : 937,
+  "thuDo" : "Dương Đình Nghệ đóng đô ở Đại La (nay thuộc Hà Nội)[23] còn Dương Tam Kha đóng đô ở thành Cổ Loa (huyện Đông Anh, Hà Nội)[23]",
+  "hoangDe" : [ "Dương Chính Công[am]" ]
+}, {
+  "ten" : "Họ Khúc",
+  "batDau" : 905,
+  "ketThuc" : 923,
+  "thuDo" : "Đại La (nay thuộc Hà Nội)[22]",
+  "hoangDe" : [ "Khúc Tiên Chủ[am]", "Khúc Trung Chủ[am]", "Khúc Hậu Chủ[am]" ]
+}, {
+  "ten" : "Họ Kiều",
+  "batDau" : 937,
+  "ketThuc" : 938,
+  "thuDo" : "Đại La (nay thuộc Hà Nội)[23]",
+  "hoangDe" : [ "Kiều Công Tiễn[am]" ]
+}, {
+  "ten" : "Họ Mai",
+  "batDau" : 713,
+  "ketThuc" : 723,
+  "thuDo" : "Vạn An (nay thuộc huyện Nam Đàn, Nghệ An)[132]",
+  "hoangDe" : [ "Mai Hắc Đế[18]", "Mai Thiếu Đế[ah]", "Bạch Đầu Đế[ah]" ]
+}, {
+  "ten" : "Họ Phùng",
+  "batDau" : 766,
+  "ketThuc" : 791,
+  "thuDo" : "Tống Bình (nay thuộc Hà Nội)[132]",
+  "hoangDe" : [ "Phùng Hưng[ai]", "Phùng An[al]" ]
+}, {
+  "ten" : "Hồng Bàng",
+  "batDau" : -2879,
+  "ketThuc" : -258,
+  "thuDo" : "Hùng Vương thứ nhất định đô ở Phong Châu (nay là huyện Bạch Hạc, tỉnh Phú Thọ)[1]",
+  "hoangDe" : [ "Kinh Dương Vương", "Lạc Long Quân", "Hùng Vương thứ nhất", "Hùng Vương thứ hai", "Hùng Vương thứ ba", "Hùng Vương thứ tư", "Hùng Vương thứ năm", "Hùng Vương thứ sáu", "Hùng Vương thứ bảy", "Hùng Vương thứ tám", "Hùng Vương thứ chín", "Hùng Vương thứ mười", "Hùng Vương thứ 11", "Hùng Vương thứ 12", "Hùng Vương thứ 13", "Hùng Vương thứ 14", "Hùng Vương thứ 15", "Hùng Vương thứ 16", "Hùng Vương thứ 17", "Hùng Vương thứ 18", "Hùng Vương thứ 19[8]" ]
+}, {
+  "ten" : "Khởi nghĩa Lam Sơn",
+  "batDau" : 1418,
+  "ketThuc" : 1427,
+  "thuDo" : null,
+  "hoangDe" : [ "Trần Cảo[cl]" ]
+}, {
+  "ten" : "Nam triều – Nhà Hậu Lê – giai đoạn Lê Trung hưng",
+  "batDau" : 1533,
+  "ketThuc" : 1789,
+  "thuDo" : null,
+  "hoangDe" : [ "Lê Trang Tông[dm]", "Lê Trung Tông", "Lê Anh Tông[do]", "Lê Thế Tông[dq]", "Lê Kính Tông[dr]", "Lê Thần Tông[ds]", "Lê Chân Tông", "Lê Thần Tông[ds]", "Lê Huyền Tông[dt]", "Lê Gia Tông[du]", "Lê Hy Tông[dv]", "Lê Dụ Tông[dw]", "Lê Duy Phường", "Lê Thuần Tông[dx]", "Lê Ý Tông[dy]", "Lê Hiển Tông[dz]", "Lê Chiêu Thống[ea]" ]
+}, {
+  "ten" : "Nhà Hậu Lê – giai đoạn Lê sơ",
+  "batDau" : 1428,
+  "ketThuc" : 1527,
+  "thuDo" : "Đông Kinh (Hà Nội)[gp]",
+  "hoangDe" : [ "Lê Thái Tổ[cn]", "Lê Thái Tông[co]", "Lê Nhân Tông", "Lạng Sơn Vương[cp]", "Lê Thánh Tông[cr]", "Lê Hiến Tông[cs]", "Lê Túc Tông[ct]", "Lê Uy Mục[cu]", "Lê Tương Dực[cv]", "Lê Quang Trị[cw][cx]", "Lê Chiêu Tông[cy]", "Lê Bảng[cx][cz]", "Lê Do[cx][da]", "Lê Cung Hoàng[db]" ]
+}, {
+  "ten" : "Nhà Hậu Trần",
+  "batDau" : 1407,
+  "ketThuc" : 1414,
+  "thuDo" : "Mô Độ (huyện Yên Mô - Ninh Bình[47]",
+  "hoangDe" : [ "Trần Nguyệt Hồ", "Giản Định Đế", "Trùng Quang Đế" ]
+}, {
+  "ten" : "Nhà Hồ",
+  "batDau" : 1400,
+  "ketThuc" : 1407,
+  "thuDo" : "Tây Đô (huyện Vĩnh Lộc, Thanh Hoá)[46]",
+  "hoangDe" : [ "Hồ Quý Ly[cj]", "Hồ Hán Thương" ]
+}, {
+  "ten" : "Nhà Lý",
+  "batDau" : 1009,
+  "ketThuc" : 1225,
+  "thuDo" : "Thăng Long (Hà Nội)[gl]",
+  "hoangDe" : [ "Lý Thái Tổ[bd]", "Lý Thái Tông[be]", "Lý Thánh Tông", "Lý Nhân Tông[bh]", "Lý Thần Tông[bi]", "Lý Anh Tông[bj]", "Lý Cao Tông", "Lý Thẩm[bm][bn]", "Lý Huệ Tông[bo]", "Lý Nguyên Vương[bn][bq]", "Lý Chiêu Hoàng[bs]" ]
+}, {
+  "ten" : "Nhà Nguyễn",
+  "batDau" : 1802,
+  "ketThuc" : 1945,
+  "thuDo" : "Huế (thành phố Huế - tỉnh Thừa Thiên Huế)[gu]",
+  "hoangDe" : [ "Gia Long[112]", "Minh Mạng[114]", "Thiệu Trị[116]", "Tự Đức[118]", "Dục Đức[fu]", "Hiệp Hòa[120]", "Kiến Phúc[121]", "Hàm Nghi[122]", "Đồng Khánh[124]", "Thành Thái[124]", "Duy Tân[127]", "Khải Định[129]", "Bảo Đại[ga]" ]
+}, {
+  "ten" : "Nhà Ngô và Dương Tam Kha",
+  "batDau" : 939,
+  "ketThuc" : 966,
+  "thuDo" : "Cổ Loa (huyện Đông Anh, Hà Nội)[23]",
+  "hoangDe" : [ "Tiền Ngô Vương", "Dương Bình Vương[ao]", "Thiên Sách Vương[aq]", "Nam Tấn Vương[aq]", "Ngô Sứ Quân[28]" ]
+}, {
+  "ten" : "Nhà Thục",
+  "batDau" : -257,
+  "ketThuc" : -208,
+  "thuDo" : "Phong Khê (nay là thành Cổ Loa, huyện Đông Anh, Hà Nội)[1]",
+  "hoangDe" : [ "An Dương Vương" ]
+}, {
+  "ten" : "Nhà Tiền Lê",
+  "batDau" : 980,
+  "ketThuc" : 1009,
+  "thuDo" : "Hoa Lư (nay thuộc tỉnh Ninh Bình)[31]",
+  "hoangDe" : [ "Lê Đại Hành[ay]", "Lê Trung Tông", "Lê Ngọa Triều" ]
+}, {
+  "ten" : "Nhà Tiền Lý và Triệu Việt Vương",
+  "batDau" : 544,
+  "ketThuc" : 603,
+  "thuDo" : "Long Uyên (nay thuộc quận Long Biên, Hà Nội hoặc Bắc Ninh)[ge]",
+  "hoangDe" : [ "Lý Nam Đế", "Triệu Việt Vương[x]", "Đào Lang Vương[z]", "Hậu Lý Nam Đế[aa]", "Lý Sư Lợi[ad]" ]
+}, {
+  "ten" : "Nhà Triệu",
+  "batDau" : -204,
+  "ketThuc" : -111,
+  "thuDo" : "Cung điện Phiên Ngung (thành phố Quảng Châu, tỉnh Quảng Đông, Trung Quốc)[9]",
+  "hoangDe" : [ "Triệu Vũ Vương[2]", "Triệu Văn Vương[2]", "Triệu Minh Vương[2]", "Triệu Ai Vương[2]", "Triệu Dương Vương[2]" ]
+}, {
+  "ten" : "Nhà Trần",
+  "batDau" : 1225,
+  "ketThuc" : 1400,
+  "thuDo" : "Thăng Long (Hà Nội)[gn]",
+  "hoangDe" : [ "Trần Thái Tông[bu]", "Trần Thánh Tông[bv]", "Trần Nhân Tông[bw]", "Trần Anh Tông[bx]", "Trần Minh Tông[by]", "Trần Hiến Tông[ca]", "Trần Dụ Tông[cb]", "Đại Định Đế[cc]", "Trần Nghệ Tông[ce]", "Trần Duệ Tông[cf]", "Trần Phế Đế[cg]", "Trần Thuận Tông[ch]", "Trần Thiếu Đế[46]" ]
+}, {
+  "ten" : "Nhà Tây Sơn",
+  "batDau" : 1778,
+  "ketThuc" : 1802,
+  "thuDo" : "Quy Nhơn (thị xã An Nhơn, Bình Định)[gt]",
+  "hoangDe" : [ "Thái Đức[110]", "Quang Trung[109]", "Nguyễn Quang Toản[109]" ]
+}, {
+  "ten" : "Nhà Đinh",
+  "batDau" : 968,
+  "ketThuc" : 980,
+  "thuDo" : "Hoa Lư (nay thuộc tỉnh Ninh Bình)[31]",
+  "hoangDe" : [ "Đinh Tiên Hoàng[as]", "Đinh Phế Đế[av]" ]
+}, {
+  "ten" : "Trưng Nữ Vương",
+  "batDau" : 40,
+  "ketThuc" : 43,
+  "thuDo" : "Huyện Mê Linh, Hà Nội[12]",
+  "hoangDe" : [ "Trưng Vương[13]" ]
+}, {
+  "ten" : "Đàng Ngoài - Chúa Trịnh",
+  "batDau" : 1545,
+  "ketThuc" : 1787,
+  "thuDo" : "Đông Kinh (Hà Nội)[gs]",
+  "hoangDe" : [ "Trịnh Kiểm[ed]", "Trịnh Cối[ee]", "Bình An Vương[eg]", "Thanh Đô Vương[eh]", "Tây Định Vương[ei]", "Định Nam Vương[ej]", "An Đô Vương[ek]", "Uy Nam Vương[el]", "Minh Đô Vương[em]", "Tĩnh Đô Vương[en]", "Điện Đô Vương[eo]", "Đoan Nam Vương[ep]", "Án Đô Vương[eq]" ]
+}, {
+  "ten" : "Đàng Trong - Chúa Nguyễn",
+  "batDau" : 1558,
+  "ketThuc" : 1777,
+  "thuDo" : "Phú Xuân (thành phố Huế - tỉnh Thừa Thiên Huế)[98]",
+  "hoangDe" : [ "Tiên Vương[eu]", "Sãi Vương[ex]\nPhật Vương", "Thượng Vương[fa]", "Hiền Vương[fd]", "Nghĩa Vương[fg]", "Minh Vương[fi]\nQuốc Chúa", "Ninh Vương[fk]", "Vũ Vương[fm]", "Định Vương[fn]", "Tân Chính Vương[fo]" ]
+} ]
