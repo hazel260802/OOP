@@ -100,6 +100,7 @@ public class Json {
 						jsonGenerator.writeStringField("ten", o.getTen());
 						jsonGenerator.writeObjectField("noiDienRa", o.getNoiDienRa());
 						jsonGenerator.writeObjectField("thoiDiemToChuc", o.getThoiDiemToChuc());
+						jsonGenerator.writeStringField("lanDauToChuc", o.getLanDauToChuc());
 						// viết d.s json
 						jsonGenerator.writeArrayFieldStart("nhanVatLienQuan");
 						for (var sk : o.getNhanVatLienQuan()) {

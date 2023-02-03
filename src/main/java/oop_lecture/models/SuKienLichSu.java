@@ -1,22 +1,21 @@
 package oop_lecture.models;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import oop_lecture.utility.SortedSetByName;
+import oop_lecture.interfaces.INamedSet;
 
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SuKienLichSu extends LichSuCoTen {
-    private Year namBatDau, namKetThuc;
-    private String moTa;
+    private final Year namBatDau, namKetThuc;
+    private final String moTa;
 
     private TrieuDai trieuDai;
     
-    private List<DiaDiem> diaDiemLienQuan = new ArrayList<>();
-    private List<String> tenDiaDiemLienQuan = new ArrayList<>();
+    private final List<DiaDiem> diaDiemLienQuan = new ArrayList<>();
+    private final List<String> tenDiaDiemLienQuan;
 
-    private List<NhanVatLichSu> nhanVatLienQuan = new ArrayList<>();
+    private final List<NhanVatLichSu> nhanVatLienQuan = new ArrayList<>();
     private List<String> tenNhanVatLienQuan = new ArrayList<>();
 
 
@@ -53,7 +52,7 @@ public class SuKienLichSu extends LichSuCoTen {
 		return nhanVatLienQuan;
 	}
 
-	public void link(SortedSetByName<TrieuDai> allTD, SortedSetByName<NhanVatLichSu> allNV) {
+	public void link(INamedSet<TrieuDai> allTD, INamedSet<NhanVatLichSu> allNV) {
 			if(namBatDau != null) {
 				for (var TD : allTD) {
 					if (namBatDau.compareTo(TD.getBatDau()) >= 0 && namBatDau.compareTo(TD.getKetThuc()) <= 0) {

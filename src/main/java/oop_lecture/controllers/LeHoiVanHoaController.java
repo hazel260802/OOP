@@ -7,13 +7,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import oop_lecture.models.LeHoiVanHoa;
 import oop_lecture.models.NhanVatLichSu;
-import oop_lecture.utility.IndexCallBack;
 import oop_lecture.utility.DoubleClickCallBack;
+import oop_lecture.utility.IndexCallBack;
 
 public class LeHoiVanHoaController extends InfoScreenController {
     private final LeHoiVanHoa base;

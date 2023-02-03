@@ -1,18 +1,18 @@
 package oop_lecture.models;
 
-import oop_lecture.utility.SortedSetByName;
+import oop_lecture.interfaces.INamedSet;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class LeHoiVanHoa extends LichSuCoTen {
-    private DiaDiem noiDienRa;
-    private Date thoiDiemToChuc;
-    private String lanDauToChuc;
+    private final DiaDiem noiDienRa;
+    private final Date thoiDiemToChuc;
+    private final String lanDauToChuc;
 
-    private List<NhanVatLichSu> nhanVatLienQuan = new ArrayList<>();
-    private List<String> tenNhanVatLienQuan;
+    private final List<NhanVatLichSu> nhanVatLienQuan = new ArrayList<>();
+    private final List<String> tenNhanVatLienQuan;
 
 
     public LeHoiVanHoa(String ten, DiaDiem noiDienRa, Date thoiDiemToChuc,String lanDauToChuc, List<String> tenNhanVatLienQuan) {
@@ -39,7 +39,7 @@ public class LeHoiVanHoa extends LichSuCoTen {
 		return nhanVatLienQuan;
 	}
 
-	public void link(SortedSetByName<NhanVatLichSu> allNVLS) {
+	public void link(INamedSet<NhanVatLichSu> allNVLS) {
 		for (var tenNV : tenNhanVatLienQuan) {
 			var x = allNVLS.find(tenNV);
 			if (x != null) nhanVatLienQuan.add(x);

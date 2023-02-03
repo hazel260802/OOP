@@ -6,7 +6,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import oop_lecture.application.MainApplication;
 import oop_lecture.models.LichSuCoTen;
 

@@ -20,7 +20,7 @@ import oop_lecture.utility.DoubleClickCallBack;
 import oop_lecture.utility.IndexCallBack;
 
 public class SuKienLichSuController  extends InfoScreenController {
-	private SuKienLichSu base;
+	private final SuKienLichSu base;
 
 	public SuKienLichSuController(SuKienLichSu base) {
 		this.base = base;

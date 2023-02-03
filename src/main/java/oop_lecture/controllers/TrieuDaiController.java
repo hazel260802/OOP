@@ -9,15 +9,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
-import oop_lecture.models.DiaDiem;
 import oop_lecture.models.NhanVatLichSu;
-import oop_lecture.models.SuKienLichSu;
 import oop_lecture.models.TrieuDai;
 import oop_lecture.utility.DoubleClickCallBack;
 import oop_lecture.utility.IndexCallBack;
 
 public class TrieuDaiController  extends InfoScreenController {
-	private TrieuDai base;
+	private final TrieuDai base;
 
 	public TrieuDaiController(TrieuDai base) {
 		this.base = base;

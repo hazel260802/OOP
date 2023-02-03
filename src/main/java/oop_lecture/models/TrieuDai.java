@@ -1,22 +1,17 @@
 package oop_lecture.models;
 
-import oop_lecture.utility.SortedSetByName;
+import oop_lecture.interfaces.INamedSet;
 
-import java.time.LocalDate;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TrieuDai extends LichSuCoTen {
-    private Year batDau, ketThuc;
-    private String kinhDo;
+    private final Year batDau, ketThuc;
+    private final String kinhDo;
 
-    private List<NhanVatLichSu> hoangDe = new ArrayList<>();
-    private List<String> tenHoangDe = new ArrayList<>();
-
-    public TrieuDai(String name) {
-        super(name);
-    }
+    private final List<NhanVatLichSu> hoangDe = new ArrayList<>();
+    private final List<String> tenHoangDe;
 
 	public TrieuDai(String ten, Year batDau, Year ketThuc, String thuDo, List<String> tenHoangDe) {
 		super(ten);
@@ -26,20 +21,7 @@ public class TrieuDai extends LichSuCoTen {
 		this.tenHoangDe = tenHoangDe;
 	}
 
-	public void setTenHoangDe(List<String> tenHoangDe) {
-    	this.tenHoangDe = tenHoangDe;
-    }
-
-    public void setThoiGian(Year namBatDau,Year namKetThuc ) {
-    	this.batDau = namBatDau;
-    	this.ketThuc = namKetThuc;
-    }
-
-    public void setKinhDo(String kinhDo) {
-    	this.kinhDo = kinhDo;
-    }
-
-    public Year getBatDau() {
+	public Year getBatDau() {
         return batDau;
     }
 
@@ -55,11 +37,7 @@ public class TrieuDai extends LichSuCoTen {
         return hoangDe;
     }
 
-    public List<String> getTenHoangDe() {
-        return tenHoangDe;
-    }
-
-    public void link(SortedSetByName<NhanVatLichSu> allNVLS) {
+	public void link(INamedSet<NhanVatLichSu> allNVLS) {
         for (var tenNV : tenHoangDe) {
             var x = allNVLS.find(tenNV);
             if (x != null) allNVLS.add(x);
