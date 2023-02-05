@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+
+
+<Label prefHeight="152.0" prefWidth="283.0" text="Đang tải, vui lòng đợi " xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <font>
+      <Font size="25.0" />
+   </font>
+</Label>

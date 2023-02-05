@@ -12,15 +12,9 @@ import javafx.scene.control.TableRow;
 import javafx.util.Callback;
 import oop_lecture.models.DiaDiem;
 
-public class IndexCallBack<
-			TCO extends TableColumn.CellDataFeatures<S,Integer>,
-			TCE extends ObservableValue<Integer>,
-			S
-		>
-		implements Callback<
+public class IndexCallBack<S> implements Callback<
 			TableColumn.CellDataFeatures<S, Integer>,
-			ObservableValue<Integer>
-		> {
+			ObservableValue<Integer>> {
 	@Override
 	public ObservableValue<Integer> call(TableColumn.CellDataFeatures<S, Integer> diaDiemIntegerCellDataFeatures) {
 		return new ReadOnlyObjectWrapper<>(diaDiemIntegerCellDataFeatures.getTableView().getItems().indexOf(diaDiemIntegerCellDataFeatures.getValue()) + 1);

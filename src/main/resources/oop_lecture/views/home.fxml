@@ -107,6 +107,11 @@
                                   </ImageView>
                      </graphic>
                         </ToggleButton>
+                  <ToggleButton mnemonicParsing="false" onAction="#btnReloadInternet" selected="true" text="Tìm kiếm Internet" textFill="#ee0606fc">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </ToggleButton>
                     </toggles>
                 </ToggleButtonGroup>
             </children>

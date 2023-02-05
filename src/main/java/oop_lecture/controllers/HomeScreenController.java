@@ -6,10 +6,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import oop_lecture.application.MainApplication;
 import oop_lecture.models.LichSuCoTen;
+import oop_lecture.get_data.*;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -87,6 +90,42 @@ public class HomeScreenController {
 			MainApplication.scenes.add(scene);
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+	}
+
+	void btnReloadInternet() {
+		Stage secondary = new Stage();
+		FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/oop_lecture/views/wait.fxml"));
+		fxmlLoader.setController(new ReloadController(secondary));
+
+		try {
+			secondary.setScene(new Scene(fxmlLoader.load()));
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		secondary.show();
+
+	}
+
+	private static class ReloadController extends Thread {
+		private final Stage self;
+
+		@Override
+		public void run() {
+			try {
+				getLeHoiVanHoa.main(null);
+				getNhanVatLichSu.main(null);
+				getSuKienLichSu.main(null);
+			} catch (IOException | ParseException | InterruptedException e) {
+				throw new RuntimeException(e);
+			} finally {
+				self.close();
+			}
+		}
+
+		public ReloadController(Stage self) {
+			this.self = self;
+			this.start();
 		}
 	}
 }
