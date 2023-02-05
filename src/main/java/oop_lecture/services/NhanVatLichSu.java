@@ -1,8 +1,6 @@
-package oop_lecture.get_data;
+package oop_lecture.services;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import oop_lecture.models.NhanVatLichSu;
 import oop_lecture.models.SuKienLichSu;
 import oop_lecture.models.TrieuDai;
 import oop_lecture.utility.Json;
@@ -20,13 +18,12 @@ import java.text.ParseException;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 //import com.fasterxml.jackson.core.JsonProcessingException;
 //import com.fasterxml.jackson.databind.ObjectMapper;
 //import com.fasterxml.jackson.databind.json.JsonMapper;
 
-public class getNhanVatLichSu {
+public class NhanVatLichSu {
 	
 	
 	public static void getHrefNThuVienLS(WebDriver driver,String web,List<String> listHref) {
@@ -56,7 +53,7 @@ public class getNhanVatLichSu {
 		}
 	}
 	
-	public static void GetThongTinNVLSThuVienLS(WebDriver driver,String href,SortedSetByName<NhanVatLichSu> listNhanVat) throws ParseException {
+	public static void GetThongTinNVLSThuVienLS(WebDriver driver,String href,SortedSetByName<oop_lecture.models.NhanVatLichSu> listNhanVat) throws ParseException {
 		driver.navigate().to(href);
 		
 		
@@ -137,7 +134,7 @@ public class getNhanVatLichSu {
 			
 			WebElement moTaChung = driver.findElement(By.xpath("(//div[@class='card-body'])[3]"));
 			
-			NhanVatLichSu NhanVatTamThoi= new NhanVatLichSu(tenDayDu, listSuKienTamThoi, namSinh,namMat, moTaChung.getText().trim(), listNhanVatLienQuanTamThoi);
+			oop_lecture.models.NhanVatLichSu NhanVatTamThoi= new oop_lecture.models.NhanVatLichSu(tenDayDu, listSuKienTamThoi, namSinh,namMat, moTaChung.getText().trim(), listNhanVatLienQuanTamThoi);
 			
 			// thêm nhân vật vô list
 			listNhanVat.add(NhanVatTamThoi);
@@ -149,7 +146,7 @@ public class getNhanVatLichSu {
 	public static void main(String[] args) throws InterruptedException, ParseException, IOException {
 			System.setProperty("testHref.java", "UTF-8");
 			List<String> listHref= new ArrayList<>();
-			SortedSetByName<NhanVatLichSu> listNhanVat = new SortedSetByName<>();
+			SortedSetByName<oop_lecture.models.NhanVatLichSu> listNhanVat = new SortedSetByName<>();
 
 			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 //		    WebDriver driver1 = new ChromeDriver();
@@ -170,7 +167,7 @@ public class getNhanVatLichSu {
 
 		SortedSetByName<SuKienLichSu> suKienLichSuSet = new SortedSetByName<>();
 		SortedSetByName<TrieuDai> trieuDaiSet = new SortedSetByName<>();
-		SortedSetByName<NhanVatLichSu> nvlsSet = new SortedSetByName<>();
+		SortedSetByName<oop_lecture.models.NhanVatLichSu> nvlsSet = new SortedSetByName<>();
 		for(var nvls : listNhanVat ){
 			nvls.link( suKienLichSuSet,nvlsSet,trieuDaiSet);
 		}

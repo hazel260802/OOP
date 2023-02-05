@@ -1,4 +1,4 @@
-package oop_lecture.get_data;
+package oop_lecture.services;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,10 +16,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import oop_lecture.models.SuKienLichSu;
 
-
-public class getSuKienLichSu {
+public class SuKienLichSu {
     public static void getHrefSuKienLichSu(WebDriver driver,String web,List<String> listHref) {
         driver.navigate().to(web);
         int i = 0;
@@ -50,7 +48,7 @@ public class getSuKienLichSu {
         }
     }
 
-    public static void getDataEvent(WebDriver driver,String href,SortedSetByName<SuKienLichSu> eventList) {
+    public static void getDataEvent(WebDriver driver,String href,SortedSetByName<oop_lecture.models.SuKienLichSu> eventList) {
         driver.navigate().to(href);
         WebElement title =driver.findElement(By.xpath("/html/body/div/div[3]/div[2]/div[1]/div[2]/div/div[1]/h3"));
 
@@ -144,11 +142,11 @@ public class getSuKienLichSu {
             } catch (Exception e) {
 //				System.out.println(e);
             }
-            eventList.add(new SuKienLichSu(name, yearStart, yearEnd, descript, listRelatedLocation, listRelatedFigures ));
+            eventList.add(new oop_lecture.models.SuKienLichSu(name, yearStart, yearEnd, descript, listRelatedLocation, listRelatedFigures ));
         }
 
     public static void main(String[] args) throws InterruptedException, IOException, ParseException {
-        SortedSetByName<SuKienLichSu> eventList = new SortedSetByName<>();
+        SortedSetByName<oop_lecture.models.SuKienLichSu> eventList = new SortedSetByName<>();
 
         List<String> listHref = new ArrayList<>();
 

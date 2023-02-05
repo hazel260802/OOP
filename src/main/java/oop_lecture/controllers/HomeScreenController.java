@@ -9,7 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import oop_lecture.application.MainApplication;
 import oop_lecture.models.LichSuCoTen;
-import oop_lecture.get_data.*;
+import oop_lecture.services.*;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -113,9 +113,9 @@ public class HomeScreenController {
 		@Override
 		public void run() {
 			try {
-				getLeHoiVanHoa.main(null);
-				getNhanVatLichSu.main(null);
-				getSuKienLichSu.main(null);
+				LeHoiVanHoa.main(null);
+				NhanVatLichSu.main(null);
+				SuKienLichSu.main(null);
 			} catch (IOException | ParseException | InterruptedException e) {
 				throw new RuntimeException(e);
 			} finally {

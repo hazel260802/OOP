@@ -1,22 +1,17 @@
-package oop_lecture.get_data;
+package oop_lecture.services;
 
 import java.io.File;
 import java.io.IOException;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import oop_lecture.models.NhanVatLichSu;
-import oop_lecture.models.TrieuDai;
 import oop_lecture.utility.Json;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.fasterxml.jackson.core.JsonGenerationException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import oop_lecture.models.DiaDiem;
-import oop_lecture.models.LeHoiVanHoa;
 import oop_lecture.utility.SortedSetByName;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,12 +19,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import static oop_lecture.utility.Json.*;
-
-public class getLeHoiVanHoa {
+public class LeHoiVanHoa {
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        SortedSetByName<LeHoiVanHoa> listLeHoi = new SortedSetByName<>();
+        SortedSetByName<oop_lecture.models.LeHoiVanHoa> listLeHoi = new SortedSetByName<>();
 
         System.setProperty("webdriver.chrome.driver", "chromedriver");
 
@@ -134,7 +127,7 @@ public class getLeHoiVanHoa {
             }
 
             // Khoi tao leHoi va cho vao listLeHoi
-            LeHoiVanHoa leHoi = new LeHoiVanHoa(name, place, date, firstHeld, tenNhanVatLienQuan);
+            oop_lecture.models.LeHoiVanHoa leHoi = new oop_lecture.models.LeHoiVanHoa(name, place, date, firstHeld, tenNhanVatLienQuan);
             listLeHoi.add(leHoi);
         }
 
@@ -142,7 +135,7 @@ public class getLeHoiVanHoa {
 
         // in thong tin da lay duoc trong listLeHoi
         int i = 0;
-        for (LeHoiVanHoa e : listLeHoi) {
+        for (oop_lecture.models.LeHoiVanHoa e : listLeHoi) {
             System.out.println(i + 1);
             System.out.println(e.getTen());
             System.out.println(e.getNoiDienRa());
