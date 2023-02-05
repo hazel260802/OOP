@@ -1,7 +1,6 @@
-package oop_lecture.get_data;
+package oop_lecture.services;
 
 import oop_lecture.models.NhanVatLichSu;
-import oop_lecture.models.TrieuDai;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +11,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
-import java.time.LocalDate;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,9 +18,9 @@ import java.util.List;
 import oop_lecture.utility.Json;
 import oop_lecture.utility.SortedSetByName;
 
-public class getTrieuDai {
+public class TrieuDai {
 	
-	public static void getTrieuDaiWiki(WebDriver driver, String web, List<TrieuDai> listTrieuDai) {
+	public static void getTrieuDaiWiki(WebDriver driver, String web, List<oop_lecture.models.TrieuDai> listTrieuDai) {
 		driver.navigate().to(web);
 		
 		while(true) {
@@ -35,7 +33,7 @@ public class getTrieuDai {
 					
 					if (trieuDai.contains("(")) {
 						String[] temp = trieuDai.split(" \\(");
-						listTrieuDai.add(new TrieuDai(temp[0]));
+						listTrieuDai.add(new oop_lecture.models.TrieuDai(temp[0]));
 						
 						// Lấy thời gian của từng triều đại
 						String thoiGian = "";
@@ -48,7 +46,7 @@ public class getTrieuDai {
 						else listTrieuDai.get(i).setThoiGian(Year.parse(temp2[0]), Year.parse(temp2[1]));
 						
 					} else {
-						listTrieuDai.add(new TrieuDai(trieuDai));
+						listTrieuDai.add(new oop_lecture.models.TrieuDai(trieuDai));
 						listTrieuDai.get(i).setThoiGian(Year.parse("-2879"), Year.parse("-258"));
 					}
 					
@@ -86,7 +84,7 @@ public class getTrieuDai {
 						
 						if (trieuDai.contains("(")) {
 							String[] temp = trieuDai.split(" \\(");
-							listTrieuDai.add(new TrieuDai(temp[0]));
+							listTrieuDai.add(new oop_lecture.models.TrieuDai(temp[0]));
 							String thoiGian = "";
 							for (int j = 0; j < temp[1].length(); j++) {
 								if (temp[1].charAt(j) == ' ' || temp[1].charAt(j) == ')') break;
@@ -97,7 +95,7 @@ public class getTrieuDai {
 							else listTrieuDai.get(i + list.size() - 1).setThoiGian(Year.parse(temp2[0]), Year.parse(temp2[1]));
 							
 						} else {
-							listTrieuDai.add(new TrieuDai(trieuDai));
+							listTrieuDai.add(new oop_lecture.models.TrieuDai(trieuDai));
 							listTrieuDai.get(i + list.size() - 1).setThoiGian(null, null);
 							
 						}
@@ -121,7 +119,7 @@ public class getTrieuDai {
 						
 						if (trieuDai.contains("(")) {
 							String[] temp = trieuDai.split(" \\(");
-							listTrieuDai.add(new TrieuDai(temp[0]));
+							listTrieuDai.add(new oop_lecture.models.TrieuDai(temp[0]));
 							String thoiGian = "";
 							for (int j = 0; j < temp[1].length(); j++) {
 								if (temp[1].charAt(j) == ' ' || temp[1].charAt(j) == ')') break;
@@ -132,7 +130,7 @@ public class getTrieuDai {
 							else listTrieuDai.get(i + list.size() - 1).setThoiGian(Year.parse(temp2[0]), Year.parse(temp2[1]));
 							
 						} else {
-							listTrieuDai.add(new TrieuDai(trieuDai));
+							listTrieuDai.add(new oop_lecture.models.TrieuDai(trieuDai));
 							listTrieuDai.get(i + list.size() - 1).setThoiGian(null, null);
 							
 						}
@@ -158,7 +156,7 @@ public class getTrieuDai {
 						
 						if (trieuDai1.contains("(")) {
 							String[] temp = trieuDai1.split(" \\(");
-							listTrieuDai.add(new TrieuDai(temp[0]));
+							listTrieuDai.add(new oop_lecture.models.TrieuDai(temp[0]));
 							String thoiGian = "";
 							for (int j = 0; j < temp[1].length(); j++) {
 								if (temp[1].charAt(j) == ' ' || temp[1].charAt(j) == ')') break;
@@ -169,7 +167,7 @@ public class getTrieuDai {
 							else listTrieuDai.get(i + list.size()).setThoiGian(Year.parse(temp2[0]), Year.parse(temp2[1]));
 							
 						} else {
-							listTrieuDai.add(new TrieuDai(trieuDai1));
+							listTrieuDai.add(new oop_lecture.models.TrieuDai(trieuDai1));
 							listTrieuDai.get(i + list.size()).setThoiGian(null, null);
 							
 						}
@@ -191,7 +189,7 @@ public class getTrieuDai {
 						
 						if (trieuDai.contains("(")) {
 							String[] temp = trieuDai.split(" \\(");
-							listTrieuDai.add(new TrieuDai(temp[0]));
+							listTrieuDai.add(new oop_lecture.models.TrieuDai(temp[0]));
 							String thoiGian = "";
 							for (int j = 0; j < temp[1].length(); j++) {
 								if (temp[1].charAt(j) == ' ' || temp[1].charAt(j) == ')') break;
@@ -206,7 +204,7 @@ public class getTrieuDai {
 							else listTrieuDai.get(i + list.size()).setThoiGian(Year.parse(temp2[0]), Year.parse(temp2[1]));
 							
 						} else {
-							listTrieuDai.add(new TrieuDai(trieuDai));
+							listTrieuDai.add(new oop_lecture.models.TrieuDai(trieuDai));
 							listTrieuDai.get(i + list.size()).setThoiGian(null, null);
 							
 						}
@@ -239,7 +237,7 @@ public class getTrieuDai {
 		        }
 				
 				
-				for (TrieuDai td : listTrieuDai) {
+				for (oop_lecture.models.TrieuDai td : listTrieuDai) {
 			    	System.out.print(td.getTen() + "|");
 			    	System.out.print(td.getBatDau() + "|");
 			    	System.out.print(td.getKetThuc() + "|");
@@ -256,7 +254,7 @@ public class getTrieuDai {
 	public static void main(String[] args) throws InterruptedException, ParseException, IOException {
 		
 		System.setProperty("testHref.java", "UTF-8");
-		List<TrieuDai> listTrieuDai = new ArrayList<TrieuDai>();
+		List<oop_lecture.models.TrieuDai> listTrieuDai = new ArrayList<oop_lecture.models.TrieuDai>();
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 	    ChromeOptions options = new ChromeOptions();
 	    options.setHeadless(true);
@@ -266,7 +264,7 @@ public class getTrieuDai {
 	    
 	    getTrieuDaiWiki(driver1,url,listTrieuDai);
 	    
-	    for (TrieuDai td : listTrieuDai) {
+	    for (oop_lecture.models.TrieuDai td : listTrieuDai) {
 	    	System.out.print(td.getTen() + "|");
 	    	System.out.print(td.getBatDau() + "|");
 	    	System.out.print(td.getKetThuc() + "|");
@@ -277,13 +275,13 @@ public class getTrieuDai {
 	    // Thoát
         driver1.quit();
         
-        SortedSetByName<TrieuDai> listTD = new SortedSetByName<>();
-        for (TrieuDai td : listTrieuDai) {
+        SortedSetByName<oop_lecture.models.TrieuDai> listTD = new SortedSetByName<>();
+        for (oop_lecture.models.TrieuDai td : listTrieuDai) {
         	listTD.add(td);
 	    }
         
     	SortedSetByName<NhanVatLichSu> nvlsSet = new SortedSetByName<>();
-    	for(TrieuDai nvls : listTrieuDai ){
+    	for(oop_lecture.models.TrieuDai nvls : listTrieuDai ){
     		nvls.link(nvlsSet);
     	}
     	

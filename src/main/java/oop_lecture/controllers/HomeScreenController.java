@@ -104,28 +104,21 @@ public class HomeScreenController {
 			throw new RuntimeException(e);
 		}
 		secondary.show();
-
 	}
 
-	private static class ReloadController extends Thread {
-		private final Stage self;
-
-		@Override
-		public void run() {
+	private static class ReloadController {
+		public ReloadController(Stage self) {
 			try {
+				DiaDiemLichSu.main(null);
 				LeHoiVanHoa.main(null);
 				NhanVatLichSu.main(null);
 				SuKienLichSu.main(null);
+				TrieuDai.main(null);
 			} catch (IOException | ParseException | InterruptedException e) {
 				throw new RuntimeException(e);
 			} finally {
 				self.close();
 			}
-		}
-
-		public ReloadController(Stage self) {
-			this.self = self;
-			this.start();
 		}
 	}
 }

@@ -1,8 +1,5 @@
-package oop_lecture.get_data;
+package oop_lecture.services;
 
-import oop_lecture.models.DiaDiemLichSu;
-import oop_lecture.models.NhanVatLichSu;
-import oop_lecture.models.TrieuDai;
 import oop_lecture.utility.Json;
 import oop_lecture.utility.SortedSetByName;
 import oop_lecture.models.DiaDiem;
@@ -17,13 +14,11 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-public class getDiaDiemLichSu {
-	public static void getThongTinDiaDiemLichSuWiki(WebDriver driver,String web,List<DiaDiemLichSu> listDiaDiemLichSu) {
+public class DiaDiemLichSu {
+	public static void getThongTinDiaDiemLichSuWiki(WebDriver driver,String web,List<oop_lecture.models.DiaDiemLichSu> listDiaDiemLichSu) {
 		driver.navigate().to(web);
 		
 		List<String> listDiTich = new ArrayList<String>();
@@ -95,7 +90,7 @@ public class getDiaDiemLichSu {
 		}
 		
 		for (int j = 0; j < listDiTich.size(); j++) {
-			DiaDiemLichSu dd = new DiaDiemLichSu(listDiTich.get(j));
+			oop_lecture.models.DiaDiemLichSu dd = new oop_lecture.models.DiaDiemLichSu(listDiTich.get(j));
 			dd.setDiaDiem(listViTri.get(j));
 			dd.setLoaiDiTich(listLoaiDiTich.get(j));
 			listDiaDiemLichSu.add(dd);
@@ -106,7 +101,7 @@ public class getDiaDiemLichSu {
 	public static void main(String[] args) throws InterruptedException, ParseException, IOException {
 			System.setProperty("testHref.java", "UTF-8");
 			List<String> listHref= new ArrayList<String>();
-			List<DiaDiemLichSu> listDiaDiemLichSu = new ArrayList<DiaDiemLichSu>();
+			List<oop_lecture.models.DiaDiemLichSu> listDiaDiemLichSu = new ArrayList<oop_lecture.models.DiaDiemLichSu>();
 			System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 //		    WebDriver driver1 = new ChromeDriver();
 		    ChromeOptions options = new ChromeOptions();
@@ -121,8 +116,8 @@ public class getDiaDiemLichSu {
 	        // Thoát
 	        driver1.quit();
 	        
-	        SortedSetByName<DiaDiemLichSu> listTD = new SortedSetByName<>();
-	        for (DiaDiemLichSu td : listDiaDiemLichSu) {
+	        SortedSetByName<oop_lecture.models.DiaDiemLichSu> listTD = new SortedSetByName<>();
+	        for (oop_lecture.models.DiaDiemLichSu td : listDiaDiemLichSu) {
 	        	listTD.add(td);
 		    }
 	    	
