@@ -1,6 +1,7 @@
 package oop_lecture.controllers;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -94,7 +95,7 @@ public class HomeScreenController {
 		}
 	}
 
-	void btnReloadInternet(ActionEvent ignored) {
+	public void btnReloadInternet(ActionEvent event) {
 		Stage secondary = new Stage();
 		FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/oop_lecture/views/wait.fxml"));
 		fxmlLoader.setController(new ReloadController(secondary));
