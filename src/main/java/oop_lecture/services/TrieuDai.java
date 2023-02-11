@@ -1,7 +1,5 @@
 package oop_lecture.services;
 
-import oop_lecture.models.NhanVatLichSu;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,6 +20,11 @@ public class TrieuDai {
 	
 	public static void getTrieuDaiWiki(WebDriver driver, String web, List<oop_lecture.models.TrieuDai> listTrieuDai) {
 		driver.navigate().to(web);
+
+		List<String> listTenTrieuDai = new ArrayList<>();
+		List<Year> listBatDau = new ArrayList<>(), listKetThuc = new ArrayList<>();
+		List<String> listKinhdo = new ArrayList<>();
+		List<List<String>> listTenHoangDe = new ArrayList<>();
 		
 		while(true) {
 			try {
@@ -30,10 +33,10 @@ public class TrieuDai {
 				List<WebElement> list = driver.findElements(By.xpath("/html/body/div[1]/div[1]/div[3]/main/div[3]/div[3]/div[1]/h3/span[2]"));
 				for (int i = 0; i < list.size() - 1; i++) {
 					String trieuDai = list.get(i).getText().trim();
-					
+
 					if (trieuDai.contains("(")) {
 						String[] temp = trieuDai.split(" \\(");
-						listTrieuDai.add(new oop_lecture.models.TrieuDai(temp[0]));
+						listTenTrieuDai.add(temp[0]);
 						
 						// Lấy thời gian của từng triều đại
 						String thoiGian = "";
@@ -42,28 +45,35 @@ public class TrieuDai {
 							thoiGian = thoiGian + temp[1].charAt(j);
 						}
 						String[] temp2 = thoiGian.split("–");
-						if (temp[1].contains("TCN")) listTrieuDai.get(i).setThoiGian(Year.parse("-" + temp2[0]), Year.parse("-" + temp2[1]));
-						else listTrieuDai.get(i).setThoiGian(Year.parse(temp2[0]), Year.parse(temp2[1]));
+						if (temp[1].contains("TCN")) {
+							listBatDau.add(Year.parse("-" + temp2[0]));
+							listKetThuc.add(Year.parse("-" + temp2[1]));
+						}
+						else {
+							listBatDau.add(Year.parse(temp2[0]));
+							listKetThuc.add(Year.parse(temp2[1]));
+						}
 						
 					} else {
-						listTrieuDai.add(new oop_lecture.models.TrieuDai(trieuDai));
-						listTrieuDai.get(i).setThoiGian(Year.parse("-2879"), Year.parse("-258"));
+						listTenTrieuDai.add(trieuDai);
+						listBatDau.add(Year.parse("-2879"));
+						listKetThuc.add(Year.parse("-258"));
 					}
 					
 					// Lấy Kinh đô của từng triều đại
 					if (i <= 4) {
 						WebElement eleKinhDo = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[3]/main/div[3]/div[3]/div[1]/table[41]/tbody/tr[" + (i + 2) + "]/td[4]"));
 						String kinhDo = eleKinhDo.getText().trim();
-						listTrieuDai.get(i).setKinhDo(kinhDo);
+						listKinhdo.add(kinhDo);
+//						listTrieuDai.get(i).setKinhDo(kinhDo);
 						
 					} else {
 						WebElement eleKinhDo = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[3]/main/div[3]/div[3]/div[1]/table[41]/tbody/tr[" + (i + 3) + "]/td[4]"));
 						String kinhDo = eleKinhDo.getText().trim();
-						listTrieuDai.get(i).setKinhDo(kinhDo);
-						
+						listKinhdo.add(kinhDo);
+//						listTrieuDai.get(i).setKinhDo(kinhDo);
+
 					}
-					
-					// Lấy quốc hiệu TODO : sử dụng tham chiếu =))
 					
 					// Lấy Tên Hoàng Đế
 					List<String> tenHoangDe = new ArrayList<String>();
@@ -71,8 +81,8 @@ public class TrieuDai {
 					for (int j = 0; j < listHoangDe.size(); j++) {
 						String hoangDe = listHoangDe.get(j).getText().trim();
 						tenHoangDe.add(hoangDe);
-						listTrieuDai.get(i).setTenHoangDe(tenHoangDe);
-			        }
+					}
+					listTenHoangDe.add(tenHoangDe);
 		        }
 				
 				List<WebElement> list1 = driver.findElements(By.xpath("/html/body/div[1]/div[1]/div[3]/main/div[3]/div[3]/div[1]/table/tbody/tr[1]/td/h3/span[2]"));
@@ -84,25 +94,32 @@ public class TrieuDai {
 						
 						if (trieuDai.contains("(")) {
 							String[] temp = trieuDai.split(" \\(");
-							listTrieuDai.add(new oop_lecture.models.TrieuDai(temp[0]));
+							listTenTrieuDai.add(temp[0]);
+
 							String thoiGian = "";
 							for (int j = 0; j < temp[1].length(); j++) {
 								if (temp[1].charAt(j) == ' ' || temp[1].charAt(j) == ')') break;
 								thoiGian = thoiGian + temp[1].charAt(j);
 							}
 							String[] temp2 = thoiGian.split("–");
-							if (temp[1].contains("TCN")) listTrieuDai.get(i + list.size() - 1).setThoiGian(Year.parse("-" + temp2[0]), Year.parse("-" + temp2[1]));
-							else listTrieuDai.get(i + list.size() - 1).setThoiGian(Year.parse(temp2[0]), Year.parse(temp2[1]));
-							
+							if (temp[1].contains("TCN")) {
+								listBatDau.add(Year.parse("-" + temp2[0]));
+								listKetThuc.add(Year.parse("-" + temp2[1]));
+							}
+							else {
+								listBatDau.add(Year.parse(temp2[0]));
+								listKetThuc.add(Year.parse(temp2[1]));
+							}
+
 						} else {
-							listTrieuDai.add(new oop_lecture.models.TrieuDai(trieuDai));
-							listTrieuDai.get(i + list.size() - 1).setThoiGian(null, null);
-							
+							listTenTrieuDai.add(trieuDai);
+							listBatDau.add(Year.parse(null));
+							listKetThuc.add(Year.parse(null));
 						}
 						
 						WebElement eleKinhDo = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[3]/main/div[3]/div[3]/div[1]/table[41]/tbody/tr[" + (i + list.size() + 2) + "]/td[4]"));
 						String kinhDo = eleKinhDo.getText().trim();
-						listTrieuDai.get(i + list.size() - 1).setKinhDo(kinhDo);
+						listKinhdo.add(kinhDo);
 						
 						
 						List<String> tenHoangDe = new ArrayList<String>();
@@ -110,34 +127,41 @@ public class TrieuDai {
 						for (int j = 0; j < listHoangDe.size(); j++) {
 							String hoangDe = listHoangDe.get(j).getText().trim();
 							tenHoangDe.add(hoangDe);
-							listTrieuDai.get(i + list.size() - 1).setTenHoangDe(tenHoangDe);
 				        }
-						
+						listTenHoangDe.add(tenHoangDe);
+
 						x += 2;
 					} else if (i + list.size() - 1 == 16) {
 						String trieuDai = list1.get(i).getText().trim();
 						
 						if (trieuDai.contains("(")) {
 							String[] temp = trieuDai.split(" \\(");
-							listTrieuDai.add(new oop_lecture.models.TrieuDai(temp[0]));
+							listTenTrieuDai.add(temp[0]);
+
 							String thoiGian = "";
 							for (int j = 0; j < temp[1].length(); j++) {
 								if (temp[1].charAt(j) == ' ' || temp[1].charAt(j) == ')') break;
 								thoiGian = thoiGian + temp[1].charAt(j);
 							}
 							String[] temp2 = thoiGian.split("–");
-							if (temp[1].contains("TCN")) listTrieuDai.get(i + list.size() - 1).setThoiGian(Year.parse("-" + temp2[0]), Year.parse("-" + temp2[1]));
-							else listTrieuDai.get(i + list.size() - 1).setThoiGian(Year.parse(temp2[0]), Year.parse(temp2[1]));
-							
+							if (temp[1].contains("TCN")) {
+								listBatDau.add(Year.parse("-" + temp2[0]));
+								listKetThuc.add(Year.parse("-" + temp2[1]));
+							}
+							else {
+								listBatDau.add(Year.parse(temp2[0]));
+								listKetThuc.add(Year.parse(temp2[1]));
+							}
+
 						} else {
-							listTrieuDai.add(new oop_lecture.models.TrieuDai(trieuDai));
-							listTrieuDai.get(i + list.size() - 1).setThoiGian(null, null);
-							
+							listTenTrieuDai.add(trieuDai);
+							listBatDau.add(Year.parse(null));
+							listKetThuc.add(Year.parse(null));
 						}
 						
 						WebElement eleKinhDo = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[3]/main/div[3]/div[3]/div[1]/table[41]/tbody/tr[" + (i + list.size() + 2) + "]/td[4]"));
 						String kinhDo = eleKinhDo.getText().trim();
-						listTrieuDai.get(i + list.size() - 1).setKinhDo(kinhDo);
+						listKinhdo.add(kinhDo);
 						
 						
 						List<String> tenHoangDe = new ArrayList<String>();
@@ -145,43 +169,47 @@ public class TrieuDai {
 						for (int j = 0; j < listHoangDe.size(); j++) {
 							String hoangDe = listHoangDe.get(j).getText().trim();
 							tenHoangDe.add(hoangDe);
-							listTrieuDai.get(i + list.size() - 1).setTenHoangDe(tenHoangDe);
 				        }
-						
+						listTenHoangDe.add(tenHoangDe);
+
 						x++;
-						
-						
 						
 						String trieuDai1 = list.get(list.size() - 1).getText().trim();
 						
 						if (trieuDai1.contains("(")) {
 							String[] temp = trieuDai1.split(" \\(");
-							listTrieuDai.add(new oop_lecture.models.TrieuDai(temp[0]));
+							listTenTrieuDai.add(temp[0]);
+
 							String thoiGian = "";
 							for (int j = 0; j < temp[1].length(); j++) {
 								if (temp[1].charAt(j) == ' ' || temp[1].charAt(j) == ')') break;
 								thoiGian = thoiGian + temp[1].charAt(j);
 							}
 							String[] temp2 = thoiGian.split("–");
-							if (temp[1].contains("TCN")) listTrieuDai.get(i + list.size()).setThoiGian(Year.parse("-" + temp2[0]), Year.parse("-" + temp2[1]));
-							else listTrieuDai.get(i + list.size()).setThoiGian(Year.parse(temp2[0]), Year.parse(temp2[1]));
-							
+							if (temp[1].contains("TCN")) {
+								listBatDau.add(Year.parse("-" + temp2[0]));
+								listKetThuc.add(Year.parse("-" + temp2[1]));
+							}
+							else {
+								listBatDau.add(Year.parse(temp2[0]));
+								listKetThuc.add(Year.parse(temp2[1]));
+							}
+
 						} else {
-							listTrieuDai.add(new oop_lecture.models.TrieuDai(trieuDai1));
-							listTrieuDai.get(i + list.size()).setThoiGian(null, null);
-							
+							listTenTrieuDai.add(trieuDai1);
+							listBatDau.add(Year.parse(null));
+							listKetThuc.add(Year.parse(null));
 						}
-						
-						listTrieuDai.get(i + list.size()).setKinhDo(null);
-						
+
+						listKinhdo.add(kinhDo);
 						
 						List<String> tenHoangDe1 = new ArrayList<String>();
 						List<WebElement> listHoangDe1 = driver.findElements(By.xpath("/html/body/div[1]/div[1]/div[3]/main/div[3]/div[3]/div[1]/table[" + x + "]/tbody/tr/td[2]"));
 						for (int j = 0; j < listHoangDe1.size(); j++) {
 							String hoangDe = listHoangDe1.get(j).getText().trim();
 							tenHoangDe1.add(hoangDe);
-							listTrieuDai.get(i + list.size()).setTenHoangDe(tenHoangDe1);
 				        }
+						listTenHoangDe.add(tenHoangDe1);
 						
 						x += 2;
 					} else {
@@ -189,7 +217,8 @@ public class TrieuDai {
 						
 						if (trieuDai.contains("(")) {
 							String[] temp = trieuDai.split(" \\(");
-							listTrieuDai.add(new oop_lecture.models.TrieuDai(temp[0]));
+							listTenTrieuDai.add(temp[0]);
+
 							String thoiGian = "";
 							for (int j = 0; j < temp[1].length(); j++) {
 								if (temp[1].charAt(j) == ' ' || temp[1].charAt(j) == ')') break;
@@ -199,29 +228,33 @@ public class TrieuDai {
 							String[] temp2;
 							if (thoiGian.contains("–")) temp2 = thoiGian.split("–");
 							else temp2 = thoiGian.split("-");
-							
-							if (temp[1].contains("TCN")) listTrieuDai.get(i + list.size()).setThoiGian(Year.parse("-" + temp2[0]), Year.parse("-" + temp2[1]));
-							else listTrieuDai.get(i + list.size()).setThoiGian(Year.parse(temp2[0]), Year.parse(temp2[1]));
+							if (temp[1].contains("TCN")) {
+								listBatDau.add(Year.parse("-" + temp2[0]));
+								listKetThuc.add(Year.parse("-" + temp2[1]));
+							}
+							else {
+								listBatDau.add(Year.parse(temp2[0]));
+								listKetThuc.add(Year.parse(temp2[1]));
+							}
 							
 						} else {
-							listTrieuDai.add(new oop_lecture.models.TrieuDai(trieuDai));
-							listTrieuDai.get(i + list.size()).setThoiGian(null, null);
-							
+							listTenTrieuDai.add(trieuDai);
+							listBatDau.add(Year.parse(null));
+							listKetThuc.add(Year.parse(null));
 						}
 						
 						if (i + list.size() < 20) {
 							WebElement eleKinhDo1 = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[3]/main/div[3]/div[3]/div[1]/table[41]/tbody/tr[" + (i + list.size() + 2) + "]/td[4]"));
 							String kinhDo1 = eleKinhDo1.getText().trim();
-							listTrieuDai.get(i + list.size()).setKinhDo(kinhDo1);
+							listKinhdo.add(kinhDo1);
 							
 						} else if (i + list.size() == 20) {
-							listTrieuDai.get(i + list.size()).setKinhDo(null);
+							listKinhdo.add(null);
 							
 						} else {
 							WebElement eleKinhDo1 = driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[3]/main/div[3]/div[3]/div[1]/table[41]/tbody/tr[" + (i + list.size() + 1) + "]/td[4]"));
 							String kinhDo1 = eleKinhDo1.getText().trim();
-							listTrieuDai.get(i + list.size()).setKinhDo(kinhDo1);
-							
+							listKinhdo.add(kinhDo1);
 						}
 						
 						List<String> tenHoangDe = new ArrayList<String>();
@@ -229,13 +262,16 @@ public class TrieuDai {
 						for (int j = 0; j < listHoangDe.size(); j++) {
 							String hoangDe = listHoangDe.get(j).getText().trim();
 							tenHoangDe.add(hoangDe);
-							listTrieuDai.get(i + list.size()).setTenHoangDe(tenHoangDe);
 				        }
+						listTenHoangDe.add(tenHoangDe);
 						
 						x += 2;
 					}
 		        }
-				
+
+				for(int i = 0; i < listTenTrieuDai.size(); i++) {
+					listTrieuDai.add(new oop_lecture.models.TrieuDai(listTenTrieuDai.get(i).trim(), listBatDau.get(i), listKetThuc.get(i), listKinhdo.get(i), listTenHoangDe.get(i)));
+				}
 				
 				for (oop_lecture.models.TrieuDai td : listTrieuDai) {
 			    	System.out.print(td.getTen() + "|");
@@ -280,13 +316,13 @@ public class TrieuDai {
         	listTD.add(td);
 	    }
         
-    	SortedSetByName<NhanVatLichSu> nvlsSet = new SortedSetByName<>();
+    	SortedSetByName<oop_lecture.models.NhanVatLichSu> nvlsSet = new SortedSetByName<>();
     	for(oop_lecture.models.TrieuDai nvls : listTrieuDai ){
     		nvls.link(nvlsSet);
     	}
     	
     	//Object to JSON in file
-    	Json.toFile(new File("main\\resources\\oop_lecture\\data\\TrieuDai.json"),Json.toJson(listTD));
+    	Json.toFile(new File("src\\main\\resources\\oop_lecture\\data\\TrieuDai.json"),Json.toJson(listTD));
         
         System.out.print("end");
 	}
